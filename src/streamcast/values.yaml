@@ -1,0 +1,30 @@
+# Configuration of the app
+app:
+  # Port to listen on
+  port: 8000
+
+  # Source credentials
+  source:
+    # Source user
+    user: source
+
+    # Source password
+    password: password
+
+  # Admin credentials
+  admin:
+    # Admin user
+    user: admin
+
+    # Admin password
+    password: password
+
+# Configuration of the deployment
+deployment:
+  # Number of replicas
+  replicas: 1
+
+# Configuration of the service
+service:
+  # Port to listen on
+  port: 8000
