@@ -68,11 +68,13 @@ jobs:
         run: >
           nix develop ./#release --command -- bash -c '
           charts="";
-          for chart in src/*; do
+          find src/ -mindepth 1 -maxdepth 1 -type d | while read chart; do
           upstream="oci://ghcr.io/${{ github.repository }}/${chart#src/}";
           local="$(helm show chart "${chart}" | yq ".version")";
           remote="$(helm show chart "${upstream}" | yq ".version")";
-          test "${local}" = "${remote}" || charts="${charts} ${chart}";
+          if [ "${local}" != "${remote}" ]; then
+          charts="${charts} ${chart}";
+          fi;
           done;
           charts="$(echo "${charts}" | tr -d "[:space:]")";
           echo "charts=${charts}" >> "${GITHUB_OUTPUTS}";
