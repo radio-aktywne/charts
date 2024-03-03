@@ -67,17 +67,16 @@ jobs:
         id: check
         run: >
           nix develop ./#release --command -- bash -c '
-          charts="";
+          tmpfile="$(mktemp)";
           find src/ -mindepth 1 -maxdepth 1 -type d | while read chart; do
           upstream="oci://ghcr.io/${{ github.repository }}/${chart#src/}";
           local="$(helm show chart "${chart}" | yq ".version")";
           remote="$(helm show chart "${upstream}" | yq ".version")";
-          if [ "${local}" != "${remote}" ]; then
-          charts="${charts} ${chart}";
-          fi;
+          test "${local}" = "${remote}" || echo "${chart}" >> "${tmpfile}";
           done;
-          charts="$(echo "${charts}" | tr -d "[:space:]")";
+          charts="$(tr "\n" " " < "${tmpfile}")";
           echo "charts=${charts}" >> "${GITHUB_OUTPUT}";
+          rm "${tmpfile}";
           '
       # See: https://github.com/cachix/install-nix-action/issues/56
       - name: Export Nix store cache
