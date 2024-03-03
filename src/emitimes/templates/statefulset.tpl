@@ -46,19 +46,17 @@ spec:
     - metadata:
         {{- include "emitimes.volumeMetadata" . | nindent 8 }}
       spec:
-        {{- if .Values.volume.modes }}
         accessModes:
-          {{- .Values.volume.modes | toYaml | nindent 10 }}
+          {{- required "volume.access is required" (.Values.volume).access | toStrings | toYaml | nindent 10 }}
+        {{- if (.Values.volume).class }}
+        storageClassName: {{ (.Values.volume).class | quote }}
         {{- end }}
-        {{- if .Values.volume.class }}
-        storageClassName: {{ .Values.volume.class | quote }}
-        {{- end }}
-        {{- if .Values.volume.size }}
+        {{- if (.Values.volume).size }}
         resources:
           requests:
-            storage: {{ .Values.volume.size | quote }}
+            storage: {{ (.Values.volume).size | quote }}
         {{- end }}
-        {{- with .Values.volume.spec }}
+        {{- with (.Values.volume).spec }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
   {{- end }}

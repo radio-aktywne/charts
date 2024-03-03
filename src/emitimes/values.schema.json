@@ -50,11 +50,18 @@
     "volume": {
       "type": "object",
       "properties": {
-        "modes": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+        "access": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
         },
         "class": {
           "type": "string"
@@ -68,7 +75,8 @@
         "spec": {
           "type": "object"
         }
-      }
+      },
+      "required": ["access"]
     },
     "pod": {
       "type": "object",
