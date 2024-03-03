@@ -1,0 +1,31 @@
+# Configuration of the app
+app:
+  # Port to listen on
+  port: 9000
+
+  # Configuration of the streamcast service
+  streamcast:
+    # Host of the streamcast service
+    host: streamcast.streamcast.svc.cluster.local
+
+    # Port of the streamcast service
+    port: 8000
+
+    # User to authenticate with
+    user: source
+
+    # Password to authenticate with
+    password: password
+
+    # Mount point to send audio to
+    mount: /radio.mp3
+
+# Configuration of the deployment
+deployment:
+  # Number of replicas
+  replicas: 1
+
+# Configuration of the service
+service:
+  # Port to listen on
+  port: 9000
