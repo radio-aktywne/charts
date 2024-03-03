@@ -5,6 +5,9 @@
 Helm charts ⛵
 
 [![Lint](https://github.com/radio-aktywne/charts/actions/workflows/lint.yaml/badge.svg)](https://github.com/radio-aktywne/charts/actions/workflows/lint.yaml)
+[![Validate](https://github.com/radio-aktywne/charts/actions/workflows/validate.yaml/badge.svg)](https://github.com/radio-aktywne/charts/actions/workflows/validate.yaml)
+[![Build](https://github.com/radio-aktywne/charts/actions/workflows/build.yaml/badge.svg)](https://github.com/radio-aktywne/charts/actions/workflows/build.yaml)
+[![Release](https://github.com/radio-aktywne/charts/actions/workflows/release.yaml/badge.svg)](https://github.com/radio-aktywne/charts/actions/workflows/release.yaml)
 [![Docs](https://github.com/radio-aktywne/charts/actions/workflows/docs.yaml/badge.svg)](https://github.com/radio-aktywne/charts/actions/workflows/docs.yaml)
 
 </div>
