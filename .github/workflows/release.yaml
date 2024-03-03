@@ -77,7 +77,7 @@ jobs:
           fi;
           done;
           charts="$(echo "${charts}" | tr -d "[:space:]")";
-          echo "charts=${charts}" >> "${GITHUB_OUTPUTS}";
+          echo "charts=${charts}" >> "${GITHUB_OUTPUT}";
           '
       # See: https://github.com/cachix/install-nix-action/issues/56
       - name: Export Nix store cache
