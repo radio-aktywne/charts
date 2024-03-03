@@ -1,0 +1,18 @@
+# Configuration of the database
+database:
+  # Port to listen on
+  port: 36000
+
+  # Username of the main user
+  user: source
+
+  # Password of the main user
+  password: password
+
+  # Identifier of the calendar
+  calendar: emitimes
+
+# Configuration of the service
+service:
+  # Port to listen on
+  port: 36000
