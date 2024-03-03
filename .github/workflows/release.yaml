@@ -160,6 +160,8 @@ jobs:
     runs-on: ubuntu-22.04
     # Use reasonable timeout to avoid stuck workflows
     timeout-minutes: 10
+    env:
+      NIX_CACHE_DIR: /home/runner/.nixcache/
     permissions:
       # Needed to checkout code
       contents: read
