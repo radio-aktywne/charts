@@ -23,8 +23,77 @@ concurrency:
       - Taskfile.dist.yaml
 
 jobs:
+  check:
+    name: Check charts
+    # Pin version of Ubuntu to avoid breaking changes
+    runs-on: ubuntu-22.04
+    # Use reasonable timeout to avoid stuck workflows
+    timeout-minutes: 10
+    env:
+      NIX_CACHE_DIR: /home/runner/.nixcache/
+    permissions:
+      # Needed to checkout code
+      contents: read
+    outputs:
+      charts: ${{ steps.check.outputs.charts }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.1.1
+      - name: Setup Nix cache
+        uses: actions/cache@v3.3.2
+        id: cache-nix
+        with:
+          path: ${{ env.NIX_CACHE_DIR }}
+          key: release-nix
+      - name: Install Nix
+        uses: cachix/install-nix-action@v24
+        with:
+          github_access_token: ${{ github.token }}
+          install_url: https://releases.nixos.org/nix/nix-2.19.2/install
+      # See: https://github.com/cachix/install-nix-action/issues/56
+      - name: Import Nix store cache
+        if: steps.cache-nix.outputs.cache-hit == 'true'
+        run: >
+          nix-store
+          --import
+          < ${{ env.NIX_CACHE_DIR }}/archive.nar
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3.0.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check charts
+        id: check
+        run: >
+          nix develop ./#release --command -- bash -c '
+          charts="";
+          for chart in src/*; do
+          upstream="oci://ghcr.io/${{ github.repository }}/${chart#src/}";
+          local="$(helm show chart "${chart}" | yq ".version")";
+          remote="$(helm show chart "${upstream}" | yq ".version")";
+          test "${local}" = "${remote}" || charts="${charts} ${chart}";
+          done;
+          charts="$(echo "${charts}" | tr -d "[:space:]")";
+          echo "charts=${charts}" >> "${GITHUB_OUTPUTS}";
+          '
+      # See: https://github.com/cachix/install-nix-action/issues/56
+      - name: Export Nix store cache
+        if: "!cancelled()"
+        run: >
+          mkdir
+          -p
+          ${{ env.NIX_CACHE_DIR }}
+          &&
+          nix-store
+          --export $(find /nix/store/ -maxdepth 1 -name '*-*')
+          > ${{ env.NIX_CACHE_DIR }}/archive.nar
   build:
     name: Build charts
+    # Run only if check job succeeded
+    needs: check
+    # Run only if there are charts to build
+    if: needs.check.outputs.charts != ''
     # Pin version of Ubuntu to avoid breaking changes
     runs-on: ubuntu-22.04
     # Use reasonable timeout to avoid stuck workflows
@@ -55,22 +124,17 @@ jobs:
           nix-store
           --import
           < ${{ env.NIX_CACHE_DIR }}/archive.nar
-      - name: Log in to the Container registry
-        uses: docker/login-action@v3.0.0
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build charts
         run: >
-          nix develop ./#release --command -- bash -c '
-          for chart in src/*; do
-          upstream="oci://ghcr.io/${{ github.repository }}/${chart#src/}";
-          local="$(helm show chart "${chart}" | yq ".version")";
-          remote="$(helm show chart "${upstream}" | yq ".version")";
-          test "${local}" = "${remote}" || task build -- "${chart}";
-          done
-          '
+          nix
+          develop
+          ./#release
+          --command
+          --
+          task
+          build
+          --
+          ${{ needs.check.outputs.charts }}
       - name: Upload chart artifacts
         uses: actions/upload-artifact@v4.3.1
         with:
