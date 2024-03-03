@@ -3,9 +3,7 @@ kind: Deployment
 metadata:
   {{- include "fusion.deploymentMetadata" . | nindent 2 }}
 spec:
-  {{- if (.Values.deployment).replicas }}
-  replicas: {{ (.Values.deployment).replicas | int }}
-  {{- end }}
+  replicas: 1
   selector:
     matchLabels:
       {{- include "fusion.selector" . | nindent 6 }}

@@ -20,11 +20,6 @@ app:
     # Mount point to send audio to
     mount: /radio.mp3
 
-# Configuration of the deployment
-deployment:
-  # Number of replicas
-  replicas: 1
-
 # Configuration of the service
 service:
   # Port to listen on

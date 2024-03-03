@@ -19,11 +19,6 @@ app:
     # Admin password
     password: password
 
-# Configuration of the deployment
-deployment:
-  # Number of replicas
-  replicas: 1
-
 # Configuration of the service
 service:
   # Port to listen on
