@@ -76,9 +76,6 @@
     "deployment": {
       "type": "object",
       "properties": {
-        "replicas": {
-          "type": "integer"
-        },
         "metadata": {
           "type": "object"
         },

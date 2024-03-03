@@ -3,9 +3,7 @@ kind: Deployment
 metadata:
   {{- include "streamcast.deploymentMetadata" . | nindent 2 }}
 spec:
-  {{- if (.Values.deployment).replicas }}
-  replicas: {{ (.Values.deployment).replicas | int }}
-  {{- end }}
+  replicas: 1
   selector:
     matchLabels:
       {{- include "streamcast.selector" . | nindent 6 }}
