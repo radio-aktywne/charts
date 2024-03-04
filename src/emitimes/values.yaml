@@ -4,7 +4,7 @@ database:
   port: 36000
 
   # Username of the main user
-  user: source
+  user: user
 
   # Password of the main user
   password: password
