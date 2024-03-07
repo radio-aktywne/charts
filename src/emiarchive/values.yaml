@@ -1,0 +1,58 @@
+# Configuration of the database
+database:
+  # Ports to listen on
+  ports:
+    # Port to listen on for S3 connections
+    s3: 30000
+
+    # Port to listen on for web console traffic
+    web: 30001
+
+  # URLs configuration
+  urls:
+    # Public URL of the web interface
+    web: http://localhost:30001
+
+  # Credentials for the database
+  credentials:
+    # Credentials for the admin user
+    admin:
+      # Username of the admin user
+      user: admin
+
+      # Password of the admin user
+      password: password
+
+    # Credentials for the readonly user
+    readonly:
+      # Username of the readonly user
+      user: readonly
+
+      # Password of the readonly user
+      password: password
+
+    # Credentials for the readwrite user
+    readwrite:
+      # Username of the readwrite user
+      user: readwrite
+
+      # Password of the readwrite user
+      password: password
+
+  # Buckets configuration
+  buckets:
+    # Name of the bucket where live recordings are stored
+    live: live
+
+    # Name of the bucket where prerecorded emissions are stored
+    prerecorded: prerecorded
+
+# Configuration of the service
+service:
+  # Ports to listen on
+  ports:
+    # Port to listen on for S3 connections
+    s3: 30000
+
+    # Port to listen on for web console traffic
+    web: 30001
