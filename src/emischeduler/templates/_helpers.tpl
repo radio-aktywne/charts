@@ -33,9 +33,16 @@ Name of the ConfigMap
 {{- end }}
 
 {{/*
-Name of the Deployment
+Name of the Volume
 */}}
-{{- define "emischeduler.deploymentName" -}}
+{{- define "emischeduler.volumeName" -}}
+{{ include "emischeduler.name" . }}
+{{- end }}
+
+{{/*
+Name of the StatefulSet
+*/}}
+{{- define "emischeduler.statefulSetName" -}}
 {{ include "emischeduler.name" . }}
 {{- end }}
 
@@ -102,6 +109,18 @@ name: {{ include "emischeduler.configMapName" . | quote }}
 {{- end }}
 
 {{/*
+Metadata to use in the Volume
+*/}}
+{{- define "emischeduler.volumeMetadata" -}}
+{{- $commonMetadata := (.Values.common).metadata | default dict | deepCopy }}
+{{- $volumeMetadata := (.Values.volume).metadata | default dict | deepCopy }}
+{{- $chartMetadata := include "emischeduler.metadata" . | fromYaml | deepCopy }}
+{{- $metadata := mergeOverwrite $commonMetadata $volumeMetadata $chartMetadata -}}
+name: {{ include "emischeduler.volumeName" . | quote }}
+{{ toYaml $metadata }}
+{{- end }}
+
+{{/*
 Metadata to use in the Pod
 */}}
 {{- define "emischeduler.podMetadata" -}}
@@ -113,14 +132,14 @@ Metadata to use in the Pod
 {{- end }}
 
 {{/*
-Metadata to use in the Deployment
+Metadata to use in the StatefulSet
 */}}
-{{- define "emischeduler.deploymentMetadata" -}}
+{{- define "emischeduler.statefulSetMetadata" -}}
 {{- $commonMetadata := (.Values.common).metadata | default dict | deepCopy }}
-{{- $deploymentMetadata := (.Values.deployment).metadata | default dict | deepCopy }}
+{{- $statefulSetMetadata := (.Values.statefulSet).metadata | default dict | deepCopy }}
 {{- $chartMetadata := include "emischeduler.metadata" . | fromYaml | deepCopy }}
-{{- $metadata := mergeOverwrite $commonMetadata $deploymentMetadata $chartMetadata -}}
-name: {{ include "emischeduler.deploymentName" . | quote }}
+{{- $metadata := mergeOverwrite $commonMetadata $statefulSetMetadata $chartMetadata -}}
+name: {{ include "emischeduler.statefulSetName" . | quote }}
 {{ toYaml $metadata }}
 {{- end }}
 
