@@ -1,0 +1,52 @@
+# Configuration of the app
+app:
+  # Ports configuration
+  ports:
+    # Port to listen on for HTTP connections
+    http: 31000
+
+    # Port to listen on for SRT connections
+    srt: 31001
+
+  # Recorder configuration
+  recorder:
+    # Time after which a stream will be stopped if no connections are made
+    timeout: PT1M
+
+    # Time window to search for event instances around the current time
+    window: PT1H
+
+  # Configuration of the emiarchive service
+  emiarchive:
+    # Host to connect to
+    host: emiarchive.emiarchive.svc.cluster.local
+
+    # Port to connect to
+    port: 30000
+
+    # User to connect as
+    user: readwrite
+
+    # Password to connect with
+    password: password
+
+    # Name of the bucket to use for uploads
+    bucket: live
+
+  # Configuration of the emishows service
+  emishows:
+    # Host to connect to
+    host: emishows.emishows.svc.cluster.local
+
+    # Port to connect to
+    port: 35000
+
+# Configuration of the service
+service:
+  # Ports configuration
+  ports:
+    # Port to listen on for HTTP connections
+    http: 31000
+
+    # Port to listen on for SRT connections
+    srt: 31001
