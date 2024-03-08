@@ -1,7 +1,7 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  {{- include "emischeduler.deploymentMetadata" . | nindent 2 }}
+  {{- include "emischeduler.statefulSetMetadata" . | nindent 2 }}
 spec:
   replicas: 1
   selector:
@@ -23,6 +23,11 @@ spec:
                 name: {{ include "emischeduler.configMapName" . | quote }}
             - secretRef:
                 name: {{ include "emischeduler.secretName" . | quote }}
+          {{- if .Values.volume }}
+          volumeMounts:
+            - name: {{ include "emischeduler.volumeName" . | quote }}
+              mountPath: /app/data/
+          {{- end }}
           livenessProbe:
             httpGet:
               path: /ping
@@ -36,6 +41,23 @@ spec:
       {{- with (.Values.pod).spec }}
       {{- toYaml . | nindent 6 }}
       {{- end }}
-  {{- with (.Values.deployment).spec }}
+  {{- if .Values.volume }}
+  volumeClaimTemplates:
+    - metadata:
+        {{- include "emischeduler.volumeMetadata" . | nindent 8 }}
+      spec:
+        {{- if (.Values.volume).class }}
+        storageClassName: {{ (.Values.volume).class | quote }}
+        {{- end }}
+        accessModes:
+          {{- required "volume.access is required" (.Values.volume).access | toStrings | toYaml | nindent 10 }}
+        resources:
+          requests:
+            storage: {{ required "volume.size is required" (.Values.volume).size | quote }}
+        {{- with (.Values.volume).spec }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+  {{- end }}
+  {{- with (.Values.statefulSet).spec }}
   {{- toYaml . | nindent 2 }}
   {{- end }}
