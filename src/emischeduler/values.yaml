@@ -1,0 +1,71 @@
+# Configuration of the app
+app:
+  # Port to listen on
+  port: 33000
+
+  # Stream configuration
+  stream:
+    # Timeout for trying to reserve a stream
+    timeout: PT1H
+
+  # Cleaner configuration
+  cleaner:
+    # Reference datetime for cleaning
+    reference: 2000-01-01T00:00:00
+
+    # Interval between cleanings
+    interval: P1D
+
+  # Synchronizer configuration
+  synchronizer:
+    # Reference datetime for synchronization
+    reference: 2000-01-01T00:00:00
+
+    # Interval between synchronizations
+    interval: PT1M
+
+    # Duration of the time window
+    window: P1D
+
+  # Configuration of the emishows service
+  emishows:
+    # Host to connect to
+    host: emishows.emishows.svc.cluster.local
+
+    # Port to connect to
+    port: 35000
+
+  # Configuration of the emiarchive service
+  emiarchive:
+    # Host to connect to
+    host: emiarchive.emiarchive.svc.cluster.local
+
+    # Port to connect to
+    port: 30000
+
+    # User to connect as
+    user: readonly
+
+    # Password to connect with
+    password: password
+
+    # Buckets configuration
+    buckets:
+      # Name of the bucket with recordings of live events
+      live: live
+
+      # Name of the bucket with prerecorded events
+      prerecorded: prerecorded
+
+  # Configuration of the emistream service
+  emistream:
+    # Host to connect to
+    host: emistream.emistream.svc.cluster.local
+
+    # Port to connect to
+    port: 10000
+
+# Configuration of the service
+service:
+  # Port to listen on
+  port: 33000
