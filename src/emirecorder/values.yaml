@@ -6,7 +6,7 @@ app:
     http: 31000
 
     # Port to listen on for SRT connections
-    srt: 31001
+    srt: 31000
 
   # Recorder configuration
   recorder:
@@ -49,4 +49,4 @@ service:
     http: 31000
 
     # Port to listen on for SRT connections
-    srt: 31001
+    srt: 31000
