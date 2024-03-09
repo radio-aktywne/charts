@@ -1,0 +1,51 @@
+# Configuration of the app
+app:
+  # Ports configuration
+  ports:
+    # Port to listen on for HTTP connections
+    http: 10000
+
+    # Port to listen on for SRT connections
+    srt: 10000
+
+  # Stream configuration
+  stream:
+    # Time after which a stream will be stopped if no connections are made
+    timeout: PT1M
+
+    # Time window to search for event instances around the current time
+    window: PT1H
+
+  # Configuration of the fusion service
+  fusion:
+    # Host to connect to
+    host: fusion.fusion.svc.cluster.local
+
+    # Port to connect to
+    port: 9000
+
+  # Configuration of the emirecorder service
+  emirecorder:
+    # Host to connect to
+    host: emirecorder.emirecorder.svc.cluster.local
+
+    # Port to connect to
+    port: 31000
+
+  # Configuration of the emishows service
+  emishows:
+    # Host to connect to
+    host: emishows.emishows.svc.cluster.local
+
+    # Port to connect to
+    port: 35000
+
+# Configuration of the service
+service:
+  # Ports configuration
+  ports:
+    # Port to listen on for HTTP connections
+    http: 10000
+
+    # Port to listen on for SRT connections
+    srt: 10000

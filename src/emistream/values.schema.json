@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "common": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      }
+    },
+    "app": {
+      "type": "object",
+      "properties": {
+        "ports": {
+          "type": "object",
+          "properties": {
+            "http": {
+              "type": "integer"
+            },
+            "srt": {
+              "type": "integer"
+            }
+          },
+          "required": ["http", "srt"]
+        },
+        "stream": {
+          "type": "object",
+          "properties": {
+            "timeout": {
+              "type": "string"
+            },
+            "window": {
+              "type": "string"
+            }
+          },
+          "required": ["timeout", "window"]
+        },
+        "fusion": {
+          "type": "object",
+          "properties": {
+            "host": {
+              "type": "string"
+            },
+            "port": {
+              "type": "integer"
+            }
+          },
+          "required": ["host", "port"]
+        },
+        "emirecorder": {
+          "type": "object",
+          "properties": {
+            "host": {
+              "type": "string"
+            },
+            "port": {
+              "type": "integer"
+            }
+          },
+          "required": ["host", "port"]
+        },
+        "emishows": {
+          "type": "object",
+          "properties": {
+            "host": {
+              "type": "string"
+            },
+            "port": {
+              "type": "integer"
+            }
+          },
+          "required": ["host", "port"]
+        }
+      },
+      "required": ["ports", "stream", "fusion", "emirecorder", "emishows"]
+    },
+    "configMap": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      }
+    },
+    "pod": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      }
+    },
+    "deployment": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      }
+    },
+    "service": {
+      "type": "object",
+      "properties": {
+        "ports": {
+          "type": "object",
+          "properties": {
+            "http": {
+              "type": "integer"
+            },
+            "srt": {
+              "type": "integer"
+            }
+          },
+          "required": ["http", "srt"]
+        },
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "required": ["ports"]
+    }
+  },
+  "required": ["app", "service"]
+}
