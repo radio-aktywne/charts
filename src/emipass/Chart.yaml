@@ -1,0 +1,21 @@
+# Version of Helm this chart is compatible with
+apiVersion: v2
+
+# Version of the chart itself
+version: "0.1.0"
+
+# Version of the application provided by this chart
+appVersion: "0.2.0"
+
+# Name of the chart
+name: emipass
+
+# A short description of the chart
+description: WebRTC to SRT passthrough 💨
+
+# Home page of the app
+home: https://radio-aktywne.github.io/app-emipass
+
+# Source code repository of the app
+sources:
+  - https://github.com/radio-aktywne/app-emipass

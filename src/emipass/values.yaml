@@ -1,0 +1,38 @@
+# Configuration of the app
+app:
+  # Ports configuration
+  ports:
+    # Port to listen on for HTTP connections
+    http: 11000
+
+    # Port to listen on for WHIP connections
+    whip: 11001
+
+    # Port to listen on for RTP connections
+    rtp: 11002
+
+  # Streamer configuration
+  streamer:
+    # STUN server configuration
+    stun:
+      # STUN server hostname
+      host: stun.l.google.com
+
+      # STUN server port
+      port: 19302
+
+    # Time after which a stream will be stopped if no connections are made
+    timeout: PT1M
+
+# Configuration of the service
+service:
+  # Ports configuration
+  ports:
+    # Port to listen on for HTTP connections
+    http: 11000
+
+    # Port to listen on for WHIP connections
+    whip: 11001
+
+    # Port to listen on for RTP connections
+    rtp: 11002
