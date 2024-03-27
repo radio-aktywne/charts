@@ -83,7 +83,7 @@ jobs:
         if: "!cancelled()"
         run: >
           mkdir
-          -p
+          --parents
           ${{ env.NIX_CACHE_DIR }}
           &&
           nix-store
@@ -146,7 +146,7 @@ jobs:
         if: "!cancelled()"
         run: >
           mkdir
-          -p
+          --parents
           ${{ env.NIX_CACHE_DIR }}
           &&
           nix-store
@@ -223,7 +223,7 @@ jobs:
         if: "!cancelled()"
         run: >
           mkdir
-          -p
+          --parents
           ${{ env.NIX_CACHE_DIR }}
           &&
           nix-store
