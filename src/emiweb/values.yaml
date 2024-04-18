@@ -1,0 +1,58 @@
+# Configuration of the app
+app:
+  # Port to listen on
+  port: 13000
+
+  # Events configuration
+  events:
+    # Time window to search for event instances around the current time
+    window: PT1H
+
+  # Emishows configuration
+  emishows:
+    # Host of the emishows service
+    host: emishows.emishows.svc.cluster.local
+
+    # Port of the emishows service
+    port: 35000
+
+  # Emistream configuration
+  emistream:
+    # Configuration of HTTP API
+    http:
+      # Host of HTTP API of the emistream service
+      host: emistream.emistream.svc.cluster.local
+
+      # Port of HTTP API of the emistream service
+      port: 10000
+
+    # Configuration of SRT stream
+    srt:
+      # Host of SRT stream of the emistream service
+      host: emistream.emistream.svc.cluster.local
+
+      # Port of SRT stream of the emistream service
+      port: 10000
+
+  # Emipass configuration
+  emipass:
+    # Configuration of HTTP API
+    http:
+      # Host of HTTP API of the emipass service
+      host: emipass.emipass.svc.cluster.local
+
+      # Port of HTTP API of the emipass service
+      port: 11000
+
+    # Configuration of WHIP API
+    whip:
+      # Host of WHIP API of the emipass service
+      host: emipass.emipass.svc.cluster.local
+
+      # Port of WHIP API of the emipass service
+      port: 11001
+
+# Configuration of the service
+service:
+  # Port to listen on
+  port: 13000
