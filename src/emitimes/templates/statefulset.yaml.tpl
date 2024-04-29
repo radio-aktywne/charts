@@ -32,12 +32,12 @@ spec:
             httpGet:
               path: /
               port: http
-            failureThreshold: 30
+            failureThreshold: 6
           readinessProbe:
             httpGet:
               path: /
               port: http
-            failureThreshold: 30
+            failureThreshold: 6
       {{- with (.Values.pod).spec }}
       {{- toYaml . | nindent 6 }}
       {{- end }}

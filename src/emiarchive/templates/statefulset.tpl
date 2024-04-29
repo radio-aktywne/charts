@@ -35,12 +35,12 @@ spec:
             httpGet:
               path: /minio/health/live
               port: s3
-            failureThreshold: 30
+            failureThreshold: 6
           readinessProbe:
             httpGet:
               path: /minio/health/live
               port: s3
-            failureThreshold: 30
+            failureThreshold: 6
       {{- with (.Values.pod).spec }}
       {{- toYaml . | nindent 6 }}
       {{- end }}
