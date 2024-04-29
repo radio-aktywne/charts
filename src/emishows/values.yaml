@@ -1,35 +1,47 @@
 # Configuration of the app
 app:
-  # Port to listen on
-  port: 35000
+  # Configuration of the server
+  server:
+    # Port to listen on
+    port: 35000
 
   # Database configuration
   database:
-    # Host of the database
-    host: emishows-db.emishows-db.svc.cluster.local
+    # Configuration of the SQL API of the database
+    sql:
+      # Host of the SQL API
+      host: emishows-db.emishows-db.svc.cluster.local
 
-    # Port of the database
-    port: 34000
+      # Port of the SQL API
+      port: 34000
 
-    # Password to authenticate with
-    password: password
+      # Password to authenticate with the SQL API
+      password: password
 
   # Emitimes configuration
   emitimes:
-    # Host of the emitimes service
-    host: emitimes.emitimes.svc.cluster.local
+    # Configuration of the CalDAV API of the emitimes service
+    caldav:
+      # Scheme of the CalDAV API
+      scheme: http
 
-    # Port of the emitimes service
-    port: 36000
+      # Host of the CalDAV API
+      host: emitimes.emitimes.svc.cluster.local
 
-    # User to authenticate with
-    user: user
+      # Port of the CalDAV API
+      port: 36000
 
-    # Password to authenticate with
-    password: password
+      # Path of the CalDAV API
+      path: ""
 
-    # Calendar to use
-    calendar: emitimes
+      # User to authenticate with the CalDAV API
+      user: user
+
+      # Password to authenticate with the CalDAV API
+      password: password
+
+      # Calendar to use for the CalDAV API
+      calendar: emitimes
 
 # Configuration of the service
 service:

@@ -16,47 +16,79 @@
     "app": {
       "type": "object",
       "properties": {
-        "port": {
-          "type": "integer"
+        "server": {
+          "type": "object",
+          "properties": {
+            "port": {
+              "type": "integer"
+            }
+          },
+          "required": ["port"]
         },
         "database": {
           "type": "object",
           "properties": {
-            "host": {
-              "type": "string"
-            },
-            "port": {
-              "type": "integer"
-            },
-            "password": {
-              "type": "string"
+            "sql": {
+              "type": "object",
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "password": {
+                  "type": "string"
+                }
+              },
+              "required": ["host", "port", "password"]
             }
           },
-          "required": ["host", "port", "password"]
+          "required": ["sql"]
         },
         "emitimes": {
           "type": "object",
           "properties": {
-            "host": {
-              "type": "string"
-            },
-            "port": {
-              "type": "integer"
-            },
-            "user": {
-              "type": "string"
-            },
-            "password": {
-              "type": "string"
-            },
-            "calendar": {
-              "type": "string"
+            "caldav": {
+              "type": "object",
+              "properties": {
+                "scheme": {
+                  "type": "string"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "calendar": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "scheme",
+                "host",
+                "port",
+                "path",
+                "user",
+                "password",
+                "calendar"
+              ]
             }
           },
-          "required": ["host", "port", "user", "password", "calendar"]
+          "required": ["caldav"]
         }
       },
-      "required": ["port", "database", "emitimes"]
+      "required": ["server", "database", "emitimes"]
     },
     "secret": {
       "type": "object",

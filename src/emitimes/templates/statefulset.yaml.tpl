@@ -17,7 +17,7 @@ spec:
           ports:
             - name: http
               protocol: TCP
-              containerPort: {{ required "database.port is required" (.Values.database).port | int }}
+              containerPort: {{ required "database.server.port is required" ((.Values.database).server).port | int }}
           envFrom:
             - configMapRef:
                 name: {{ include "emitimes.configMapName" . | quote }}

@@ -16,17 +16,23 @@
     "database": {
       "type": "object",
       "properties": {
-        "ports": {
+        "server": {
           "type": "object",
           "properties": {
-            "s3": {
-              "type": "integer"
-            },
-            "web": {
-              "type": "integer"
+            "ports": {
+              "type": "object",
+              "properties": {
+                "s3": {
+                  "type": "integer"
+                },
+                "web": {
+                  "type": "integer"
+                }
+              },
+              "required": ["s3", "web"]
             }
           },
-          "required": ["s3", "web"]
+          "required": ["ports"]
         },
         "urls": {
           "type": "object",
@@ -92,7 +98,7 @@
           "required": ["live", "prerecorded"]
         }
       },
-      "required": ["ports", "urls", "credentials", "buckets"]
+      "required": ["server", "urls", "credentials", "buckets"]
     },
     "secret": {
       "type": "object",

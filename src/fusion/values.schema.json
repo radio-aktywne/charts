@@ -16,32 +16,44 @@
     "app": {
       "type": "object",
       "properties": {
-        "port": {
-          "type": "integer"
+        "server": {
+          "type": "object",
+          "properties": {
+            "port": {
+              "type": "integer"
+            }
+          },
+          "required": ["port"]
         },
         "streamcast": {
           "type": "object",
           "properties": {
-            "host": {
-              "type": "string"
-            },
-            "port": {
-              "type": "integer"
-            },
-            "user": {
-              "type": "string"
-            },
-            "password": {
-              "type": "string"
-            },
-            "mount": {
-              "type": "string"
+            "icy": {
+              "type": "object",
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "mount": {
+                  "type": "string"
+                }
+              },
+              "required": ["host", "port", "user", "password", "mount"]
             }
           },
-          "required": ["host", "port", "user", "password", "mount"]
+          "required": ["icy"]
         }
       },
-      "required": ["port", "streamcast"]
+      "required": ["server", "streamcast"]
     },
     "secret": {
       "type": "object",

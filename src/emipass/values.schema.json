@@ -16,20 +16,26 @@
     "app": {
       "type": "object",
       "properties": {
-        "ports": {
+        "server": {
           "type": "object",
           "properties": {
-            "http": {
-              "type": "integer"
-            },
-            "whip": {
-              "type": "integer"
-            },
-            "rtp": {
-              "type": "integer"
+            "ports": {
+              "type": "object",
+              "properties": {
+                "http": {
+                  "type": "integer"
+                },
+                "whip": {
+                  "type": "integer"
+                },
+                "rtp": {
+                  "type": "integer"
+                }
+              },
+              "required": ["http", "whip", "rtp"]
             }
           },
-          "required": ["http", "whip", "rtp"]
+          "required": ["ports"]
         },
         "streamer": {
           "type": "object",
@@ -53,7 +59,7 @@
           "required": ["stun", "timeout"]
         }
       },
-      "required": ["ports", "streamer"]
+      "required": ["server", "streamer"]
     },
     "configMap": {
       "type": "object",

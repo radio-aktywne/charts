@@ -17,10 +17,10 @@ spec:
           ports:
             - name: http
               protocol: TCP
-              containerPort: {{ required "app.ports.http is required" ((.Values.app).ports).http | int }}
+              containerPort: {{ required "app.server.ports.http is required" (((.Values.app).server).ports).http | int }}
             - name: srt
               protocol: UDP
-              containerPort: {{ required "app.ports.srt is required" ((.Values.app).ports).srt | int }}
+              containerPort: {{ required "app.server.ports.srt is required" (((.Values.app).server).ports).srt | int }}
           envFrom:
             - configMapRef:
                 name: {{ include "emistream.configMapName" . | quote }}

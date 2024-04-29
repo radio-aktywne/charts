@@ -16,20 +16,32 @@
     "database": {
       "type": "object",
       "properties": {
-        "port": {
-          "type": "integer"
+        "server": {
+          "type": "object",
+          "properties": {
+            "port": {
+              "type": "integer"
+            }
+          },
+          "required": ["port"]
         },
-        "user": {
-          "type": "string"
-        },
-        "password": {
-          "type": "string"
+        "credentials": {
+          "type": "object",
+          "properties": {
+            "user": {
+              "type": "string"
+            },
+            "password": {
+              "type": "string"
+            }
+          },
+          "required": ["user", "password"]
         },
         "calendar": {
           "type": "string"
         }
       },
-      "required": ["port", "user", "password", "calendar"]
+      "required": ["server", "credentials", "calendar"]
     },
     "secret": {
       "type": "object",

@@ -16,17 +16,23 @@
     "app": {
       "type": "object",
       "properties": {
-        "ports": {
+        "server": {
           "type": "object",
           "properties": {
-            "http": {
-              "type": "integer"
-            },
-            "srt": {
-              "type": "integer"
+            "ports": {
+              "type": "object",
+              "properties": {
+                "http": {
+                  "type": "integer"
+                },
+                "srt": {
+                  "type": "integer"
+                }
+              },
+              "required": ["http", "srt"]
             }
           },
-          "required": ["http", "srt"]
+          "required": ["ports"]
         },
         "stream": {
           "type": "object",
@@ -43,41 +49,83 @@
         "fusion": {
           "type": "object",
           "properties": {
-            "host": {
-              "type": "string"
-            },
-            "port": {
-              "type": "integer"
+            "srt": {
+              "type": "object",
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                }
+              },
+              "required": ["host", "port"]
             }
           },
-          "required": ["host", "port"]
+          "required": ["srt"]
         },
         "emirecorder": {
           "type": "object",
           "properties": {
-            "host": {
-              "type": "string"
+            "http": {
+              "type": "object",
+              "properties": {
+                "scheme": {
+                  "type": "string"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host", "port", "path"]
             },
-            "port": {
-              "type": "integer"
+            "srt": {
+              "type": "object",
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                }
+              },
+              "required": ["host", "port"]
             }
           },
-          "required": ["host", "port"]
+          "required": ["http", "srt"]
         },
         "emishows": {
           "type": "object",
           "properties": {
-            "host": {
-              "type": "string"
-            },
-            "port": {
-              "type": "integer"
+            "http": {
+              "type": "object",
+              "properties": {
+                "scheme": {
+                  "type": "string"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host", "port", "path"]
             }
           },
-          "required": ["host", "port"]
+          "required": ["http"]
         }
       },
-      "required": ["ports", "stream", "fusion", "emirecorder", "emishows"]
+      "required": ["server", "stream", "fusion", "emirecorder", "emishows"]
     },
     "configMap": {
       "type": "object",

@@ -16,8 +16,14 @@
     "app": {
       "type": "object",
       "properties": {
-        "port": {
-          "type": "integer"
+        "server": {
+          "type": "object",
+          "properties": {
+            "port": {
+              "type": "integer"
+            }
+          },
+          "required": ["port"]
         },
         "stream": {
           "type": "object",
@@ -58,60 +64,112 @@
         "emishows": {
           "type": "object",
           "properties": {
-            "host": {
-              "type": "string"
-            },
-            "port": {
-              "type": "integer"
+            "http": {
+              "type": "object",
+              "properties": {
+                "scheme": {
+                  "type": "string"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host", "port", "path"]
             }
           },
-          "required": ["host", "port"]
+          "required": ["http"]
         },
         "emiarchive": {
           "type": "object",
           "properties": {
-            "host": {
-              "type": "string"
-            },
-            "port": {
-              "type": "integer"
-            },
-            "user": {
-              "type": "string"
-            },
-            "password": {
-              "type": "string"
-            },
-            "buckets": {
+            "s3": {
               "type": "object",
               "properties": {
-                "live": {
+                "secure": {
+                  "type": "boolean"
+                },
+                "host": {
                   "type": "string"
                 },
-                "prerecorded": {
+                "port": {
+                  "type": "integer"
+                },
+                "user": {
                   "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "buckets": {
+                  "type": "object",
+                  "properties": {
+                    "live": {
+                      "type": "string"
+                    },
+                    "prerecorded": {
+                      "type": "string"
+                    }
+                  },
+                  "required": ["live", "prerecorded"]
                 }
               },
-              "required": ["live", "prerecorded"]
+              "required": [
+                "secure",
+                "host",
+                "port",
+                "user",
+                "password",
+                "buckets"
+              ]
             }
           },
-          "required": ["host", "port", "user", "password", "buckets"]
+          "required": ["s3"]
         },
         "emistream": {
           "type": "object",
           "properties": {
-            "host": {
-              "type": "string"
+            "http": {
+              "type": "object",
+              "properties": {
+                "scheme": {
+                  "type": "string"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host", "port", "path"]
             },
-            "port": {
-              "type": "integer"
+            "srt": {
+              "type": "object",
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                }
+              },
+              "required": ["host", "port"]
             }
           },
-          "required": ["host", "port"]
+          "required": ["http", "srt"]
         }
       },
       "required": [
-        "port",
+        "server",
         "stream",
         "cleaner",
         "synchronizer",

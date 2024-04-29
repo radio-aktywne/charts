@@ -1,24 +1,28 @@
 # Configuration of the app
 app:
-  # Port to listen on
-  port: 9000
+  # Configuration of the server
+  server:
+    # Port to listen on
+    port: 9000
 
   # Configuration of the streamcast service
   streamcast:
-    # Host of the streamcast service
-    host: streamcast.streamcast.svc.cluster.local
+    # Configuration of the ICY API of the streamcast service
+    icy:
+      # Host of the ICY API
+      host: streamcast.streamcast.svc.cluster.local
 
-    # Port of the streamcast service
-    port: 8000
+      # Port of the ICY API
+      port: 8000
 
-    # User to authenticate with
-    user: source
+      # User to authenticate with the ICY API
+      user: source
 
-    # Password to authenticate with
-    password: password
+      # Password to authenticate with the ICY API
+      password: password
 
-    # Mount point to send audio to
-    mount: /radio.mp3
+      # Mount point to send audio to
+      mount: /radio.mp3
 
 # Configuration of the service
 service:

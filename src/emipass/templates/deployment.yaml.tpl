@@ -17,13 +17,13 @@ spec:
           ports:
             - name: http
               protocol: TCP
-              containerPort: {{ required "app.ports.http is required" ((.Values.app).ports).http | int }}
+              containerPort: {{ required "app.server.ports.http is required" (((.Values.app).server).ports).http | int }}
             - name: whip
               protocol: TCP
-              containerPort: {{ required "app.ports.whip is required" ((.Values.app).ports).whip | int }}
+              containerPort: {{ required "app.server.ports.whip is required" (((.Values.app).server).ports).whip | int }}
             - name: rtp
               protocol: UDP
-              containerPort: {{ required "app.ports.rtp is required" ((.Values.app).ports).rtp | int }}
+              containerPort: {{ required "app.server.ports.rtp is required" (((.Values.app).server).ports).rtp | int }}
           envFrom:
             - configMapRef:
                 name: {{ include "emipass.configMapName" . | quote }}

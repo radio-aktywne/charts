@@ -3,6 +3,6 @@ kind: Secret
 metadata:
   {{- include "emishows.secretMetadata" . | nindent 2 }}
 stringData:
-  EMISHOWS__DATABASE__PASSWORD: {{ required "app.database.password is required" ((.Values.app).database).password | quote }}
-  EMISHOWS__EMITIMES__USER: {{ required "app.emitimes.user is required" ((.Values.app).emitimes).user | quote }}
-  EMISHOWS__EMITIMES__PASSWORD: {{ required "app.emitimes.password is required" ((.Values.app).emitimes).password | quote }}
+  EMISHOWS__DATABASE__SQL__PASSWORD: {{ required "app.database.sql.password is required" (((.Values.app).database).sql).password | quote }}
+  EMISHOWS__EMITIMES__CALDAV__USER: {{ required "app.emitimes.caldav.user is required" (((.Values.app).emitimes).caldav).user | quote }}
+  EMISHOWS__EMITIMES__CALDAV__PASSWORD: {{ required "app.emitimes.caldav.password is required" (((.Values.app).emitimes).caldav).password | quote }}
