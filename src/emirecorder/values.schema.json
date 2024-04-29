@@ -16,17 +16,23 @@
     "app": {
       "type": "object",
       "properties": {
-        "ports": {
+        "server": {
           "type": "object",
           "properties": {
-            "http": {
-              "type": "integer"
-            },
-            "srt": {
-              "type": "integer"
+            "ports": {
+              "type": "object",
+              "properties": {
+                "http": {
+                  "type": "integer"
+                },
+                "srt": {
+                  "type": "integer"
+                }
+              },
+              "required": ["http", "srt"]
             }
           },
-          "required": ["http", "srt"]
+          "required": ["ports"]
         },
         "recorder": {
           "type": "object",
@@ -43,38 +49,66 @@
         "emiarchive": {
           "type": "object",
           "properties": {
-            "host": {
-              "type": "string"
-            },
-            "port": {
-              "type": "integer"
-            },
-            "user": {
-              "type": "string"
-            },
-            "password": {
-              "type": "string"
-            },
-            "bucket": {
-              "type": "string"
+            "s3": {
+              "type": "object",
+              "properties": {
+                "secure": {
+                  "type": "boolean"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "bucket": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "secure",
+                "host",
+                "port",
+                "user",
+                "password",
+                "bucket"
+              ]
             }
           },
-          "required": ["host", "port", "user", "password", "bucket"]
+          "required": ["s3"]
         },
         "emishows": {
           "type": "object",
           "properties": {
-            "host": {
-              "type": "string"
-            },
-            "port": {
-              "type": "integer"
+            "http": {
+              "type": "object",
+              "properties": {
+                "scheme": {
+                  "type": "string"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host", "port", "path"]
             }
           },
-          "required": ["host", "port"]
+          "required": ["http"]
         }
       },
-      "required": ["ports", "recorder", "emiarchive", "emishows"]
+      "required": ["server", "recorder", "emiarchive", "emishows"]
     },
     "secret": {
       "type": "object",

@@ -16,8 +16,14 @@
     "app": {
       "type": "object",
       "properties": {
-        "port": {
-          "type": "integer"
+        "server": {
+          "type": "object",
+          "properties": {
+            "port": {
+              "type": "integer"
+            }
+          },
+          "required": ["port"]
         },
         "events": {
           "type": "object",
@@ -31,14 +37,26 @@
         "emishows": {
           "type": "object",
           "properties": {
-            "host": {
-              "type": "string"
-            },
-            "port": {
-              "type": "integer"
+            "http": {
+              "type": "object",
+              "properties": {
+                "scheme": {
+                  "type": "string"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host", "port", "path"]
             }
           },
-          "required": ["host", "port"]
+          "required": ["http"]
         },
         "emistream": {
           "type": "object",
@@ -46,14 +64,20 @@
             "http": {
               "type": "object",
               "properties": {
+                "scheme": {
+                  "type": "string"
+                },
                 "host": {
                   "type": "string"
                 },
                 "port": {
                   "type": "integer"
+                },
+                "path": {
+                  "type": "string"
                 }
               },
-              "required": ["host", "port"]
+              "required": ["scheme", "host", "port", "path"]
             },
             "srt": {
               "type": "object",
@@ -76,32 +100,44 @@
             "http": {
               "type": "object",
               "properties": {
+                "scheme": {
+                  "type": "string"
+                },
                 "host": {
                   "type": "string"
                 },
                 "port": {
                   "type": "integer"
+                },
+                "path": {
+                  "type": "string"
                 }
               },
-              "required": ["host", "port"]
+              "required": ["scheme", "host", "port", "path"]
             },
             "whip": {
               "type": "object",
               "properties": {
+                "scheme": {
+                  "type": "string"
+                },
                 "host": {
                   "type": "string"
                 },
                 "port": {
                   "type": "integer"
+                },
+                "path": {
+                  "type": "string"
                 }
               },
-              "required": ["host", "port"]
+              "required": ["scheme", "host", "port", "path"]
             }
           },
           "required": ["http", "whip"]
         }
       },
-      "required": ["port", "events", "emishows", "emistream", "emipass"]
+      "required": ["server", "events", "emishows", "emistream", "emipass"]
     },
     "configMap": {
       "type": "object",

@@ -17,10 +17,10 @@ spec:
           ports:
             - name: s3
               protocol: TCP
-              containerPort: {{ required "database.ports.s3 is required" ((.Values.database).ports).s3 | int }}
+              containerPort: {{ required "database.server.ports.s3 is required" (((.Values.database).server).ports).s3 | int }}
             - name: web
               protocol: TCP
-              containerPort: {{ required "database.ports.web is required" ((.Values.database).ports).web | int }}
+              containerPort: {{ required "database.server.ports.web is required" (((.Values.database).server).ports).web | int }}
           envFrom:
             - configMapRef:
                 name: {{ include "emiarchive.configMapName" . | quote }}

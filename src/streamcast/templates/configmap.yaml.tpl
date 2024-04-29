@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   {{- include "streamcast.configMapMetadata" . | nindent 2 }}
 data:
-  STREAMCAST_PORT: {{ required "app.port is required" (.Values.app).port | int | quote }}
+  STREAMCAST__SERVER__PORT: {{ required "app.server.port is required" ((.Values.app).server).port | int | quote }}

@@ -1,12 +1,14 @@
 # Configuration of the database
 database:
-  # Ports to listen on
-  ports:
-    # Port to listen on for S3 connections
-    s3: 30000
+  # Configuration of the server
+  server:
+    # Ports to listen on
+    ports:
+      # Port to listen on for S3 connections
+      s3: 30000
 
-    # Port to listen on for web console traffic
-    web: 30001
+      # Port to listen on for web console traffic
+      web: 30001
 
   # URLs configuration
   urls:

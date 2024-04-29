@@ -1,15 +1,17 @@
 # Configuration of the database
 database:
-  # Ports to listen on
-  ports:
-    # Port to listen on for SQL connections
-    sql: 34000
+  # Configuration of the server
+  server:
+    # Ports to listen on
+    ports:
+      # Port to listen on for SQL connections
+      sql: 34000
 
-    # Port to listen on for HTTP connections
-    http: 34001
+      # Port to listen on for HTTP requests
+      http: 34001
 
-    # Port to listen on for RPC connections
-    rpc: 34002
+      # Port to listen on for RPC requests
+      rpc: 34002
 
   # Credentials for the database
   credentials:
@@ -30,8 +32,8 @@ service:
     # Port to listen on for SQL connections
     sql: 34000
 
-    # Port to listen on for HTTP connections
+    # Port to listen on for HTTP requests
     http: 34001
 
-    # Port to listen on for RPC connections
+    # Port to listen on for RPC requests
     rpc: 34002

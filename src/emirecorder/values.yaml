@@ -1,12 +1,14 @@
 # Configuration of the app
 app:
-  # Ports configuration
-  ports:
-    # Port to listen on for HTTP connections
-    http: 31000
+  # Configuration of the server
+  server:
+    # Ports configuration
+    ports:
+      # Port to listen on for HTTP requests
+      http: 31000
 
-    # Port to listen on for SRT connections
-    srt: 31000
+      # Port to listen on for SRT streams
+      srt: 31000
 
   # Recorder configuration
   recorder:
@@ -18,35 +20,48 @@ app:
 
   # Configuration of the emiarchive service
   emiarchive:
-    # Host to connect to
-    host: emiarchive.emiarchive.svc.cluster.local
+    # Configuration of the S3 API of the emiarchive service
+    s3:
+      # Whether to use secure connection with the S3 API
+      secure: false
 
-    # Port to connect to
-    port: 30000
+      # Host of the S3 API
+      host: emiarchive.emiarchive.svc.cluster.local
 
-    # User to connect as
-    user: readwrite
+      # Port of the S3 API
+      port: 30000
 
-    # Password to connect with
-    password: password
+      # User to authenticate with the S3 API
+      user: readwrite
 
-    # Name of the bucket to use for uploads
-    bucket: live
+      # Password to authenticate with the S3 API
+      password: password
+
+      # Name of the bucket to use for uploads
+      bucket: live
 
   # Configuration of the emishows service
   emishows:
-    # Host to connect to
-    host: emishows.emishows.svc.cluster.local
+    # Configuration of the HTTP API of the emishows service
+    http:
+      # Scheme of the HTTP API
+      scheme: http
 
-    # Port to connect to
-    port: 35000
+      # Host of the HTTP API
+      host: emishows.emishows.svc.cluster.local
+
+      # Port of the HTTP API
+      port: 35000
+
+      # Path of the HTTP API
+      path: ""
 
 # Configuration of the service
 service:
   # Ports configuration
   ports:
-    # Port to listen on for HTTP connections
+    # Port to listen on for HTTP requests
     http: 31000
 
-    # Port to listen on for SRT connections
+    # Port to listen on for SRT streams
     srt: 31000

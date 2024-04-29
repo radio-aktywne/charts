@@ -17,13 +17,13 @@ spec:
           ports:
             - name: sql
               protocol: TCP
-              containerPort: {{ required "database.ports.sql is required" ((.Values.database).ports).sql | int }}
+              containerPort: {{ required "database.server.ports.sql is required" (((.Values.database).server).ports).sql | int }}
             - name: http
               protocol: TCP
-              containerPort: {{ required "database.ports.http is required" ((.Values.database).ports).http | int }}
+              containerPort: {{ required "database.server.ports.http is required" (((.Values.database).server).ports).http | int }}
             - name: rpc
               protocol: TCP
-              containerPort: {{ required "database.ports.rpc is required" ((.Values.database).ports).rpc | int }}
+              containerPort: {{ required "database.server.ports.rpc is required" (((.Values.database).server).ports).rpc | int }}
           envFrom:
             - configMapRef:
                 name: {{ include "emishows-db.configMapName" . | quote }}

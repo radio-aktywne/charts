@@ -17,7 +17,7 @@ spec:
           ports:
             - name: srt
               protocol: UDP
-              containerPort: {{ required "app.port is required" (.Values.app).port | int }}
+              containerPort: {{ required "app.server.port is required" ((.Values.app).server).port | int }}
           envFrom:
             - configMapRef:
                 name: {{ include "fusion.configMapName" . | quote }}

@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   {{- include "fusion.configMapMetadata" . | nindent 2 }}
 data:
-  FUSION_PORT: {{ required "app.port is required" (.Values.app).port | int | quote }}
-  FUSION_STREAMCAST_HOST: {{ required "app.streamcast.host is required" ((.Values.app).streamcast).host | quote }}
-  FUSION_STREAMCAST_PORT: {{ required "app.streamcast.port is required" ((.Values.app).streamcast).port | int | quote }}
-  FUSION_STREAMCAST_MOUNT: {{ required "app.streamcast.mount is required" ((.Values.app).streamcast).mount | quote }}
+  FUSION__SERVER__PORT: {{ required "app.server.port is required" ((.Values.app).server).port | int | quote }}
+  FUSION__STREAMCAST__ICY__HOST: {{ required "app.streamcast.icy.host is required" (((.Values.app).streamcast).icy).host | quote }}
+  FUSION__STREAMCAST__ICY__PORT: {{ required "app.streamcast.icy.port is required" (((.Values.app).streamcast).icy).port | int | quote }}
+  FUSION__STREAMCAST__ICY__MOUNT: {{ required "app.streamcast.icy.mount is required" (((.Values.app).streamcast).icy).mount | quote }}

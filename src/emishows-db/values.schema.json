@@ -16,20 +16,26 @@
     "database": {
       "type": "object",
       "properties": {
-        "ports": {
+        "server": {
           "type": "object",
           "properties": {
-            "sql": {
-              "type": "integer"
-            },
-            "http": {
-              "type": "integer"
-            },
-            "rpc": {
-              "type": "integer"
+            "ports": {
+              "type": "object",
+              "properties": {
+                "sql": {
+                  "type": "integer"
+                },
+                "http": {
+                  "type": "integer"
+                },
+                "rpc": {
+                  "type": "integer"
+                }
+              },
+              "required": ["sql", "http", "rpc"]
             }
           },
-          "required": ["sql", "http", "rpc"]
+          "required": ["ports"]
         },
         "credentials": {
           "type": "object",
@@ -56,7 +62,7 @@
           "required": ["root", "user"]
         }
       },
-      "required": ["ports", "credentials"]
+      "required": ["server", "credentials"]
     },
     "secret": {
       "type": "object",

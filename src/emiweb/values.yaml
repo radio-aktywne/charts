@@ -1,7 +1,9 @@
 # Configuration of the app
 app:
-  # Port to listen on
-  port: 13000
+  # Configuration of the server
+  server:
+    # Port to listen on
+    port: 13000
 
   # Events configuration
   events:
@@ -10,47 +12,73 @@ app:
 
   # Emishows configuration
   emishows:
-    # Host of the emishows service
-    host: emishows.emishows.svc.cluster.local
+    # Configuration of the HTTP API of the emishows service
+    http:
+      # Scheme of the HTTP API
+      scheme: http
 
-    # Port of the emishows service
-    port: 35000
+      # Host of the HTTP API
+      host: emishows.emishows.svc.cluster.local
+
+      # Port of the HTTP API
+      port: 35000
+
+      # Path of the HTTP API
+      path: ""
 
   # Emistream configuration
   emistream:
-    # Configuration of HTTP API
+    # Configuration of the HTTP API of the emistream service
     http:
-      # Host of HTTP API of the emistream service
+      # Scheme of the HTTP API
+      scheme: http
+
+      # Host of the HTTP API
       host: emistream.emistream.svc.cluster.local
 
-      # Port of HTTP API of the emistream service
+      # Port of the HTTP API
       port: 10000
 
-    # Configuration of SRT stream
+      # Path of the HTTP API
+      path: ""
+
+    # Configuration of the SRT stream of the emistream service
     srt:
-      # Host of SRT stream of the emistream service
+      # Host of the SRT stream
       host: emistream.emistream.svc.cluster.local
 
-      # Port of SRT stream of the emistream service
+      # Port of the SRT stream
       port: 10000
 
   # Emipass configuration
   emipass:
-    # Configuration of HTTP API
+    # Configuration of the HTTP API of the emipass service
     http:
-      # Host of HTTP API of the emipass service
+      # Scheme of the HTTP API
+      scheme: http
+
+      # Host of the HTTP API
       host: emipass.emipass.svc.cluster.local
 
-      # Port of HTTP API of the emipass service
+      # Port of the HTTP API
       port: 11000
 
-    # Configuration of WHIP API
+      # Path of the HTTP API
+      path: ""
+
+    # Configuration of the WHIP API of the emipass service
     whip:
-      # Host of WHIP API of the emipass service
+      # Scheme of the WHIP API
+      scheme: http
+
+      # Host of the WHIP API
       host: emipass.emipass.svc.cluster.local
 
-      # Port of WHIP API of the emipass service
+      # Port of the WHIP API
       port: 11001
+
+      # Path of the WHIP API
+      path: ""
 
 # Configuration of the service
 service:

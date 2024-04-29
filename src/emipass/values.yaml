@@ -1,15 +1,17 @@
 # Configuration of the app
 app:
-  # Ports configuration
-  ports:
-    # Port to listen on for HTTP connections
-    http: 11000
+  # Configuration of the server
+  server:
+    # Ports configuration
+    ports:
+      # Port to listen on for HTTP requests
+      http: 11000
 
-    # Port to listen on for WHIP connections
-    whip: 11001
+      # Port to listen on for WHIP requests
+      whip: 11001
 
-    # Port to listen on for RTP connections
-    rtp: 11002
+      # Port to listen on for RTP connections
+      rtp: 11002
 
   # Streamer configuration
   streamer:
@@ -28,10 +30,10 @@ app:
 service:
   # Ports configuration
   ports:
-    # Port to listen on for HTTP connections
+    # Port to listen on for HTTP requests
     http: 11000
 
-    # Port to listen on for WHIP connections
+    # Port to listen on for WHIP requests
     whip: 11001
 
     # Port to listen on for RTP connections

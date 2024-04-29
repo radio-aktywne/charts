@@ -1,13 +1,17 @@
 # Configuration of the database
 database:
-  # Port to listen on
-  port: 36000
+  # Configuration of the server
+  server:
+    # Port to listen on
+    port: 36000
 
-  # Username of the main user
-  user: user
+  # Credentials for the database
+  credentials:
+    # Username of the main user
+    user: user
 
-  # Password of the main user
-  password: password
+    # Password of the main user
+    password: password
 
   # Identifier of the calendar
   calendar: emitimes
