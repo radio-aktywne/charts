@@ -1,11 +1,10 @@
 # Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
-_commit: 0.7.0
-_src_path: gh:radio-aktywne/template-generic
+_commit: 0.1.0
+_src_path: gh:radio-aktywne/template-helm
 accountname: radio-aktywne
 description: Helm charts ⛵
 docs: true
 docsurl: https://radio-aktywne.github.io/charts
 projectname: charts
-releases: false
 reponame: charts
 repourl: https://github.com/radio-aktywne/charts
