@@ -55,11 +55,17 @@
             "interval": {
               "type": "string"
             },
-            "window": {
-              "type": "string"
+            "stream": {
+              "type": "object",
+              "properties": {
+                "window": {
+                  "type": "string"
+                }
+              },
+              "required": ["window"]
             }
           },
-          "required": ["reference", "interval", "window"]
+          "required": ["reference", "interval", "stream"]
         },
         "emishows": {
           "type": "object",
