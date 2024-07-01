@@ -9,7 +9,7 @@ data:
   EMISCHEDULER__CLEANER__INTERVAL: {{ required "app.cleaner.interval is required" ((.Values.app).cleaner).interval | quote }}
   EMISCHEDULER__SYNCHRONIZER__REFERENCE: {{ required "app.synchronizer.reference is required" ((.Values.app).synchronizer).reference | quote }}
   EMISCHEDULER__SYNCHRONIZER__INTERVAL: {{ required "app.synchronizer.interval is required" ((.Values.app).synchronizer).interval | quote }}
-  EMISCHEDULER__SYNCHRONIZER__WINDOW: {{ required "app.synchronizer.window is required" ((.Values.app).synchronizer).window | quote }}
+  EMISCHEDULER__SYNCHRONIZER__STREAM__WINDOW: {{ required "app.synchronizer.stream.window is required" (((.Values.app).synchronizer).stream).window | quote }}
   EMISCHEDULER__EMISHOWS__HTTP__SCHEME: {{ required "app.emishows.http.scheme is required" (((.Values.app).emishows).http).scheme | quote }}
   EMISCHEDULER__EMISHOWS__HTTP__HOST: {{ required "app.emishows.http.host is required" (((.Values.app).emishows).http).host | quote }}
   EMISCHEDULER__EMISHOWS__HTTP__PORT: {{ required "app.emishows.http.port is required" (((.Values.app).emishows).http).port | int | quote }}

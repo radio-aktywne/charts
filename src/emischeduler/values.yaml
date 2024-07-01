@@ -26,8 +26,10 @@ app:
     # Interval between synchronizations
     interval: PT1M
 
-    # Duration of the time window
-    window: P1D
+    # Stream synchronizer configuration
+    stream:
+      # Duration of the time window
+      window: P1D
 
   # Configuration of the emishows service
   emishows:
