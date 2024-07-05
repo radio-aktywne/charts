@@ -91,7 +91,7 @@
           },
           "required": ["http"]
         },
-        "emiarchive": {
+        "datarecords": {
           "type": "object",
           "properties": {
             "s3": {
@@ -180,7 +180,7 @@
         "cleaner",
         "synchronizer",
         "emishows",
-        "emiarchive",
+        "datarecords",
         "emistream"
       ]
     },

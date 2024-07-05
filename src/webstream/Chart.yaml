@@ -2,20 +2,20 @@
 apiVersion: v2
 
 # Version of the chart itself
-version: "0.7.0"
+version: "0.4.0"
 
 # Version of the application provided by this chart
-appVersion: "0.11.0"
+appVersion: "0.4.0"
 
 # Name of the chart
-name: emischeduler
+name: webstream
 
 # A short description of the chart
-description: Emission scheduling 📅
+description: Emission streaming web UI 🎤
 
 # Home page of the app
-home: https://radio-aktywne.github.io/app-emischeduler
+home: https://radio-aktywne.github.io/app-webstream
 
 # Source code repository of the app
 sources:
-  - https://github.com/radio-aktywne/app-emischeduler
+  - https://github.com/radio-aktywne/app-webstream

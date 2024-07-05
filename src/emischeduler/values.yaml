@@ -47,15 +47,15 @@ app:
       # Path of the HTTP API
       path: ""
 
-  # Configuration of the emiarchive service
-  emiarchive:
-    # Configuration of the S3 API of the emiarchive service
+  # Configuration of the datarecords database
+  datarecords:
+    # Configuration of the S3 API of the datarecords database
     s3:
       # Whether to use secure connection with the S3 API
       secure: false
 
       # Host of the S3 API
-      host: emiarchive.emiarchive.svc.cluster.local
+      host: datarecords.datarecords.svc.cluster.local
 
       # Port of the S3 API
       port: 30000

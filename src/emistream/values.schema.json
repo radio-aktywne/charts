@@ -64,7 +64,7 @@
           },
           "required": ["srt"]
         },
-        "emirecorder": {
+        "emirecords": {
           "type": "object",
           "properties": {
             "http": {
@@ -125,7 +125,7 @@
           "required": ["http"]
         }
       },
-      "required": ["server", "stream", "fusion", "emirecorder", "emishows"]
+      "required": ["server", "stream", "fusion", "emirecords", "emishows"]
     },
     "configMap": {
       "type": "object",

@@ -19,37 +19,74 @@
         "server": {
           "type": "object",
           "properties": {
-            "port": {
-              "type": "integer"
-            }
-          },
-          "required": ["port"]
-        },
-        "datashows": {
-          "type": "object",
-          "properties": {
-            "sql": {
+            "ports": {
               "type": "object",
               "properties": {
+                "http": {
+                  "type": "integer"
+                },
+                "srt": {
+                  "type": "integer"
+                }
+              },
+              "required": ["http", "srt"]
+            }
+          },
+          "required": ["ports"]
+        },
+        "recorder": {
+          "type": "object",
+          "properties": {
+            "timeout": {
+              "type": "string"
+            },
+            "window": {
+              "type": "string"
+            }
+          },
+          "required": ["timeout", "window"]
+        },
+        "datarecords": {
+          "type": "object",
+          "properties": {
+            "s3": {
+              "type": "object",
+              "properties": {
+                "secure": {
+                  "type": "boolean"
+                },
                 "host": {
                   "type": "string"
                 },
                 "port": {
                   "type": "integer"
                 },
+                "user": {
+                  "type": "string"
+                },
                 "password": {
+                  "type": "string"
+                },
+                "bucket": {
                   "type": "string"
                 }
               },
-              "required": ["host", "port", "password"]
+              "required": [
+                "secure",
+                "host",
+                "port",
+                "user",
+                "password",
+                "bucket"
+              ]
             }
           },
-          "required": ["sql"]
+          "required": ["s3"]
         },
-        "datatimes": {
+        "emishows": {
           "type": "object",
           "properties": {
-            "caldav": {
+            "http": {
               "type": "object",
               "properties": {
                 "scheme": {
@@ -63,32 +100,15 @@
                 },
                 "path": {
                   "type": "string"
-                },
-                "user": {
-                  "type": "string"
-                },
-                "password": {
-                  "type": "string"
-                },
-                "calendar": {
-                  "type": "string"
                 }
               },
-              "required": [
-                "scheme",
-                "host",
-                "port",
-                "path",
-                "user",
-                "password",
-                "calendar"
-              ]
+              "required": ["scheme", "host", "port", "path"]
             }
           },
-          "required": ["caldav"]
+          "required": ["http"]
         }
       },
-      "required": ["server", "datashows", "datatimes"]
+      "required": ["server", "recorder", "datarecords", "emishows"]
     },
     "secret": {
       "type": "object",
@@ -131,8 +151,17 @@
     "service": {
       "type": "object",
       "properties": {
-        "port": {
-          "type": "integer"
+        "ports": {
+          "type": "object",
+          "properties": {
+            "http": {
+              "type": "integer"
+            },
+            "srt": {
+              "type": "integer"
+            }
+          },
+          "required": ["http", "srt"]
         },
         "metadata": {
           "type": "object"
@@ -141,7 +170,7 @@
           "type": "object"
         }
       },
-      "required": ["port"]
+      "required": ["ports"]
     }
   },
   "required": ["app", "service"]

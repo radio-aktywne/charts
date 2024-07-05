@@ -4,12 +4,12 @@ metadata:
   {{- include "emishows.configMapMetadata" . | nindent 2 }}
 data:
   EMISHOWS__SERVER__PORT: {{ required "app.server.port is required" ((.Values.app).server).port | int | quote }}
-  EMISHOWS__DATABASE__SQL__HOST: {{ required "app.database.sql.host is required" (((.Values.app).database).sql).host | quote }}
-  EMISHOWS__DATABASE__SQL__PORT: {{ required "app.database.sql.port is required" (((.Values.app).database).sql).port | int | quote }}
-  EMISHOWS__EMITIMES__CALDAV__SCHEME: {{ required "app.emitimes.caldav.scheme is required" (((.Values.app).emitimes).caldav).scheme | quote }}
-  EMISHOWS__EMITIMES__CALDAV__HOST: {{ required "app.emitimes.caldav.host is required" (((.Values.app).emitimes).caldav).host | quote }}
-  EMISHOWS__EMITIMES__CALDAV__PORT: {{ required "app.emitimes.caldav.port is required" (((.Values.app).emitimes).caldav).port | int | quote }}
-  {{- if (((.Values.app).emitimes).caldav).path }}
-  EMISHOWS__EMITIMES__CALDAV__PATH: {{ .Values.app.emitimes.caldav.path | quote }}
+  EMISHOWS__DATASHOWS__SQL__HOST: {{ required "app.datashows.sql.host is required" (((.Values.app).datashows).sql).host | quote }}
+  EMISHOWS__DATASHOWS__SQL__PORT: {{ required "app.datashows.sql.port is required" (((.Values.app).datashows).sql).port | int | quote }}
+  EMISHOWS__DATATIMES__CALDAV__SCHEME: {{ required "app.datatimes.caldav.scheme is required" (((.Values.app).datatimes).caldav).scheme | quote }}
+  EMISHOWS__DATATIMES__CALDAV__HOST: {{ required "app.datatimes.caldav.host is required" (((.Values.app).datatimes).caldav).host | quote }}
+  EMISHOWS__DATATIMES__CALDAV__PORT: {{ required "app.datatimes.caldav.port is required" (((.Values.app).datatimes).caldav).port | int | quote }}
+  {{- if (((.Values.app).datatimes).caldav).path }}
+  EMISHOWS__DATATIMES__CALDAV__PATH: {{ .Values.app.datatimes.caldav.path | quote }}
   {{- end }}
-  EMISHOWS__EMITIMES__CALDAV__CALENDAR: {{ required "app.emitimes.caldav.calendar is required" (((.Values.app).emitimes).caldav).calendar | quote }}
+  EMISHOWS__DATATIMES__CALDAV__CALENDAR: {{ required "app.datatimes.caldav.calendar is required" (((.Values.app).datatimes).caldav).calendar | quote }}

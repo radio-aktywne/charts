@@ -28,15 +28,15 @@ app:
       # Port of the SRT stream
       port: 9000
 
-  # Configuration of the emirecorder service
-  emirecorder:
-    # Configuration of the HTTP API of the emirecorder service
+  # Configuration of the emirecords service
+  emirecords:
+    # Configuration of the HTTP API of the emirecords service
     http:
       # Scheme of the HTTP API
       scheme: http
 
       # Host of the HTTP API
-      host: emirecorder.emirecorder.svc.cluster.local
+      host: emirecords.emirecords.svc.cluster.local
 
       # Port of the HTTP API
       port: 31000
@@ -44,10 +44,10 @@ app:
       # Path of the HTTP API
       path: ""
 
-    # Configuration of the SRT stream of the emirecorder service
+    # Configuration of the SRT stream of the emirecords service
     srt:
       # Host of the SRT stream
-      host: emirecorder.emirecorder.svc.cluster.local
+      host: emirecords.emirecords.svc.cluster.local
 
       # Port of the SRT stream
       port: 31000
