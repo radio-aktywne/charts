@@ -16,11 +16,11 @@ data:
   {{- if (((.Values.app).emishows).http).path }}
   EMISCHEDULER__EMISHOWS__HTTP__PATH: {{ .Values.app.emishows.http.path | quote }}
   {{- end }}
-  EMISCHEDULER__EMIARCHIVE__S3__SECURE: {{ required "app.emiarchive.s3.secure is required" (((.Values.app).emiarchive).s3).secure | quote }}
-  EMISCHEDULER__EMIARCHIVE__S3__HOST: {{ required "app.emiarchive.s3.host is required" (((.Values.app).emiarchive).s3).host | quote }}
-  EMISCHEDULER__EMIARCHIVE__S3__PORT: {{ required "app.emiarchive.s3.port is required" (((.Values.app).emiarchive).s3).port | int | quote }}
-  EMISCHEDULER__EMIARCHIVE__S3__LIVE_BUCKET: {{ required "app.emiarchive.s3.buckets.live is required" ((((.Values.app).emiarchive).s3).buckets).live | quote }}
-  EMISCHEDULER__EMIARCHIVE__S3__PRERECORDED_BUCKET: {{ required "app.emiarchive.s3.buckets.prerecorded is required" ((((.Values.app).emiarchive).s3).buckets).prerecorded | quote }}
+  EMISCHEDULER__DATARECORDS__S3__SECURE: {{ required "app.datarecords.s3.secure is required" (((.Values.app).datarecords).s3).secure | quote }}
+  EMISCHEDULER__DATARECORDS__S3__HOST: {{ required "app.datarecords.s3.host is required" (((.Values.app).datarecords).s3).host | quote }}
+  EMISCHEDULER__DATARECORDS__S3__PORT: {{ required "app.datarecords.s3.port is required" (((.Values.app).datarecords).s3).port | int | quote }}
+  EMISCHEDULER__DATARECORDS__S3__LIVE_BUCKET: {{ required "app.datarecords.s3.buckets.live is required" ((((.Values.app).datarecords).s3).buckets).live | quote }}
+  EMISCHEDULER__DATARECORDS__S3__PRERECORDED_BUCKET: {{ required "app.datarecords.s3.buckets.prerecorded is required" ((((.Values.app).datarecords).s3).buckets).prerecorded | quote }}
   EMISCHEDULER__EMISTREAM__HTTP__SCHEME: {{ required "app.emistream.http.scheme is required" (((.Values.app).emistream).http).scheme | quote }}
   EMISCHEDULER__EMISTREAM__HTTP__HOST: {{ required "app.emistream.http.host is required" (((.Values.app).emistream).http).host | quote }}
   EMISCHEDULER__EMISTREAM__HTTP__PORT: {{ required "app.emistream.http.port is required" (((.Values.app).emistream).http).port | int | quote }}

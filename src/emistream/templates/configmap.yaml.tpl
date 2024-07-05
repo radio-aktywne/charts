@@ -9,14 +9,14 @@ data:
   EMISTREAM__STREAM__WINDOW: {{ required "app.stream.window is required" ((.Values.app).stream).window | quote }}
   EMISTREAM__FUSION__SRT__HOST: {{ required "app.fusion.srt.host is required" (((.Values.app).fusion).srt).host | quote }}
   EMISTREAM__FUSION__SRT__PORT: {{ required "app.fusion.srt.port is required" (((.Values.app).fusion).srt).port | int | quote }}
-  EMISTREAM__EMIRECORDER__HTTP__SCHEME: {{ required "app.emirecorder.http.scheme is required" (((.Values.app).emirecorder).http).scheme | quote }}
-  EMISTREAM__EMIRECORDER__HTTP__HOST: {{ required "app.emirecorder.http.host is required" (((.Values.app).emirecorder).http).host | quote }}
-  EMISTREAM__EMIRECORDER__HTTP__PORT: {{ required "app.emirecorder.http.port is required" (((.Values.app).emirecorder).http).port | int | quote }}
-  {{- if (((.Values.app).emirecorder).http).path }}
-  EMISTREAM__EMIRECORDER__HTTP__PATH: {{ .Values.app.emirecorder.http.path | quote }}
+  EMISTREAM__EMIRECORDS__HTTP__SCHEME: {{ required "app.emirecords.http.scheme is required" (((.Values.app).emirecords).http).scheme | quote }}
+  EMISTREAM__EMIRECORDS__HTTP__HOST: {{ required "app.emirecords.http.host is required" (((.Values.app).emirecords).http).host | quote }}
+  EMISTREAM__EMIRECORDS__HTTP__PORT: {{ required "app.emirecords.http.port is required" (((.Values.app).emirecords).http).port | int | quote }}
+  {{- if (((.Values.app).emirecords).http).path }}
+  EMISTREAM__EMIRECORDS__HTTP__PATH: {{ .Values.app.emirecords.http.path | quote }}
   {{- end }}
-  EMISTREAM__EMIRECORDER__SRT__HOST: {{ required "app.emirecorder.srt.host is required" (((.Values.app).emirecorder).srt).host | quote }}
-  EMISTREAM__EMIRECORDER__SRT__PORT: {{ required "app.emirecorder.srt.port is required" (((.Values.app).emirecorder).srt).port | int | quote }}
+  EMISTREAM__EMIRECORDS__SRT__HOST: {{ required "app.emirecords.srt.host is required" (((.Values.app).emirecords).srt).host | quote }}
+  EMISTREAM__EMIRECORDS__SRT__PORT: {{ required "app.emirecords.srt.port is required" (((.Values.app).emirecords).srt).port | int | quote }}
   EMISTREAM__EMISHOWS__HTTP__SCHEME: {{ required "app.emishows.http.scheme is required" (((.Values.app).emishows).http).scheme | quote }}
   EMISTREAM__EMISHOWS__HTTP__HOST: {{ required "app.emishows.http.host is required" (((.Values.app).emishows).http).host | quote }}
   EMISTREAM__EMISHOWS__HTTP__PORT: {{ required "app.emishows.http.port is required" (((.Values.app).emishows).http).port | int | quote }}

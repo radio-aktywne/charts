@@ -5,12 +5,12 @@ app:
     # Port to listen on
     port: 35000
 
-  # Database configuration
-  database:
-    # Configuration of the SQL API of the database
+  # Datashows configuration
+  datashows:
+    # Configuration of the SQL API of the datashows database
     sql:
       # Host of the SQL API
-      host: emishows-db.emishows-db.svc.cluster.local
+      host: datashows.datashows.svc.cluster.local
 
       # Port of the SQL API
       port: 34000
@@ -18,15 +18,15 @@ app:
       # Password to authenticate with the SQL API
       password: password
 
-  # Emitimes configuration
-  emitimes:
-    # Configuration of the CalDAV API of the emitimes service
+  # Datatimes configuration
+  datatimes:
+    # Configuration of the CalDAV API of the datatimes service
     caldav:
       # Scheme of the CalDAV API
       scheme: http
 
       # Host of the CalDAV API
-      host: emitimes.emitimes.svc.cluster.local
+      host: datatimes.datatimes.svc.cluster.local
 
       # Port of the CalDAV API
       port: 36000
@@ -41,7 +41,7 @@ app:
       password: password
 
       # Calendar to use for the CalDAV API
-      calendar: emitimes
+      calendar: datatimes
 
 # Configuration of the service
 service:
