@@ -14,6 +14,7 @@ spec:
       containers:
         - name: {{ include "datatunes.containerName" . | quote }}
           image: "ghcr.io/radio-aktywne/databases/datatunes:{{ .Chart.AppVersion }}"
+          imagePullPolicy: Always
           ports:
             - name: sql
               protocol: TCP

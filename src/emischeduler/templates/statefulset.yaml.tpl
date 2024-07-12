@@ -14,6 +14,7 @@ spec:
       containers:
         - name: {{ include "emischeduler.containerName" . | quote }}
           image: "ghcr.io/radio-aktywne/apps/emischeduler:{{ .Chart.AppVersion }}"
+          imagePullPolicy: Always
           ports:
             - name: http
               protocol: TCP

@@ -14,6 +14,7 @@ spec:
       containers:
         - name: {{ include "datatimes.containerName" . | quote }}
           image: "ghcr.io/radio-aktywne/databases/datatimes:{{ .Chart.AppVersion }}"
+          imagePullPolicy: Always
           ports:
             - name: http
               protocol: TCP

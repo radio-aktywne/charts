@@ -14,6 +14,7 @@ spec:
       containers:
         - name: {{ include "mediatunes.containerName" . | quote }}
           image: "ghcr.io/radio-aktywne/databases/mediatunes:{{ .Chart.AppVersion }}"
+          imagePullPolicy: Always
           ports:
             - name: s3
               protocol: TCP
