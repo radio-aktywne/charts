@@ -84,21 +84,9 @@
             }
           },
           "required": ["admin", "readonly", "readwrite"]
-        },
-        "buckets": {
-          "type": "object",
-          "properties": {
-            "media": {
-              "type": "string"
-            },
-            "metadata": {
-              "type": "string"
-            }
-          },
-          "required": ["media", "metadata"]
         }
       },
-      "required": ["server", "urls", "credentials", "buckets"]
+      "required": ["server", "urls", "credentials"]
     },
     "secret": {
       "type": "object",

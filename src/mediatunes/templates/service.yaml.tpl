@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  {{- include "datatunes.serviceMetadata" . | nindent 2 }}
+  {{- include "mediatunes.serviceMetadata" . | nindent 2 }}
 spec:
   clusterIP: None
   selector:
-    {{- include "datatunes.selector" . | nindent 4 }}
+    {{- include "mediatunes.selector" . | nindent 4 }}
   ports:
     - name: s3
       protocol: TCP
