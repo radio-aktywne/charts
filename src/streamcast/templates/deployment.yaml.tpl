@@ -14,6 +14,7 @@ spec:
       containers:
         - name: {{ include "streamcast.containerName" . | quote }}
           image: "ghcr.io/radio-aktywne/apps/streamcast:{{ .Chart.AppVersion }}"
+          imagePullPolicy: Always
           ports:
             - name: http
               protocol: TCP

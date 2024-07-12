@@ -14,6 +14,7 @@ spec:
       containers:
         - name: {{ include "webscheduler.containerName" . | quote }}
           image: "ghcr.io/radio-aktywne/apps/webscheduler:{{ .Chart.AppVersion }}"
+          imagePullPolicy: Always
           ports:
             - name: http
               protocol: TCP

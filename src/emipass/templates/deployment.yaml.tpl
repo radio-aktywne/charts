@@ -14,6 +14,7 @@ spec:
       containers:
         - name: {{ include "emipass.containerName" . | quote }}
           image: "ghcr.io/radio-aktywne/apps/emipass:{{ .Chart.AppVersion }}"
+          imagePullPolicy: Always
           ports:
             - name: http
               protocol: TCP

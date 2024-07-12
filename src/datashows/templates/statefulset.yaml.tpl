@@ -14,6 +14,7 @@ spec:
       containers:
         - name: {{ include "datashows.containerName" . | quote }}
           image: "ghcr.io/radio-aktywne/databases/datashows:{{ .Chart.AppVersion }}"
+          imagePullPolicy: Always
           ports:
             - name: sql
               protocol: TCP

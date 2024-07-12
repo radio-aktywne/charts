@@ -14,6 +14,7 @@ spec:
       containers:
         - name: {{ include "fusion.containerName" . | quote }}
           image: "ghcr.io/radio-aktywne/apps/fusion:{{ .Chart.AppVersion }}"
+          imagePullPolicy: Always
           ports:
             - name: srt
               protocol: UDP

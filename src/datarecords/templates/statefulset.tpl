@@ -14,6 +14,7 @@ spec:
       containers:
         - name: {{ include "datarecords.containerName" . | quote }}
           image: "ghcr.io/radio-aktywne/databases/datarecords:{{ .Chart.AppVersion }}"
+          imagePullPolicy: Always
           ports:
             - name: s3
               protocol: TCP

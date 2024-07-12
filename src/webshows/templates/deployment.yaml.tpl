@@ -14,6 +14,7 @@ spec:
       containers:
         - name: {{ include "webshows.containerName" . | quote }}
           image: "ghcr.io/radio-aktywne/apps/webshows:{{ .Chart.AppVersion }}"
+          imagePullPolicy: Always
           ports:
             - name: http
               protocol: TCP
