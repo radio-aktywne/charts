@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  {{- include "datatunes.statefulSetMetadata" . | nindent 2 }}
+  {{- include "mediatunes.statefulSetMetadata" . | nindent 2 }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      {{- include "datatunes.selector" . | nindent 6 }}
+      {{- include "mediatunes.selector" . | nindent 6 }}
   template:
     metadata:
-      {{- include "datatunes.podMetadata" . | nindent 6 }}
+      {{- include "mediatunes.podMetadata" . | nindent 6 }}
     spec:
       containers:
-        - name: {{ include "datatunes.containerName" . | quote }}
-          image: "ghcr.io/radio-aktywne/databases/datatunes:{{ .Chart.AppVersion }}"
+        - name: {{ include "mediatunes.containerName" . | quote }}
+          image: "ghcr.io/radio-aktywne/databases/mediatunes:{{ .Chart.AppVersion }}"
           ports:
             - name: s3
               protocol: TCP
@@ -23,12 +23,12 @@ spec:
               containerPort: {{ required "database.server.ports.web is required" (((.Values.database).server).ports).web | int }}
           envFrom:
             - configMapRef:
-                name: {{ include "datatunes.configMapName" . | quote }}
+                name: {{ include "mediatunes.configMapName" . | quote }}
             - secretRef:
-                name: {{ include "datatunes.secretName" . | quote }}
+                name: {{ include "mediatunes.secretName" . | quote }}
           {{- if .Values.volume }}
           volumeMounts:
-            - name: {{ include "datatunes.volumeName" . | quote }}
+            - name: {{ include "mediatunes.volumeName" . | quote }}
               mountPath: /database/data/
           {{- end }}
           livenessProbe:
@@ -47,7 +47,7 @@ spec:
   {{- if .Values.volume }}
   volumeClaimTemplates:
     - metadata:
-        {{- include "datatunes.volumeMetadata" . | nindent 8 }}
+        {{- include "mediatunes.volumeMetadata" . | nindent 8 }}
       spec:
         {{- if (.Values.volume).class }}
         storageClassName: {{ (.Values.volume).class | quote }}
