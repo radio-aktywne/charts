@@ -5,6 +5,9 @@ app:
     # Port to listen on
     port: 42000
 
+    # Trusted IP addresses
+    trusted: "*"
+
   # Datatunes configuration
   datatunes:
     # Configuration of the SQL API of the datatunes database
