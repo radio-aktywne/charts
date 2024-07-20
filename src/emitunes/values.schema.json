@@ -21,9 +21,12 @@
           "properties": {
             "port": {
               "type": "integer"
+            },
+            "trusted": {
+              "type": "string"
             }
           },
-          "required": ["port"]
+          "required": ["port", "trusted"]
         },
         "datatunes": {
           "type": "object",
