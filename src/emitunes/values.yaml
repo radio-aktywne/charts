@@ -1,0 +1,43 @@
+# Configuration of the app
+app:
+  # Configuration of the server
+  server:
+    # Port to listen on
+    port: 42000
+
+  # Datatunes configuration
+  datatunes:
+    # Configuration of the SQL API of the datatunes database
+    sql:
+      # Host of the SQL API
+      host: datatunes.datatunes.svc.cluster.local
+
+      # Port of the SQL API
+      port: 41000
+
+      # Password to authenticate with the SQL API
+      password: password
+
+  # Mediatunes configuration
+  mediatunes:
+    # Configuration of the S3 API of the mediatunes service
+    s3:
+      # Whether to use secure connection with the S3 API
+      secure: false
+
+      # Host of the S3 API
+      host: mediatunes.mediatunes.svc.cluster.local
+
+      # Port of the S3 API
+      port: 40000
+
+      # User to authenticate with the S3 API
+      user: readwrite
+
+      # Password to authenticate with the S3 API
+      password: password
+
+# Configuration of the service
+service:
+  # Port to listen on
+  port: 42000
