@@ -3,6 +3,7 @@ kind: Service
 metadata:
   {{- include "emischeduler.serviceMetadata" . | nindent 2 }}
 spec:
+  clusterIP: None
   selector:
     {{- include "emischeduler.selector" . | nindent 4 }}
   ports:
