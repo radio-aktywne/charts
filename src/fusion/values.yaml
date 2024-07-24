@@ -2,8 +2,15 @@
 app:
   # Configuration of the server
   server:
-    # Port to listen on
-    port: 9000
+    # SRT configuration
+    srt:
+      # Port to listen on
+      port: 9000
+
+    # HTTP configuration
+    http:
+      # Port to listen on
+      port: 9001
 
   # Configuration of the streamcast service
   streamcast:
@@ -24,7 +31,28 @@ app:
       # Mount point to send audio to
       mount: /radio.mp3
 
+  # Configuration of the emitunes service
+  emitunes:
+    # Configuration of the HTTP API of the emitunes service
+    http:
+      # Scheme of the HTTP API
+      scheme: http
+
+      # Host of the HTTP API
+      host: emitunes.emitunes.svc.cluster.local
+
+      # Port of the HTTP API
+      port: 42000
+
+      # Path of the HTTP API
+      path: ""
+
 # Configuration of the service
 service:
-  # Port to listen on
-  port: 9000
+  # Ports to listen on
+  ports:
+    # Port to listen on for SRT connections
+    srt: 9000
+
+    # Port to listen on for HTTP requests
+    http: 9001

@@ -19,11 +19,26 @@
         "server": {
           "type": "object",
           "properties": {
-            "port": {
-              "type": "integer"
+            "srt": {
+              "type": "object",
+              "properties": {
+                "port": {
+                  "type": "integer"
+                }
+              },
+              "required": ["port"]
+            },
+            "http": {
+              "type": "object",
+              "properties": {
+                "port": {
+                  "type": "integer"
+                }
+              },
+              "required": ["port"]
             }
           },
-          "required": ["port"]
+          "required": ["srt", "http"]
         },
         "streamcast": {
           "type": "object",
@@ -51,9 +66,33 @@
             }
           },
           "required": ["icy"]
+        },
+        "emitunes": {
+          "type": "object",
+          "properties": {
+            "http": {
+              "type": "object",
+              "properties": {
+                "scheme": {
+                  "type": "string"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host", "port", "path"]
+            }
+          },
+          "required": ["http"]
         }
       },
-      "required": ["server", "streamcast"]
+      "required": ["server", "streamcast", "emitunes"]
     },
     "secret": {
       "type": "object",
@@ -71,6 +110,37 @@
         }
       }
     },
+    "volume": {
+      "type": "object",
+      "properties": {
+        "access": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "class": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string"
+        },
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "required": ["access", "size"]
+    },
     "pod": {
       "type": "object",
       "properties": {
@@ -82,7 +152,7 @@
         }
       }
     },
-    "deployment": {
+    "statefulSet": {
       "type": "object",
       "properties": {
         "metadata": {
@@ -96,8 +166,17 @@
     "service": {
       "type": "object",
       "properties": {
-        "port": {
-          "type": "integer"
+        "ports": {
+          "type": "object",
+          "properties": {
+            "srt": {
+              "type": "integer"
+            },
+            "http": {
+              "type": "integer"
+            }
+          },
+          "required": ["srt", "http"]
         },
         "metadata": {
           "type": "object"
@@ -106,7 +185,7 @@
           "type": "object"
         }
       },
-      "required": ["port"]
+      "required": ["ports"]
     }
   },
   "required": ["app", "service"]

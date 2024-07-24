@@ -33,9 +33,16 @@ Name of the ConfigMap
 {{- end }}
 
 {{/*
-Name of the Deployment
+Name of the Volume
 */}}
-{{- define "fusion.deploymentName" -}}
+{{- define "fusion.volumeName" -}}
+{{ include "fusion.name" . }}
+{{- end }}
+
+{{/*
+Name of the StatefulSet
+*/}}
+{{- define "fusion.statefulSetName" -}}
 {{ include "fusion.name" . }}
 {{- end }}
 
@@ -102,6 +109,18 @@ name: {{ include "fusion.configMapName" . | quote }}
 {{- end }}
 
 {{/*
+Metadata to use in the Volume
+*/}}
+{{- define "fusion.volumeMetadata" -}}
+{{- $commonMetadata := (.Values.common).metadata | default dict | deepCopy }}
+{{- $volumeMetadata := (.Values.volume).metadata | default dict | deepCopy }}
+{{- $chartMetadata := include "fusion.metadata" . | fromYaml | deepCopy }}
+{{- $metadata := mergeOverwrite $commonMetadata $volumeMetadata $chartMetadata -}}
+name: {{ include "fusion.volumeName" . | quote }}
+{{ toYaml $metadata }}
+{{- end }}
+
+{{/*
 Metadata to use in the Pod
 */}}
 {{- define "fusion.podMetadata" -}}
@@ -113,14 +132,14 @@ Metadata to use in the Pod
 {{- end }}
 
 {{/*
-Metadata to use in the Deployment
+Metadata to use in the StatefulSet
 */}}
-{{- define "fusion.deploymentMetadata" -}}
+{{- define "fusion.statefulSetMetadata" -}}
 {{- $commonMetadata := (.Values.common).metadata | default dict | deepCopy }}
-{{- $deploymentMetadata := (.Values.deployment).metadata | default dict | deepCopy }}
+{{- $statefulSetMetadata := (.Values.statefulSet).metadata | default dict | deepCopy }}
 {{- $chartMetadata := include "fusion.metadata" . | fromYaml | deepCopy }}
-{{- $metadata := mergeOverwrite $commonMetadata $deploymentMetadata $chartMetadata -}}
-name: {{ include "fusion.deploymentName" . | quote }}
+{{- $metadata := mergeOverwrite $commonMetadata $statefulSetMetadata $chartMetadata -}}
+name: {{ include "fusion.statefulSetName" . | quote }}
 {{ toYaml $metadata }}
 {{- end }}
 
