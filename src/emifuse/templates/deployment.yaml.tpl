@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  {{- include "fusion.statefulSetMetadata" . | nindent 2 }}
+  {{- include "emifuse.statefulSetMetadata" . | nindent 2 }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      {{- include "fusion.selector" . | nindent 6 }}
+      {{- include "emifuse.selector" . | nindent 6 }}
   template:
     metadata:
-      {{- include "fusion.podMetadata" . | nindent 6 }}
+      {{- include "emifuse.podMetadata" . | nindent 6 }}
     spec:
       containers:
-        - name: {{ include "fusion.containerName" . | quote }}
-          image: "ghcr.io/radio-aktywne/apps/fusion:{{ .Chart.AppVersion }}"
+        - name: {{ include "emifuse.containerName" . | quote }}
+          image: "ghcr.io/radio-aktywne/apps/emifuse:{{ .Chart.AppVersion }}"
           imagePullPolicy: Always
           ports:
             - name: srt
@@ -24,12 +24,12 @@ spec:
               containerPort: {{ required "app.server.http.port is required" (((.Values.app).server).http).port | int }}
           envFrom:
             - configMapRef:
-                name: {{ include "fusion.configMapName" . | quote }}
+                name: {{ include "emifuse.configMapName" . | quote }}
             - secretRef:
-                name: {{ include "fusion.secretName" . | quote }}
+                name: {{ include "emifuse.secretName" . | quote }}
           {{- if .Values.volume }}
           volumeMounts:
-            - name: {{ include "fusion.volumeName" . | quote }}
+            - name: {{ include "emifuse.volumeName" . | quote }}
               mountPath: /app/data/
           {{- end }}
           livenessProbe:
@@ -48,7 +48,7 @@ spec:
   {{- if .Values.volume }}
   volumeClaimTemplates:
     - metadata:
-        {{- include "fusion.volumeMetadata" . | nindent 8 }}
+        {{- include "emifuse.volumeMetadata" . | nindent 8 }}
       spec:
         {{- if (.Values.volume).class }}
         storageClassName: {{ (.Values.volume).class | quote }}

@@ -7,8 +7,8 @@ data:
   EMISTREAM__SERVER__PORTS__SRT: {{ required "app.server.ports.srt is required" (((.Values.app).server).ports).srt | int | quote }}
   EMISTREAM__STREAM__TIMEOUT: {{ required "app.stream.timeout is required" ((.Values.app).stream).timeout | quote }}
   EMISTREAM__STREAM__WINDOW: {{ required "app.stream.window is required" ((.Values.app).stream).window | quote }}
-  EMISTREAM__FUSION__SRT__HOST: {{ required "app.fusion.srt.host is required" (((.Values.app).fusion).srt).host | quote }}
-  EMISTREAM__FUSION__SRT__PORT: {{ required "app.fusion.srt.port is required" (((.Values.app).fusion).srt).port | int | quote }}
+  EMISTREAM__EMIFUSE__SRT__HOST: {{ required "app.emifuse.srt.host is required" (((.Values.app).emifuse).srt).host | quote }}
+  EMISTREAM__EMIFUSE__SRT__PORT: {{ required "app.emifuse.srt.port is required" (((.Values.app).emifuse).srt).port | int | quote }}
   EMISTREAM__EMIRECORDS__HTTP__SCHEME: {{ required "app.emirecords.http.scheme is required" (((.Values.app).emirecords).http).scheme | quote }}
   EMISTREAM__EMIRECORDS__HTTP__HOST: {{ required "app.emirecords.http.host is required" (((.Values.app).emirecords).http).host | quote }}
   EMISTREAM__EMIRECORDS__HTTP__PORT: {{ required "app.emirecords.http.port is required" (((.Values.app).emirecords).http).port | int | quote }}
