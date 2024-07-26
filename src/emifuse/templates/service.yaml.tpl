@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  {{- include "fusion.serviceMetadata" . | nindent 2 }}
+  {{- include "emifuse.serviceMetadata" . | nindent 2 }}
 spec:
   clusterIP: None
   selector:
-    {{- include "fusion.selector" . | nindent 4 }}
+    {{- include "emifuse.selector" . | nindent 4 }}
   ports:
     - name: srt
       protocol: UDP

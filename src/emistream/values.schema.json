@@ -46,7 +46,7 @@
           },
           "required": ["timeout", "window"]
         },
-        "fusion": {
+        "emifuse": {
           "type": "object",
           "properties": {
             "srt": {
@@ -125,7 +125,7 @@
           "required": ["http"]
         }
       },
-      "required": ["server", "stream", "fusion", "emirecords", "emishows"]
+      "required": ["server", "stream", "emifuse", "emirecords", "emishows"]
     },
     "configMap": {
       "type": "object",

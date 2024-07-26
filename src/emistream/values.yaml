@@ -18,12 +18,12 @@ app:
     # Time window to search for event instances around the current time
     window: PT1H
 
-  # Configuration of the fusion service
-  fusion:
-    # Configuration of the SRT stream of the fusion service
+  # Configuration of the emifuse service
+  emifuse:
+    # Configuration of the SRT stream of the emifuse service
     srt:
       # Host of the SRT stream
-      host: fusion.fusion.svc.cluster.local
+      host: emifuse.emifuse.svc.cluster.local
 
       # Port of the SRT stream
       port: 9000
