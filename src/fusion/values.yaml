@@ -12,12 +12,12 @@ app:
       # Port to listen on
       port: 9001
 
-  # Configuration of the streamcast service
-  streamcast:
-    # Configuration of the ICY API of the streamcast service
+  # Configuration of the emicast service
+  emicast:
+    # Configuration of the ICY API of the emicast service
     icy:
       # Host of the ICY API
-      host: streamcast.streamcast.svc.cluster.local
+      host: emicast.emicast.svc.cluster.local
 
       # Port of the ICY API
       port: 8000

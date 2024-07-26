@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  {{- include "streamcast.serviceMetadata" . | nindent 2 }}
+  {{- include "emicast.serviceMetadata" . | nindent 2 }}
 spec:
   selector:
-    {{- include "streamcast.selector" . | nindent 4 }}
+    {{- include "emicast.selector" . | nindent 4 }}
   ports:
     - name: http
       protocol: TCP
