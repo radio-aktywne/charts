@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  {{- include "streamcast.deploymentMetadata" . | nindent 2 }}
+  {{- include "emicast.deploymentMetadata" . | nindent 2 }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      {{- include "streamcast.selector" . | nindent 6 }}
+      {{- include "emicast.selector" . | nindent 6 }}
   template:
     metadata:
-      {{- include "streamcast.podMetadata" . | nindent 6 }}
+      {{- include "emicast.podMetadata" . | nindent 6 }}
     spec:
       containers:
-        - name: {{ include "streamcast.containerName" . | quote }}
-          image: "ghcr.io/radio-aktywne/apps/streamcast:{{ .Chart.AppVersion }}"
+        - name: {{ include "emicast.containerName" . | quote }}
+          image: "ghcr.io/radio-aktywne/apps/emicast:{{ .Chart.AppVersion }}"
           imagePullPolicy: Always
           ports:
             - name: http
@@ -21,9 +21,9 @@ spec:
               containerPort: {{ required "app.server.port is required" ((.Values.app).server).port | int }}
           envFrom:
             - configMapRef:
-                name: {{ include "streamcast.configMapName" . | quote }}
+                name: {{ include "emicast.configMapName" . | quote }}
             - secretRef:
-                name: {{ include "streamcast.secretName" . | quote }}
+                name: {{ include "emicast.secretName" . | quote }}
           livenessProbe:
             httpGet:
               path: /admin/publicstats.json

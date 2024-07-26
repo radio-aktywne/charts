@@ -40,7 +40,7 @@
           },
           "required": ["srt", "http"]
         },
-        "streamcast": {
+        "emicast": {
           "type": "object",
           "properties": {
             "icy": {
@@ -92,7 +92,7 @@
           "required": ["http"]
         }
       },
-      "required": ["server", "streamcast", "emitunes"]
+      "required": ["server", "emicast", "emitunes"]
     },
     "secret": {
       "type": "object",

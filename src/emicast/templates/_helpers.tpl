@@ -7,43 +7,43 @@ But it can be overridden with the `name` value.
 For safety, it will be truncated to 63 characters.
 That's because some Kubernetes name fields have limits.
 */}}
-{{- define "streamcast.name" -}}
+{{- define "emicast.name" -}}
 {{ .Values.name | default .Chart.Name | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Name of the Container
 */}}
-{{- define "streamcast.containerName" -}}
-{{ include "streamcast.name" . }}
+{{- define "emicast.containerName" -}}
+{{ include "emicast.name" . }}
 {{- end }}
 
 {{/*
 Name of the Secret
 */}}
-{{- define "streamcast.secretName" -}}
-{{ include "streamcast.name" . }}
+{{- define "emicast.secretName" -}}
+{{ include "emicast.name" . }}
 {{- end }}
 
 {{/*
 Name of the ConfigMap
 */}}
-{{- define "streamcast.configMapName" -}}
-{{ include "streamcast.name" . }}
+{{- define "emicast.configMapName" -}}
+{{ include "emicast.name" . }}
 {{- end }}
 
 {{/*
 Name of the Deployment
 */}}
-{{- define "streamcast.deploymentName" -}}
-{{ include "streamcast.name" . }}
+{{- define "emicast.deploymentName" -}}
+{{ include "emicast.name" . }}
 {{- end }}
 
 {{/*
 Name of the Service
 */}}
-{{- define "streamcast.serviceName" -}}
-{{ include "streamcast.name" . }}
+{{- define "emicast.serviceName" -}}
+{{ include "emicast.name" . }}
 {{- end }}
 
 {{/*
@@ -52,25 +52,25 @@ Chart label to use to identify the chart version
 It is a combination of the chart name and the chart version.
 Some normalization is done to make it a valid label value.
 */}}
-{{- define "streamcast.chartLabel" -}}
+{{- define "emicast.chartLabel" -}}
 {{ printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Labels to use in selectors
 */}}
-{{- define "streamcast.selector" -}}
-app.kubernetes.io/name: {{ include "streamcast.name" . | quote }}
+{{- define "emicast.selector" -}}
+app.kubernetes.io/name: {{ include "emicast.name" . | quote }}
 app.kubernetes.io/instance: {{ .Release.Name | quote }}
 {{- end }}
 
 {{/*
 Common metadata defined in the chart
 */}}
-{{- define "streamcast.metadata" -}}
+{{- define "emicast.metadata" -}}
 labels:
-  helm.sh/chart: {{ include "streamcast.chartLabel" . | quote }}
-  {{- include "streamcast.selector" . | nindent 2 }}
+  helm.sh/chart: {{ include "emicast.chartLabel" . | quote }}
+  {{- include "emicast.selector" . | nindent 2 }}
   {{- with .Chart.AppVersion }}
   app.kubernetes.io/version: {{ . | quote }}
   {{- end }}
@@ -80,34 +80,34 @@ labels:
 {{/*
 Metadata to use in the Secret
 */}}
-{{- define "streamcast.secretMetadata" -}}
+{{- define "emicast.secretMetadata" -}}
 {{- $commonMetadata := (.Values.common).metadata | default dict | deepCopy }}
 {{- $secretMetadata := (.Values.secret).metadata | default dict | deepCopy }}
-{{- $chartMetadata := include "streamcast.metadata" . | fromYaml | deepCopy }}
+{{- $chartMetadata := include "emicast.metadata" . | fromYaml | deepCopy }}
 {{- $metadata := mergeOverwrite $commonMetadata $secretMetadata $chartMetadata -}}
-name: {{ include "streamcast.secretName" . | quote }}
+name: {{ include "emicast.secretName" . | quote }}
 {{ toYaml $metadata }}
 {{- end }}
 
 {{/*
 Metadata to use in the ConfigMap
 */}}
-{{- define "streamcast.configMapMetadata" -}}
+{{- define "emicast.configMapMetadata" -}}
 {{- $commonMetadata := (.Values.common).metadata | default dict | deepCopy }}
 {{- $configMapMetadata := (.Values.configMap).metadata | default dict | deepCopy }}
-{{- $chartMetadata := include "streamcast.metadata" . | fromYaml | deepCopy }}
+{{- $chartMetadata := include "emicast.metadata" . | fromYaml | deepCopy }}
 {{- $metadata := mergeOverwrite $commonMetadata $configMapMetadata $chartMetadata -}}
-name: {{ include "streamcast.configMapName" . | quote }}
+name: {{ include "emicast.configMapName" . | quote }}
 {{ toYaml $metadata }}
 {{- end }}
 
 {{/*
 Metadata to use in the Pod
 */}}
-{{- define "streamcast.podMetadata" -}}
+{{- define "emicast.podMetadata" -}}
 {{- $commonMetadata := (.Values.common).metadata | default dict | deepCopy }}
 {{- $podMetadata := (.Values.pod).metadata | default dict | deepCopy }}
-{{- $chartMetadata := include "streamcast.metadata" . | fromYaml | deepCopy }}
+{{- $chartMetadata := include "emicast.metadata" . | fromYaml | deepCopy }}
 {{- $metadata := mergeOverwrite $commonMetadata $podMetadata $chartMetadata -}}
 {{ toYaml $metadata }}
 {{- end }}
@@ -115,23 +115,23 @@ Metadata to use in the Pod
 {{/*
 Metadata to use in the Deployment
 */}}
-{{- define "streamcast.deploymentMetadata" -}}
+{{- define "emicast.deploymentMetadata" -}}
 {{- $commonMetadata := (.Values.common).metadata | default dict | deepCopy }}
 {{- $deploymentMetadata := (.Values.deployment).metadata | default dict | deepCopy }}
-{{- $chartMetadata := include "streamcast.metadata" . | fromYaml | deepCopy }}
+{{- $chartMetadata := include "emicast.metadata" . | fromYaml | deepCopy }}
 {{- $metadata := mergeOverwrite $commonMetadata $deploymentMetadata $chartMetadata -}}
-name: {{ include "streamcast.deploymentName" . | quote }}
+name: {{ include "emicast.deploymentName" . | quote }}
 {{ toYaml $metadata }}
 {{- end }}
 
 {{/*
 Metadata to use in the Service
 */}}
-{{- define "streamcast.serviceMetadata" -}}
+{{- define "emicast.serviceMetadata" -}}
 {{- $commonMetadata := (.Values.common).metadata | default dict | deepCopy }}
 {{- $serviceMetadata := (.Values.service).metadata | default dict | deepCopy }}
-{{- $chartMetadata := include "streamcast.metadata" . | fromYaml | deepCopy }}
+{{- $chartMetadata := include "emicast.metadata" . | fromYaml | deepCopy }}
 {{- $metadata := mergeOverwrite $commonMetadata $serviceMetadata $chartMetadata -}}
-name: {{ include "streamcast.serviceName" . | quote }}
+name: {{ include "emicast.serviceName" . | quote }}
 {{ toYaml $metadata }}
 {{- end }}
