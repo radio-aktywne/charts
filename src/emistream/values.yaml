@@ -44,14 +44,6 @@ app:
       # Path of the HTTP API
       path: ""
 
-    # Configuration of the SRT stream of the emirecords service
-    srt:
-      # Host of the SRT stream
-      host: emirecords.emirecords.svc.cluster.local
-
-      # Port of the SRT stream
-      port: 31000
-
   # Configuration of the emishows service
   emishows:
     # Configuration of the HTTP API of the emishows service

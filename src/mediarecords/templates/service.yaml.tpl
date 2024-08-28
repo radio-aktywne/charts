@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  {{- include "datarecords.serviceMetadata" . | nindent 2 }}
+  {{- include "mediarecords.serviceMetadata" . | nindent 2 }}
 spec:
   clusterIP: None
   selector:
-    {{- include "datarecords.selector" . | nindent 4 }}
+    {{- include "mediarecords.selector" . | nindent 4 }}
   ports:
     - name: s3
       protocol: TCP

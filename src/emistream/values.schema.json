@@ -84,21 +84,9 @@
                 }
               },
               "required": ["scheme", "host", "port", "path"]
-            },
-            "srt": {
-              "type": "object",
-              "properties": {
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                }
-              },
-              "required": ["host", "port"]
             }
           },
-          "required": ["http", "srt"]
+          "required": ["http"]
         },
         "emishows": {
           "type": "object",

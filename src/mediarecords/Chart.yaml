@@ -2,20 +2,20 @@
 apiVersion: v2
 
 # Version of the chart itself
-version: "0.6.1"
+version: "0.7.0"
 
 # Version of the database provided by this chart
-appVersion: "0.10.0"
+appVersion: "0.11.0"
 
 # Name of the chart
-name: datarecords
+name: mediarecords
 
 # A short description of the chart
-description: Emission recordings database 🗃️
+description: Emission recordings media 📼
 
 # Home page of the database
-home: https://radio-aktywne.github.io/database-datarecords
+home: https://radio-aktywne.github.io/database-mediarecords
 
 # Source code repository of the database
 sources:
-  - https://github.com/radio-aktywne/database-datarecords
+  - https://github.com/radio-aktywne/database-mediarecords

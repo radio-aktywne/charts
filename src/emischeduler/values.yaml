@@ -5,10 +5,15 @@ app:
     # Port to listen on
     port: 33000
 
-  # Stream configuration
-  stream:
-    # Timeout for trying to reserve a stream
-    timeout: PT1H
+  # Operations configuration
+  operations:
+    # Stream operation configuration
+    stream:
+      # Timeout for trying to reserve a stream
+      timeout: PT1H
+
+      # Duration of the time window for searching for past records
+      window: P60D
 
   # Cleaner configuration
   cleaner:
@@ -26,10 +31,28 @@ app:
     # Interval between synchronizations
     interval: PT1M
 
-    # Stream synchronizer configuration
-    stream:
-      # Duration of the time window
-      window: P1D
+    # Synchornizers configuration
+    synchronizers:
+      # Stream synchronizer configuration
+      stream:
+        # Duration of the time window
+        window: P1D
+
+  # Configuration of the emirecords service
+  emirecords:
+    # Configuration of the HTTP API of the emirecords service
+    http:
+      # Scheme of the HTTP API
+      scheme: http
+
+      # Host of the HTTP API
+      host: emirecords.emirecords.svc.cluster.local
+
+      # Port of the HTTP API
+      port: 31000
+
+      # Path of the HTTP API
+      path: ""
 
   # Configuration of the emishows service
   emishows:
@@ -46,33 +69,6 @@ app:
 
       # Path of the HTTP API
       path: ""
-
-  # Configuration of the datarecords database
-  datarecords:
-    # Configuration of the S3 API of the datarecords database
-    s3:
-      # Whether to use secure connection with the S3 API
-      secure: false
-
-      # Host of the S3 API
-      host: datarecords.datarecords.svc.cluster.local
-
-      # Port of the S3 API
-      port: 30000
-
-      # User to authenticate with the S3 API
-      user: readonly
-
-      # Password to authenticate with the S3 API
-      password: password
-
-      # Buckets configuration
-      buckets:
-        # Name of the bucket with recordings of live events
-        live: live
-
-        # Name of the bucket with prerecorded events
-        prerecorded: prerecorded
 
   # Configuration of the emistream service
   emistream:

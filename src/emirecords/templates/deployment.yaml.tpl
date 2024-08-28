@@ -18,10 +18,7 @@ spec:
           ports:
             - name: http
               protocol: TCP
-              containerPort: {{ required "app.server.ports.http is required" (((.Values.app).server).ports).http | int }}
-            - name: srt
-              protocol: UDP
-              containerPort: {{ required "app.server.ports.srt is required" (((.Values.app).server).ports).srt | int }}
+              containerPort: {{ required "app.server.port is required" ((.Values.app).server).port | int }}
           envFrom:
             - configMapRef:
                 name: {{ include "emirecords.configMapName" . | quote }}
