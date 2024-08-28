@@ -19,69 +19,11 @@
         "server": {
           "type": "object",
           "properties": {
-            "ports": {
-              "type": "object",
-              "properties": {
-                "http": {
-                  "type": "integer"
-                },
-                "srt": {
-                  "type": "integer"
-                }
-              },
-              "required": ["http", "srt"]
+            "port": {
+              "type": "integer"
             }
           },
-          "required": ["ports"]
-        },
-        "recorder": {
-          "type": "object",
-          "properties": {
-            "timeout": {
-              "type": "string"
-            },
-            "window": {
-              "type": "string"
-            }
-          },
-          "required": ["timeout", "window"]
-        },
-        "datarecords": {
-          "type": "object",
-          "properties": {
-            "s3": {
-              "type": "object",
-              "properties": {
-                "secure": {
-                  "type": "boolean"
-                },
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "user": {
-                  "type": "string"
-                },
-                "password": {
-                  "type": "string"
-                },
-                "bucket": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "secure",
-                "host",
-                "port",
-                "user",
-                "password",
-                "bucket"
-              ]
-            }
-          },
-          "required": ["s3"]
+          "required": ["port"]
         },
         "emishows": {
           "type": "object",
@@ -106,9 +48,36 @@
             }
           },
           "required": ["http"]
+        },
+        "mediarecords": {
+          "type": "object",
+          "properties": {
+            "s3": {
+              "type": "object",
+              "properties": {
+                "secure": {
+                  "type": "boolean"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              },
+              "required": ["secure", "host", "port", "user", "password"]
+            }
+          },
+          "required": ["s3"]
         }
       },
-      "required": ["server", "recorder", "datarecords", "emishows"]
+      "required": ["server", "emishows", "mediarecords"]
     },
     "secret": {
       "type": "object",
@@ -151,17 +120,8 @@
     "service": {
       "type": "object",
       "properties": {
-        "ports": {
-          "type": "object",
-          "properties": {
-            "http": {
-              "type": "integer"
-            },
-            "srt": {
-              "type": "integer"
-            }
-          },
-          "required": ["http", "srt"]
+        "port": {
+          "type": "integer"
         },
         "metadata": {
           "type": "object"
@@ -170,7 +130,7 @@
           "type": "object"
         }
       },
-      "required": ["ports"]
+      "required": ["port"]
     }
   },
   "required": ["app", "service"]

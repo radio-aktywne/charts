@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  {{- include "datarecords.statefulSetMetadata" . | nindent 2 }}
+  {{- include "mediarecords.statefulSetMetadata" . | nindent 2 }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      {{- include "datarecords.selector" . | nindent 6 }}
+      {{- include "mediarecords.selector" . | nindent 6 }}
   template:
     metadata:
-      {{- include "datarecords.podMetadata" . | nindent 6 }}
+      {{- include "mediarecords.podMetadata" . | nindent 6 }}
     spec:
       containers:
-        - name: {{ include "datarecords.containerName" . | quote }}
-          image: "ghcr.io/radio-aktywne/databases/datarecords:{{ .Chart.AppVersion }}"
+        - name: {{ include "mediarecords.containerName" . | quote }}
+          image: "ghcr.io/radio-aktywne/databases/mediarecords:{{ .Chart.AppVersion }}"
           imagePullPolicy: Always
           ports:
             - name: s3
@@ -24,12 +24,12 @@ spec:
               containerPort: {{ required "database.server.ports.web is required" (((.Values.database).server).ports).web | int }}
           envFrom:
             - configMapRef:
-                name: {{ include "datarecords.configMapName" . | quote }}
+                name: {{ include "mediarecords.configMapName" . | quote }}
             - secretRef:
-                name: {{ include "datarecords.secretName" . | quote }}
+                name: {{ include "mediarecords.secretName" . | quote }}
           {{- if .Values.volume }}
           volumeMounts:
-            - name: {{ include "datarecords.volumeName" . | quote }}
+            - name: {{ include "mediarecords.volumeName" . | quote }}
               mountPath: /database/data/
           {{- end }}
           livenessProbe:
@@ -48,7 +48,7 @@ spec:
   {{- if .Values.volume }}
   volumeClaimTemplates:
     - metadata:
-        {{- include "datarecords.volumeMetadata" . | nindent 8 }}
+        {{- include "mediarecords.volumeMetadata" . | nindent 8 }}
       spec:
         {{- if (.Values.volume).class }}
         storageClassName: {{ (.Values.volume).class | quote }}

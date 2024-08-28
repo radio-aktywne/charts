@@ -41,14 +41,6 @@ database:
       # Password of the readwrite user
       password: password
 
-  # Buckets configuration
-  buckets:
-    # Name of the bucket where live recordings are stored
-    live: live
-
-    # Name of the bucket where prerecorded emissions are stored
-    prerecorded: prerecorded
-
 # Configuration of the service
 service:
   # Ports to listen on

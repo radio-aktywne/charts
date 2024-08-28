@@ -8,12 +8,8 @@ spec:
   ports:
     - name: http
       protocol: TCP
-      port: {{ required "service.ports.http is required" ((.Values.service).ports).http | int }}
+      port: {{ required "service.port is required" (.Values.service).port | int }}
       targetPort: http
-    - name: srt
-      protocol: UDP
-      port: {{ required "service.ports.srt is required" ((.Values.service).ports).srt | int }}
-      targetPort: srt
   {{- with (.Values.service).spec }}
   {{- toYaml . | nindent 2 }}
   {{- end }}

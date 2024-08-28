@@ -15,8 +15,6 @@ data:
   {{- if (((.Values.app).emirecords).http).path }}
   EMISTREAM__EMIRECORDS__HTTP__PATH: {{ .Values.app.emirecords.http.path | quote }}
   {{- end }}
-  EMISTREAM__EMIRECORDS__SRT__HOST: {{ required "app.emirecords.srt.host is required" (((.Values.app).emirecords).srt).host | quote }}
-  EMISTREAM__EMIRECORDS__SRT__PORT: {{ required "app.emirecords.srt.port is required" (((.Values.app).emirecords).srt).port | int | quote }}
   EMISTREAM__EMISHOWS__HTTP__SCHEME: {{ required "app.emishows.http.scheme is required" (((.Values.app).emishows).http).scheme | quote }}
   EMISTREAM__EMISHOWS__HTTP__HOST: {{ required "app.emishows.http.host is required" (((.Values.app).emishows).http).host | quote }}
   EMISTREAM__EMISHOWS__HTTP__PORT: {{ required "app.emishows.http.port is required" (((.Values.app).emishows).http).port | int | quote }}

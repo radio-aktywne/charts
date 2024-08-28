@@ -22,8 +22,6 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ include "emischeduler.configMapName" . | quote }}
-            - secretRef:
-                name: {{ include "emischeduler.secretName" . | quote }}
           {{- if .Values.volume }}
           volumeMounts:
             - name: {{ include "emischeduler.volumeName" . | quote }}
