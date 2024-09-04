@@ -11,6 +11,12 @@ data:
   EMISCHEDULER__SYNCHRONIZER__REFERENCE: {{ required "app.synchronizer.reference is required" ((.Values.app).synchronizer).reference | quote }}
   EMISCHEDULER__SYNCHRONIZER__INTERVAL: {{ required "app.synchronizer.interval is required" ((.Values.app).synchronizer).interval | quote }}
   EMISCHEDULER__SYNCHRONIZER__SYNCHRONIZERS__STREAM__WINDOW: {{ required "app.synchronizer.synchronizers.stream.window is required" ((((.Values.app).synchronizer).synchronizers).stream).window | quote }}
+  EMISCHEDULER__EMILOUNGE__HTTP__SCHEME: {{ required "app.emilounge.http.scheme is required" (((.Values.app).emilounge).http).scheme | quote }}
+  EMISCHEDULER__EMILOUNGE__HTTP__HOST: {{ required "app.emilounge.http.host is required" (((.Values.app).emilounge).http).host | quote }}
+  EMISCHEDULER__EMILOUNGE__HTTP__PORT: {{ required "app.emilounge.http.port is required" (((.Values.app).emilounge).http).port | int | quote }}
+  {{- if (((.Values.app).emilounge).http).path }}
+  EMISCHEDULER__EMILOUNGE__HTTP__PATH: {{ .Values.app.emilounge.http.path | quote }}
+  {{- end }}
   EMISCHEDULER__EMIRECORDS__HTTP__SCHEME: {{ required "app.emirecords.http.scheme is required" (((.Values.app).emirecords).http).scheme | quote }}
   EMISCHEDULER__EMIRECORDS__HTTP__HOST: {{ required "app.emirecords.http.host is required" (((.Values.app).emirecords).http).host | quote }}
   EMISCHEDULER__EMIRECORDS__HTTP__PORT: {{ required "app.emirecords.http.port is required" (((.Values.app).emirecords).http).port | int | quote }}
