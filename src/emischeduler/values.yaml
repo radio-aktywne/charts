@@ -38,6 +38,22 @@ app:
         # Duration of the time window
         window: P1D
 
+  # Configuration of the emilounge service
+  emilounge:
+    # Configuration of the HTTP API of the emilounge service
+    http:
+      # Scheme of the HTTP API
+      scheme: http
+
+      # Host of the HTTP API
+      host: emilounge.emilounge.svc.cluster.local
+
+      # Port of the HTTP API
+      port: 28000
+
+      # Path of the HTTP API
+      path: ""
+
   # Configuration of the emirecords service
   emirecords:
     # Configuration of the HTTP API of the emirecords service
