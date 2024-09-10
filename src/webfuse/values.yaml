@@ -16,7 +16,7 @@ app:
       host: emifuse.emifuse.svc.cluster.local
 
       # Port of the HTTP API
-      port: 9000
+      port: 9001
 
       # Path of the HTTP API
       path: ""
