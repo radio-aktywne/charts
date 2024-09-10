@@ -1,0 +1,43 @@
+# Configuration of the app
+app:
+  # Configuration of the server
+  server:
+    # Port to listen on
+    port: 12000
+
+  # Configuration of the emifuse service
+  emifuse:
+    # Configuration of the HTTP API of the emifuse service
+    http:
+      # Scheme of the HTTP API
+      scheme: http
+
+      # Host of the HTTP API
+      host: emifuse.emifuse.svc.cluster.local
+
+      # Port of the HTTP API
+      port: 9000
+
+      # Path of the HTTP API
+      path: ""
+
+  # Configuration of the HTTP API of the emitunes service
+  emitunes:
+    # Configuration of the HTTP API of the emitunes service
+    http:
+      # Scheme of the HTTP API
+      scheme: http
+
+      # Host of the HTTP API
+      host: emitunes.emitunes.svc.cluster.local
+
+      # Port of the HTTP API
+      port: 42000
+
+      # Path of the HTTP API
+      path: ""
+
+# Configuration of the service
+service:
+  # Port to listen on
+  port: 12000
