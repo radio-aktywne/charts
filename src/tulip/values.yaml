@@ -1,0 +1,25 @@
+# Configuration of the tulip app
+tulip:
+  # Configuration of the server
+  server:
+    # Port to listen on
+    port: 10530
+
+  # Configuration of the HTTP API of the beaver service
+  beaver:
+    # Scheme of the HTTP API
+    scheme: http
+
+    # Host of the HTTP API
+    host: beaver.beaver.svc.cluster.local
+
+    # Port of the HTTP API
+    port: 10500
+
+    # Path of the HTTP API
+    path: ""
+
+# Configuration of the service
+service:
+  # Port to listen on
+  port: 10530

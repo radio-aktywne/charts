@@ -1,0 +1,43 @@
+# Configuration of the magnolia app
+magnolia:
+  # Configuration of the server
+  server:
+    # Port to listen on
+    port: 10720
+
+  # Configuration of the gecko service
+  gecko:
+    # Configuration of the HTTP API of the gecko service
+    http:
+      # Scheme of the HTTP API
+      scheme: http
+
+      # Host of the HTTP API
+      host: gecko.gecko.svc.cluster.local
+
+      # Port of the HTTP API
+      port: 10700
+
+      # Path of the HTTP API
+      path: ""
+
+  # Configuration of the HTTP API of the beaver service
+  beaver:
+    # Configuration of the HTTP API of the beaver service
+    http:
+      # Scheme of the HTTP API
+      scheme: http
+
+      # Host of the HTTP API
+      host: beaver.beaver.svc.cluster.local
+
+      # Port of the HTTP API
+      port: 10500
+
+      # Path of the HTTP API
+      path: ""
+
+# Configuration of the service
+service:
+  # Port to listen on
+  port: 10720

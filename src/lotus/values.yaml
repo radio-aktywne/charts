@@ -1,0 +1,27 @@
+# Configuration of the lotus app
+lotus:
+  # Configuration of the server
+  server:
+    # Port to listen on
+    port: 10230
+
+  # Configuration of the HTTP API of the pelican service
+  pelican:
+    # Configuration of the HTTP API of the pelican service
+    http:
+      # Scheme of the HTTP API
+      scheme: http
+
+      # Host of the HTTP API
+      host: pelican.pelican.svc.cluster.local
+
+      # Port of the HTTP API
+      port: 10200
+
+      # Path of the HTTP API
+      path: ""
+
+# Configuration of the service
+service:
+  # Port to listen on
+  port: 10230

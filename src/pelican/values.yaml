@@ -1,0 +1,46 @@
+# Configuration of the pelican service
+pelican:
+  # Configuration of the server
+  server:
+    # Port to listen on
+    port: 10200
+
+    # Trusted IP addresses
+    trusted: "*"
+
+  # Graphite configuration
+  graphite:
+    # Configuration of the SQL API of the graphite database
+    sql:
+      # Host of the SQL API
+      host: graphite.graphite.svc.cluster.local
+
+      # Port of the SQL API
+      port: 10220
+
+      # Password to authenticate with the SQL API
+      password: password
+
+  # Minium configuration
+  minium:
+    # Configuration of the S3 API of the minium service
+    s3:
+      # Whether to use secure connection with the S3 API
+      secure: false
+
+      # Host of the S3 API
+      host: minium.minium.svc.cluster.local
+
+      # Port of the S3 API
+      port: 10210
+
+      # User to authenticate with the S3 API
+      user: readwrite
+
+      # Password to authenticate with the S3 API
+      password: password
+
+# Configuration of the service
+service:
+  # Port to listen on
+  port: 10200

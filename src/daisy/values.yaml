@@ -1,0 +1,25 @@
+# Configuration of the daisy app
+daisy:
+  # Configuration of the server
+  server:
+    # Port to listen on
+    port: 10810
+
+  # Configuration of the HTTP API of the mantis service
+  mantis:
+    # Scheme of the HTTP API
+    scheme: http
+
+    # Host of the HTTP API
+    host: mantis.mantis.svc.cluster.local
+
+    # Port of the HTTP API
+    port: 10800
+
+    # Path of the HTTP API
+    path: ""
+
+# Configuration of the service
+service:
+  # Port to listen on
+  port: 10810

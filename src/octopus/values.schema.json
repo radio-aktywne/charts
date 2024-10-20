@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "common": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      }
+    },
+    "octopus": {
+      "type": "object",
+      "properties": {
+        "server": {
+          "type": "object",
+          "properties": {
+            "ports": {
+              "type": "object",
+              "properties": {
+                "http": {
+                  "type": "integer"
+                },
+                "srt": {
+                  "type": "integer"
+                }
+              },
+              "required": ["http", "srt"]
+            }
+          },
+          "required": ["ports"]
+        },
+        "stream": {
+          "type": "object",
+          "properties": {
+            "timeout": {
+              "type": "string"
+            },
+            "window": {
+              "type": "string"
+            }
+          },
+          "required": ["timeout", "window"]
+        },
+        "dingo": {
+          "type": "object",
+          "properties": {
+            "srt": {
+              "type": "object",
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                }
+              },
+              "required": ["host", "port"]
+            }
+          },
+          "required": ["srt"]
+        },
+        "gecko": {
+          "type": "object",
+          "properties": {
+            "http": {
+              "type": "object",
+              "properties": {
+                "scheme": {
+                  "type": "string"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host", "port", "path"]
+            }
+          },
+          "required": ["http"]
+        },
+        "beaver": {
+          "type": "object",
+          "properties": {
+            "http": {
+              "type": "object",
+              "properties": {
+                "scheme": {
+                  "type": "string"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host", "port", "path"]
+            }
+          },
+          "required": ["http"]
+        }
+      },
+      "required": ["server", "stream", "dingo", "gecko", "beaver"]
+    },
+    "configMap": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      }
+    },
+    "pod": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      }
+    },
+    "deployment": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      }
+    },
+    "service": {
+      "type": "object",
+      "properties": {
+        "ports": {
+          "type": "object",
+          "properties": {
+            "http": {
+              "type": "integer"
+            },
+            "srt": {
+              "type": "integer"
+            }
+          },
+          "required": ["http", "srt"]
+        },
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "required": ["ports"]
+    }
+  },
+  "required": ["octopus", "service"]
+}

@@ -1,0 +1,43 @@
+# Configuration of the jasmine app
+jasmine:
+  # Configuration of the server
+  server:
+    # Port to listen on
+    port: 10620
+
+  # Configuration of the numbat service
+  numbat:
+    # Configuration of the HTTP API of the numbat service
+    http:
+      # Scheme of the HTTP API
+      scheme: http
+
+      # Host of the HTTP API
+      host: numbat.numbat.svc.cluster.local
+
+      # Port of the HTTP API
+      port: 10600
+
+      # Path of the HTTP API
+      path: ""
+
+  # Configuration of the HTTP API of the beaver service
+  beaver:
+    # Configuration of the HTTP API of the beaver service
+    http:
+      # Scheme of the HTTP API
+      scheme: http
+
+      # Host of the HTTP API
+      host: beaver.beaver.svc.cluster.local
+
+      # Port of the HTTP API
+      port: 10500
+
+      # Path of the HTTP API
+      path: ""
+
+# Configuration of the service
+service:
+  # Port to listen on
+  port: 10620

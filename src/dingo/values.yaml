@@ -1,0 +1,58 @@
+# Configuration of the dingo service
+dingo:
+  # Configuration of the server
+  server:
+    # SRT configuration
+    srt:
+      # Port to listen on
+      port: 10100
+
+    # HTTP configuration
+    http:
+      # Port to listen on
+      port: 10101
+
+  # Configuration of the quokka service
+  quokka:
+    # Configuration of the ICY API of the quokka service
+    icy:
+      # Host of the ICY API
+      host: quokka.quokka.svc.cluster.local
+
+      # Port of the ICY API
+      port: 10000
+
+      # User to authenticate with the ICY API
+      user: source
+
+      # Password to authenticate with the ICY API
+      password: password
+
+      # Mount point to send audio to
+      mount: /radio.mp3
+
+  # Configuration of the pelican service
+  pelican:
+    # Configuration of the HTTP API of the pelican service
+    http:
+      # Scheme of the HTTP API
+      scheme: http
+
+      # Host of the HTTP API
+      host: pelican.pelican.svc.cluster.local
+
+      # Port of the HTTP API
+      port: 10200
+
+      # Path of the HTTP API
+      path: ""
+
+# Configuration of the service
+service:
+  # Ports to listen on
+  ports:
+    # Port to listen on for SRT connections
+    srt: 10100
+
+    # Port to listen on for HTTP requests
+    http: 10101

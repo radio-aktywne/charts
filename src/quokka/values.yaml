@@ -1,0 +1,29 @@
+# Configuration of the quokka service
+quokka:
+  # Configuration of the server
+  server:
+    # Port to listen on
+    port: 10000
+
+  # Credentials configuration
+  credentials:
+    # Credentials of the source user
+    source:
+      # Username of the source user
+      user: source
+
+      # Password of the source user
+      password: password
+
+    # Credentials of the admin user
+    admin:
+      # Username of the admin user
+      user: admin
+
+      # Password of the admin user
+      password: password
+
+# Configuration of the service
+service:
+  # Port to listen on
+  port: 10000

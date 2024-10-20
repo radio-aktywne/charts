@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "common": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      }
+    },
+    "magnolia": {
+      "type": "object",
+      "properties": {
+        "server": {
+          "type": "object",
+          "properties": {
+            "port": {
+              "type": "integer"
+            }
+          },
+          "required": ["port"]
+        },
+        "gecko": {
+          "type": "object",
+          "properties": {
+            "http": {
+              "type": "object",
+              "properties": {
+                "scheme": {
+                  "type": "string"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host", "port", "path"]
+            }
+          },
+          "required": ["http"]
+        },
+        "beaver": {
+          "type": "object",
+          "properties": {
+            "http": {
+              "type": "object",
+              "properties": {
+                "scheme": {
+                  "type": "string"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host", "port", "path"]
+            }
+          },
+          "required": ["http"]
+        }
+      },
+      "required": ["server", "gecko", "beaver"]
+    },
+    "configMap": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      }
+    },
+    "pod": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      }
+    },
+    "deployment": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      }
+    },
+    "service": {
+      "type": "object",
+      "properties": {
+        "port": {
+          "type": "integer"
+        },
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "required": ["port"]
+    }
+  },
+  "required": ["magnolia", "service"]
+}
