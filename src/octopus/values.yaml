@@ -1,0 +1,71 @@
+# Configuration of the octopus service
+octopus:
+  # Configuration of the server
+  server:
+    # Ports configuration
+    ports:
+      # Port to listen on for HTTP requests
+      http: 10300
+
+      # Port to listen on for SRT streams
+      srt: 10300
+
+  # Stream configuration
+  stream:
+    # Time after which a stream will be stopped if no connections are made
+    timeout: PT1M
+
+    # Time window to search for event instances around the current time
+    window: PT1H
+
+  # Configuration of the dingo service
+  dingo:
+    # Configuration of the SRT stream of the dingo service
+    srt:
+      # Host of the SRT stream
+      host: dingo.dingo.svc.cluster.local
+
+      # Port of the SRT stream
+      port: 10100
+
+  # Configuration of the gecko service
+  gecko:
+    # Configuration of the HTTP API of the gecko service
+    http:
+      # Scheme of the HTTP API
+      scheme: http
+
+      # Host of the HTTP API
+      host: gecko.gecko.svc.cluster.local
+
+      # Port of the HTTP API
+      port: 10700
+
+      # Path of the HTTP API
+      path: ""
+
+  # Configuration of the beaver service
+  beaver:
+    # Configuration of the HTTP API of the beaver service
+    http:
+      # Scheme of the HTTP API
+      scheme: http
+
+      # Host of the HTTP API
+      host: beaver.beaver.svc.cluster.local
+
+      # Port of the HTTP API
+      port: 10500
+
+      # Path of the HTTP API
+      path: ""
+
+# Configuration of the service
+service:
+  # Ports configuration
+  ports:
+    # Port to listen on for HTTP requests
+    http: 10300
+
+    # Port to listen on for SRT streams
+    srt: 10300

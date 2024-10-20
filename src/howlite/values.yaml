@@ -1,0 +1,22 @@
+# Configuration of the howlite database
+howlite:
+  # Configuration of the server
+  server:
+    # Port to listen on
+    port: 10520
+
+  # Credentials for the database
+  credentials:
+    # Username of the main user
+    user: user
+
+    # Password of the main user
+    password: password
+
+  # Identifier of the calendar
+  calendar: calendar
+
+# Configuration of the service
+service:
+  # Port to listen on
+  port: 10520

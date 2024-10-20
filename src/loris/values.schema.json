@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "common": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      }
+    },
+    "loris": {
+      "type": "object",
+      "properties": {
+        "server": {
+          "type": "object",
+          "properties": {
+            "ports": {
+              "type": "object",
+              "properties": {
+                "http": {
+                  "type": "integer"
+                },
+                "whip": {
+                  "type": "integer"
+                },
+                "rtp": {
+                  "type": "integer"
+                }
+              },
+              "required": ["http", "whip", "rtp"]
+            }
+          },
+          "required": ["ports"]
+        },
+        "streamer": {
+          "type": "object",
+          "properties": {
+            "stun": {
+              "type": "object",
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                }
+              },
+              "required": ["host", "port"]
+            },
+            "timeout": {
+              "type": "string"
+            }
+          },
+          "required": ["stun", "timeout"]
+        }
+      },
+      "required": ["server", "streamer"]
+    },
+    "configMap": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      }
+    },
+    "pod": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      }
+    },
+    "deployment": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      }
+    },
+    "service": {
+      "type": "object",
+      "properties": {
+        "ports": {
+          "type": "object",
+          "properties": {
+            "http": {
+              "type": "integer"
+            },
+            "whip": {
+              "type": "integer"
+            },
+            "rtp": {
+              "type": "integer"
+            }
+          },
+          "required": ["http", "whip", "rtp"]
+        },
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "required": ["ports"]
+    }
+  },
+  "required": ["loris", "service"]
+}

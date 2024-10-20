@@ -1,0 +1,43 @@
+# Configuration of the aster app
+aster:
+  # Configuration of the server
+  server:
+    # Port to listen on
+    port: 10110
+
+  # Configuration of the dingo service
+  dingo:
+    # Configuration of the HTTP API of the dingo service
+    http:
+      # Scheme of the HTTP API
+      scheme: http
+
+      # Host of the HTTP API
+      host: dingo.dingo.svc.cluster.local
+
+      # Port of the HTTP API
+      port: 10101
+
+      # Path of the HTTP API
+      path: ""
+
+  # Configuration of the HTTP API of the pelican service
+  pelican:
+    # Configuration of the HTTP API of the pelican service
+    http:
+      # Scheme of the HTTP API
+      scheme: http
+
+      # Host of the HTTP API
+      host: pelican.pelican.svc.cluster.local
+
+      # Port of the HTTP API
+      port: 10200
+
+      # Path of the HTTP API
+      path: ""
+
+# Configuration of the service
+service:
+  # Port to listen on
+  port: 10110

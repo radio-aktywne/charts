@@ -1,0 +1,86 @@
+# Configuration of the poppy app
+poppy:
+  # Configuration of the server
+  server:
+    # Port to listen on
+    port: 10410
+
+  # Events configuration
+  events:
+    # Time window to search for event instances around the current time
+    window: PT1H
+
+  # Beaver configuration
+  beaver:
+    # Configuration of the HTTP API of the beaver service
+    http:
+      # Scheme of the HTTP API
+      scheme: http
+
+      # Host of the HTTP API
+      host: beaver.beaver.svc.cluster.local
+
+      # Port of the HTTP API
+      port: 10500
+
+      # Path of the HTTP API
+      path: ""
+
+  # Octopus configuration
+  octopus:
+    # Configuration of the HTTP API of the octopus service
+    http:
+      # Scheme of the HTTP API
+      scheme: http
+
+      # Host of the HTTP API
+      host: octopus.octopus.svc.cluster.local
+
+      # Port of the HTTP API
+      port: 10300
+
+      # Path of the HTTP API
+      path: ""
+
+    # Configuration of the SRT stream of the octopus service
+    srt:
+      # Host of the SRT stream
+      host: octopus.octopus.svc.cluster.local
+
+      # Port of the SRT stream
+      port: 10300
+
+  # Loris configuration
+  loris:
+    # Configuration of the HTTP API of the loris service
+    http:
+      # Scheme of the HTTP API
+      scheme: http
+
+      # Host of the HTTP API
+      host: loris.loris.svc.cluster.local
+
+      # Port of the HTTP API
+      port: 10400
+
+      # Path of the HTTP API
+      path: ""
+
+    # Configuration of the WHIP API of the loris service
+    whip:
+      # Scheme of the WHIP API
+      scheme: http
+
+      # Host of the WHIP API
+      host: loris.loris.svc.cluster.local
+
+      # Port of the WHIP API
+      port: 10401
+
+      # Path of the WHIP API
+      path: ""
+
+# Configuration of the service
+service:
+  # Port to listen on
+  port: 10410

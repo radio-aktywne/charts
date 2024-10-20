@@ -1,0 +1,46 @@
+# Configuration of the gecko service
+gecko:
+  # Configuration of the server
+  server:
+    # Port to listen on
+    port: 10700
+
+  # Configuration of the beaver service
+  beaver:
+    # Configuration of the HTTP API of the beaver service
+    http:
+      # Scheme of the HTTP API
+      scheme: http
+
+      # Host of the HTTP API
+      host: beaver.beaver.svc.cluster.local
+
+      # Port of the HTTP API
+      port: 10500
+
+      # Path of the HTTP API
+      path: ""
+
+  # Configuration of the emerald database
+  emerald:
+    # Configuration of the S3 API of the emerald database
+    s3:
+      # Whether to use secure connection with the S3 API
+      secure: false
+
+      # Host of the S3 API
+      host: emerald.emerald.svc.cluster.local
+
+      # Port of the S3 API
+      port: 10710
+
+      # User to authenticate with the S3 API
+      user: readwrite
+
+      # Password to authenticate with the S3 API
+      password: password
+
+# Configuration of the service
+service:
+  # Port to listen on
+  port: 10700
