@@ -1,0 +1,39 @@
+# Configuration of the diamond database
+diamond:
+  # Configuration of the server
+  server:
+    # Ports to listen on
+    ports:
+      # Port to listen on for SQL connections
+      sql: 20010
+
+      # Port to listen on for HTTP requests
+      http: 20011
+
+      # Port to listen on for RPC requests
+      rpc: 20012
+
+  # Credentials for the database
+  credentials:
+    # Credentials for the root user
+    root:
+      # Password of the root user
+      password: password
+
+    # Credentials for the main user
+    user:
+      # Password of the main user
+      password: password
+
+# Configuration of the service
+service:
+  # Ports to listen on
+  ports:
+    # Port to listen on for SQL connections
+    sql: 20010
+
+    # Port to listen on for HTTP requests
+    http: 20011
+
+    # Port to listen on for RPC requests
+    rpc: 20012
