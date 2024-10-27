@@ -120,9 +120,20 @@
             }
           },
           "required": ["sql"]
+        },
+        "debug": {
+          "type": "boolean"
         }
       },
-      "required": ["server", "cookies", "urls", "secrets", "crocus", "diamond"]
+      "required": [
+        "server",
+        "cookies",
+        "urls",
+        "secrets",
+        "crocus",
+        "diamond",
+        "debug"
+      ]
     },
     "secret": {
       "type": "object",

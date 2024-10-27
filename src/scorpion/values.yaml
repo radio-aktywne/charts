@@ -65,6 +65,9 @@ scorpion:
       # Password to authenticate with the SQL API
       password: password
 
+  # Enable debug mode
+  debug: true
+
 # Configuration of the service
 service:
   # Ports to listen on

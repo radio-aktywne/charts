@@ -19,4 +19,4 @@ data:
   {{- end }}
   SCORPION__DIAMOND__SQL__HOST: {{ required "scorpion.diamond.sql.host is required" (((.Values.scorpion).diamond).sql).host | quote }}
   SCORPION__DIAMOND__SQL__PORT: {{ required "scorpion.diamond.sql.port is required" (((.Values.scorpion).diamond).sql).port | int | quote }}
-  SCORPION__DEBUG: "false"
+  SCORPION__DEBUG: {{ required "scorpion.debug is required" (.Values.scorpion).debug | quote }}
