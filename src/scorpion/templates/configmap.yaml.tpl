@@ -8,9 +8,9 @@ data:
   {{- if ((.Values.scorpion).cookies).domain }}
   SCORPION__COOKIES__DOMAIN: {{ .Values.scorpion.cookies.domain | quote }}
   {{- end }}
-  SCORPION__URLS__ISSUER: {{ required "scorpion.urls.issuer is required" (.Values.scorpion).urls.issuer | quote }}
-  SCORPION__URLS__PUBLIC: {{ required "scorpion.urls.public is required" (.Values.scorpion).urls.public | quote }}
-  SCORPION__URLS__ADMIN: {{ required "scorpion.urls.admin is required" (.Values.scorpion).urls.admin | quote }}
+  SCORPION__URLS__ISSUER: {{ required "scorpion.urls.issuer is required" ((.Values.scorpion).urls).issuer | quote }}
+  SCORPION__URLS__PUBLIC: {{ required "scorpion.urls.public is required" ((.Values.scorpion).urls).public | quote }}
+  SCORPION__URLS__ADMIN: {{ required "scorpion.urls.admin is required" ((.Values.scorpion).urls).admin | quote }}
   SCORPION__CROCUS__PUBLIC__SCHEME: {{ required "scorpion.crocus.public.scheme is required" (((.Values.scorpion).crocus).public).scheme | quote }}
   SCORPION__CROCUS__PUBLIC__HOST: {{ required "scorpion.crocus.public.host is required" (((.Values.scorpion).crocus).public).host | quote }}
   SCORPION__CROCUS__PUBLIC__PORT: {{ required "scorpion.crocus.public.port is required" (((.Values.scorpion).crocus).public).port | int | quote }}
