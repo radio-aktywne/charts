@@ -44,7 +44,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host", "port", "path"]
+              "required": ["scheme", "host"]
             }
           },
           "required": ["http"]
@@ -68,7 +68,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host", "port", "path"]
+              "required": ["scheme", "host"]
             }
           },
           "required": ["http"]

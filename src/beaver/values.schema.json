@@ -25,27 +25,6 @@
           },
           "required": ["port"]
         },
-        "sapphire": {
-          "type": "object",
-          "properties": {
-            "sql": {
-              "type": "object",
-              "properties": {
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "password": {
-                  "type": "string"
-                }
-              },
-              "required": ["host", "port", "password"]
-            }
-          },
-          "required": ["sql"]
-        },
         "howlite": {
           "type": "object",
           "properties": {
@@ -74,21 +53,34 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "scheme",
-                "host",
-                "port",
-                "path",
-                "user",
-                "password",
-                "calendar"
-              ]
+              "required": ["scheme", "host", "user", "password", "calendar"]
             }
           },
           "required": ["caldav"]
+        },
+        "sapphire": {
+          "type": "object",
+          "properties": {
+            "sql": {
+              "type": "object",
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "password": {
+                  "type": "string"
+                }
+              },
+              "required": ["host", "port", "password"]
+            }
+          },
+          "required": ["sql"]
         }
       },
-      "required": ["server", "sapphire", "howlite"]
+      "required": ["server", "howlite", "sapphire"]
     },
     "secret": {
       "type": "object",

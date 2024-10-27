@@ -71,7 +71,7 @@
                   "type": "string"
                 }
               },
-              "required": ["secure", "host", "port", "user", "password"]
+              "required": ["secure", "host", "user", "password"]
             }
           },
           "required": ["s3"]

@@ -10,11 +10,6 @@ scorpion:
       # Port to listen on for admin traffic
       admin: 20001
 
-  # Configuration of the cookies
-  cookies:
-    # Domain for the cookies
-    domain: ""
-
   # Configuration of the URLs
   urls:
     # Issuer URL

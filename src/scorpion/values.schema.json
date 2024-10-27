@@ -41,7 +41,7 @@
               "type": "string"
             }
           },
-          "required": ["domain"]
+          "required": []
         },
         "urls": {
           "type": "object",
@@ -95,7 +95,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host", "port", "path"]
+              "required": ["scheme", "host"]
             }
           },
           "required": ["public"]
@@ -125,15 +125,7 @@
           "type": "boolean"
         }
       },
-      "required": [
-        "server",
-        "cookies",
-        "urls",
-        "secrets",
-        "crocus",
-        "diamond",
-        "debug"
-      ]
+      "required": ["server", "urls", "secrets", "crocus", "diamond", "debug"]
     },
     "secret": {
       "type": "object",
