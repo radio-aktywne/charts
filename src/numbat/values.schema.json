@@ -25,30 +25,6 @@
           },
           "required": ["port"]
         },
-        "beaver": {
-          "type": "object",
-          "properties": {
-            "http": {
-              "type": "object",
-              "properties": {
-                "scheme": {
-                  "type": "string"
-                },
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "path": {
-                  "type": "string"
-                }
-              },
-              "required": ["scheme", "host", "port", "path"]
-            }
-          },
-          "required": ["http"]
-        },
         "amber": {
           "type": "object",
           "properties": {
@@ -71,13 +47,37 @@
                   "type": "string"
                 }
               },
-              "required": ["secure", "host", "port", "user", "password"]
+              "required": ["secure", "host", "user", "password"]
             }
           },
           "required": ["s3"]
+        },
+        "beaver": {
+          "type": "object",
+          "properties": {
+            "http": {
+              "type": "object",
+              "properties": {
+                "scheme": {
+                  "type": "string"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"]
+            }
+          },
+          "required": ["http"]
         }
       },
-      "required": ["server", "beaver", "amber"]
+      "required": ["server", "amber", "beaver"]
     },
     "secret": {
       "type": "object",

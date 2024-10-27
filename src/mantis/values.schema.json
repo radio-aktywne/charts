@@ -82,7 +82,7 @@
           },
           "required": ["reference", "interval", "synchronizers"]
         },
-        "numbat": {
+        "beaver": {
           "type": "object",
           "properties": {
             "http": {
@@ -101,7 +101,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host", "port", "path"]
+              "required": ["scheme", "host"]
             }
           },
           "required": ["http"]
@@ -125,12 +125,12 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host", "port", "path"]
+              "required": ["scheme", "host"]
             }
           },
           "required": ["http"]
         },
-        "beaver": {
+        "numbat": {
           "type": "object",
           "properties": {
             "http": {
@@ -149,7 +149,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host", "port", "path"]
+              "required": ["scheme", "host"]
             }
           },
           "required": ["http"]
@@ -173,7 +173,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host", "port", "path"]
+              "required": ["scheme", "host"]
             },
             "srt": {
               "type": "object",
@@ -196,9 +196,9 @@
         "operations",
         "cleaner",
         "synchronizer",
-        "numbat",
-        "gecko",
         "beaver",
+        "gecko",
+        "numbat",
         "octopus"
       ]
     },

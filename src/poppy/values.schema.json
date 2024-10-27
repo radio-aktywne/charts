@@ -53,46 +53,10 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host", "port", "path"]
+              "required": ["scheme", "host"]
             }
           },
           "required": ["http"]
-        },
-        "octopus": {
-          "type": "object",
-          "properties": {
-            "http": {
-              "type": "object",
-              "properties": {
-                "scheme": {
-                  "type": "string"
-                },
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "path": {
-                  "type": "string"
-                }
-              },
-              "required": ["scheme", "host", "port", "path"]
-            },
-            "srt": {
-              "type": "object",
-              "properties": {
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                }
-              },
-              "required": ["host", "port"]
-            }
-          },
-          "required": ["http", "srt"]
         },
         "loris": {
           "type": "object",
@@ -113,7 +77,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host", "port", "path"]
+              "required": ["scheme", "host"]
             },
             "whip": {
               "type": "object",
@@ -131,13 +95,49 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host", "port", "path"]
+              "required": ["scheme", "host"]
             }
           },
           "required": ["http", "whip"]
+        },
+        "octopus": {
+          "type": "object",
+          "properties": {
+            "http": {
+              "type": "object",
+              "properties": {
+                "scheme": {
+                  "type": "string"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"]
+            },
+            "srt": {
+              "type": "object",
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                }
+              },
+              "required": ["host", "port"]
+            }
+          },
+          "required": ["http", "srt"]
         }
       },
-      "required": ["server", "events", "beaver", "octopus", "loris"]
+      "required": ["server", "events", "beaver", "loris", "octopus"]
     },
     "configMap": {
       "type": "object",

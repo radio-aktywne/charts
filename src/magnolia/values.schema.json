@@ -25,30 +25,6 @@
           },
           "required": ["port"]
         },
-        "gecko": {
-          "type": "object",
-          "properties": {
-            "http": {
-              "type": "object",
-              "properties": {
-                "scheme": {
-                  "type": "string"
-                },
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "path": {
-                  "type": "string"
-                }
-              },
-              "required": ["scheme", "host", "port", "path"]
-            }
-          },
-          "required": ["http"]
-        },
         "beaver": {
           "type": "object",
           "properties": {
@@ -68,13 +44,37 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host", "port", "path"]
+              "required": ["scheme", "host"]
+            }
+          },
+          "required": ["http"]
+        },
+        "gecko": {
+          "type": "object",
+          "properties": {
+            "http": {
+              "type": "object",
+              "properties": {
+                "scheme": {
+                  "type": "string"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"]
             }
           },
           "required": ["http"]
         }
       },
-      "required": ["server", "gecko", "beaver"]
+      "required": ["server", "beaver", "gecko"]
     },
     "configMap": {
       "type": "object",

@@ -40,6 +40,30 @@
           },
           "required": ["srt", "http"]
         },
+        "pelican": {
+          "type": "object",
+          "properties": {
+            "http": {
+              "type": "object",
+              "properties": {
+                "scheme": {
+                  "type": "string"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"]
+            }
+          },
+          "required": ["http"]
+        },
         "quokka": {
           "type": "object",
           "properties": {
@@ -62,37 +86,13 @@
                   "type": "string"
                 }
               },
-              "required": ["host", "port", "user", "password", "mount"]
+              "required": ["host", "user", "password", "mount"]
             }
           },
           "required": ["icy"]
-        },
-        "pelican": {
-          "type": "object",
-          "properties": {
-            "http": {
-              "type": "object",
-              "properties": {
-                "scheme": {
-                  "type": "string"
-                },
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "path": {
-                  "type": "string"
-                }
-              },
-              "required": ["scheme", "host", "port", "path"]
-            }
-          },
-          "required": ["http"]
         }
       },
-      "required": ["server", "quokka", "pelican"]
+      "required": ["server", "pelican", "quokka"]
     },
     "secret": {
       "type": "object",

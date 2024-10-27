@@ -46,6 +46,30 @@
           },
           "required": ["timeout", "window"]
         },
+        "beaver": {
+          "type": "object",
+          "properties": {
+            "http": {
+              "type": "object",
+              "properties": {
+                "scheme": {
+                  "type": "string"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"]
+            }
+          },
+          "required": ["http"]
+        },
         "dingo": {
           "type": "object",
           "properties": {
@@ -83,37 +107,13 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host", "port", "path"]
-            }
-          },
-          "required": ["http"]
-        },
-        "beaver": {
-          "type": "object",
-          "properties": {
-            "http": {
-              "type": "object",
-              "properties": {
-                "scheme": {
-                  "type": "string"
-                },
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "path": {
-                  "type": "string"
-                }
-              },
-              "required": ["scheme", "host", "port", "path"]
+              "required": ["scheme", "host"]
             }
           },
           "required": ["http"]
         }
       },
-      "required": ["server", "stream", "dingo", "gecko", "beaver"]
+      "required": ["server", "stream", "beaver", "dingo", "gecko"]
     },
     "configMap": {
       "type": "object",
