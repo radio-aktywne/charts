@@ -1,0 +1,76 @@
+# Configuration of the scorpion service
+scorpion:
+  # Configuration of the server
+  server:
+    # Ports to listen on
+    ports:
+      # Port to listen on for public traffic
+      public: 20000
+
+      # Port to listen on for admin traffic
+      admin: 20001
+
+  # Configuration of the cookies
+  cookies:
+    # Domain for the cookies
+    domain: ""
+
+  # Configuration of the URLs
+  urls:
+    # Issuer URL
+    issuer: http://localhost:20000
+
+    # Public URL
+    public: http://localhost:20000
+
+    # Admin URL
+    admin: http://localhost:20001
+
+  # Configuration of the secrets
+  secrets:
+    # System secrets
+    system:
+      - secretsecretsecret
+
+    # Cookie secrets
+    cookie:
+      - secretsecretsecret
+
+  # Configuration of the crocus app
+  crocus:
+    # Configuration of the public site of the crocus app
+    public:
+      # Scheme of the public site
+      scheme: http
+
+      # Host of the public site
+      host: localhost
+
+      # Port of the public site
+      port: 20020
+
+      # Path of the public site
+      path: ""
+
+  # Configuration of the diamond database
+  diamond:
+    # Configuration of the SQL API of the diamond database
+    sql:
+      # Host of the SQL API
+      host: diamond.diamond.svc.cluster.local
+
+      # Port of the SQL API
+      port: 20010
+
+      # Password to authenticate with the SQL API
+      password: password
+
+# Configuration of the service
+service:
+  # Ports to listen on
+  ports:
+    # Port to listen on for public traffic
+    public: 20000
+
+    # Port to listen on for admin traffic
+    admin: 20001

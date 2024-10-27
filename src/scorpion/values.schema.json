@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "common": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      }
+    },
+    "scorpion": {
+      "type": "object",
+      "properties": {
+        "server": {
+          "type": "object",
+          "properties": {
+            "ports": {
+              "type": "object",
+              "properties": {
+                "public": {
+                  "type": "integer"
+                },
+                "admin": {
+                  "type": "integer"
+                }
+              },
+              "required": ["public", "admin"]
+            }
+          },
+          "required": ["ports"]
+        },
+        "cookies": {
+          "type": "object",
+          "properties": {
+            "domain": {
+              "type": "string"
+            }
+          },
+          "required": ["domain"]
+        },
+        "urls": {
+          "type": "object",
+          "properties": {
+            "issuer": {
+              "type": "string"
+            },
+            "public": {
+              "type": "string"
+            },
+            "admin": {
+              "type": "string"
+            }
+          },
+          "required": ["issuer", "public", "admin"]
+        },
+        "secrets": {
+          "type": "object",
+          "properties": {
+            "system": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "cookie": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": ["system", "cookie"]
+        },
+        "crocus": {
+          "type": "object",
+          "properties": {
+            "public": {
+              "type": "object",
+              "properties": {
+                "scheme": {
+                  "type": "string"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host", "port", "path"]
+            }
+          },
+          "required": ["public"]
+        },
+        "diamond": {
+          "type": "object",
+          "properties": {
+            "sql": {
+              "type": "object",
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "password": {
+                  "type": "string"
+                }
+              },
+              "required": ["host", "port", "password"]
+            }
+          },
+          "required": ["sql"]
+        }
+      },
+      "required": ["server", "cookies", "urls", "secrets", "crocus", "diamond"]
+    },
+    "secret": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      }
+    },
+    "configMap": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      }
+    },
+    "pod": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      }
+    },
+    "deployment": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      }
+    },
+    "service": {
+      "type": "object",
+      "properties": {
+        "ports": {
+          "type": "object",
+          "properties": {
+            "public": {
+              "type": "integer"
+            },
+            "admin": {
+              "type": "integer"
+            }
+          },
+          "required": ["public", "admin"]
+        },
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "required": ["ports"]
+    }
+  },
+  "required": ["scorpion", "service"]
+}
