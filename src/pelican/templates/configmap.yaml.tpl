@@ -11,4 +11,4 @@ data:
   PELICAN__GRAPHITE__SQL__PORT: {{ required "pelican.graphite.sql.port is required" (((.Values.pelican).graphite).sql).port | int | quote }}
   PELICAN__MINIUM__S3__SECURE: {{ required "pelican.minium.s3.secure is required" (((.Values.pelican).minium).s3).secure | quote }}
   PELICAN__MINIUM__S3__HOST: {{ required "pelican.minium.s3.host is required" (((.Values.pelican).minium).s3).host | quote }}
-  PELICAN__MINIUM__S3__PORT: {{ required "pelican.minium.s3.port is required" (((.Values.pelican).minium).s3).port | int | quote }}
+  PELICAN__MINIUM__S3__PORT: {{ (((.Values.pelican).minium).s3).port | int | default "" | quote }}
