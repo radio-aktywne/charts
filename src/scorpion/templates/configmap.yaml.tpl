@@ -13,7 +13,7 @@ data:
   SCORPION__URLS__ADMIN: {{ required "scorpion.urls.admin is required" ((.Values.scorpion).urls).admin | quote }}
   SCORPION__CROCUS__PUBLIC__SCHEME: {{ required "scorpion.crocus.public.scheme is required" (((.Values.scorpion).crocus).public).scheme | quote }}
   SCORPION__CROCUS__PUBLIC__HOST: {{ required "scorpion.crocus.public.host is required" (((.Values.scorpion).crocus).public).host | quote }}
-  SCORPION__CROCUS__PUBLIC__PORT: {{ (((.Values.scorpion).crocus).public).port | int | default "" | quote }}
+  SCORPION__CROCUS__PUBLIC__PORT: {{ (((.Values.scorpion).crocus).public).port | int | default "null" | quote }}
   SCORPION__CROCUS__PUBLIC__PATH: {{ (((.Values.scorpion).crocus).public).path | default "" | quote }}
   SCORPION__DIAMOND__SQL__HOST: {{ required "scorpion.diamond.sql.host is required" (((.Values.scorpion).diamond).sql).host | quote }}
   SCORPION__DIAMOND__SQL__PORT: {{ required "scorpion.diamond.sql.port is required" (((.Values.scorpion).diamond).sql).port | int | quote }}
