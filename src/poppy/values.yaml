@@ -5,11 +5,6 @@ poppy:
     # Port to listen on
     port: 10410
 
-  # Events configuration
-  events:
-    # Time window to search for event instances around the current time
-    window: PT1H
-
   # Beaver configuration
   beaver:
     # Configuration of the HTTP API of the beaver service

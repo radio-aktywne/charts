@@ -22,6 +22,16 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ include "poppy.configMapName" . | quote }}
+          livenessProbe:
+            httpGet:
+              path: /ping
+              port: http
+            failureThreshold: 6
+          readinessProbe:
+            httpGet:
+              path: /ping
+              port: http
+            failureThreshold: 6
       {{- with (.Values.pod).spec }}
       {{- toYaml . | nindent 6 }}
       {{- end }}

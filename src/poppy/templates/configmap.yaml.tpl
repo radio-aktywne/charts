@@ -4,7 +4,6 @@ metadata:
   {{- include "poppy.configMapMetadata" . | nindent 2 }}
 data:
   POPPY__SERVER__PORT: {{ required "poppy.server.port is required" ((.Values.poppy).server).port | int | quote }}
-  POPPY__EVENTS__WINDOW: {{ required "poppy.events.window is required" ((.Values.poppy).events).window | quote }}
   POPPY__BEAVER__HTTP__SCHEME: {{ required "poppy.beaver.http.scheme is required" (((.Values.poppy).beaver).http).scheme | quote }}
   POPPY__BEAVER__HTTP__HOST: {{ required "poppy.beaver.http.host is required" (((.Values.poppy).beaver).http).host | quote }}
   POPPY__BEAVER__HTTP__PORT: {{ (((.Values.poppy).beaver).http).port | int | default "" | quote }}
