@@ -25,15 +25,6 @@
           },
           "required": ["port"]
         },
-        "events": {
-          "type": "object",
-          "properties": {
-            "window": {
-              "type": "string"
-            }
-          },
-          "required": ["window"]
-        },
         "beaver": {
           "type": "object",
           "properties": {
@@ -137,7 +128,7 @@
           "required": ["http", "srt"]
         }
       },
-      "required": ["server", "events", "beaver", "loris", "octopus"]
+      "required": ["server", "beaver", "loris", "octopus"]
     },
     "configMap": {
       "type": "object",
