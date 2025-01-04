@@ -19,6 +19,13 @@ Name of the Container
 {{- end }}
 
 {{/*
+Name of the Secret
+*/}}
+{{- define "jasmine.secretName" -}}
+{{ include "jasmine.name" . }}
+{{- end }}
+
+{{/*
 Name of the ConfigMap
 */}}
 {{- define "jasmine.configMapName" -}}
@@ -68,6 +75,18 @@ labels:
   app.kubernetes.io/version: {{ . | quote }}
   {{- end }}
   app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
+{{- end }}
+
+{{/*
+Metadata to use in the Secret
+*/}}
+{{- define "jasmine.secretMetadata" -}}
+{{- $commonMetadata := (.Values.common).metadata | default dict | deepCopy }}
+{{- $secretMetadata := (.Values.secret).metadata | default dict | deepCopy }}
+{{- $chartMetadata := include "jasmine.metadata" . | fromYaml | deepCopy }}
+{{- $metadata := mergeOverwrite $commonMetadata $secretMetadata $chartMetadata -}}
+name: {{ include "jasmine.secretName" . | quote }}
+{{ toYaml $metadata }}
 {{- end }}
 
 {{/*
