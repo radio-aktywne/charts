@@ -49,7 +49,7 @@ daisy:
       path: ""
 
       # Client ID to authenticate with the public API
-      client: client
+      client: daisy
 
       # Client secret to authenticate with the public API
       secret: secret
