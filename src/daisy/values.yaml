@@ -5,19 +5,57 @@ daisy:
     # Port to listen on
     port: 10810
 
-  # Configuration of the HTTP API of the mantis service
+  # Configuration of the secrets
+  secrets:
+    # Secrets for encrypting auth cookies
+    auth:
+      - secret
+
+  # Configuration of the URLs
+  urls:
+    # Public URL of the app
+    public: http://localhost:10810
+
+  # Configuration of the mantis service
   mantis:
-    # Scheme of the HTTP API
-    scheme: http
+    # Configuration of the HTTP API of the mantis service
+    http:
+      # Scheme of the HTTP API
+      scheme: http
 
-    # Host of the HTTP API
-    host: mantis.mantis.svc.cluster.local
+      # Host of the HTTP API
+      host: mantis.mantis.svc.cluster.local
 
-    # Port of the HTTP API
-    port: 10800
+      # Port of the HTTP API
+      port: 10800
 
-    # Path of the HTTP API
-    path: ""
+      # Path of the HTTP API
+      path: ""
+
+  # Configuration of the scorpion service
+  scorpion:
+    # Configuration of the public API of the scorpion service
+    public:
+      # Scheme of the public API
+      scheme: http
+
+      # Host of the public API
+      host: localhost
+
+      # Port of the public API
+      port: 20000
+
+      # Path of the public API
+      path: ""
+
+      # Client ID to authenticate with the public API
+      client: client
+
+      # Client secret to authenticate with the public API
+      secret: secret
+
+  # Enable debug mode
+  debug: true
 
 # Configuration of the service
 service:
