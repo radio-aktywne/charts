@@ -22,6 +22,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ include "magnolia.configMapName" . | quote }}
+            - secretRef:
+                name: {{ include "magnolia.secretName" . | quote }}
           livenessProbe:
             httpGet:
               path: /ping
