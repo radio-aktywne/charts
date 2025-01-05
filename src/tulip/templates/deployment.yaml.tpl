@@ -22,6 +22,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ include "tulip.configMapName" . | quote }}
+            - secretRef:
+                name: {{ include "tulip.secretName" . | quote }}
           livenessProbe:
             httpGet:
               path: /ping

@@ -5,19 +5,57 @@ tulip:
     # Port to listen on
     port: 10530
 
-  # Configuration of the HTTP API of the beaver service
+  # Configuration of the secrets
+  secrets:
+    # Secrets for encrypting auth cookies
+    auth:
+      - secret
+
+  # Configuration of the URLs
+  urls:
+    # Public URL of the app
+    public: http://localhost:10530
+
+  # Configuration of the beaver service
   beaver:
-    # Scheme of the HTTP API
-    scheme: http
+    # Configuration of the HTTP API of the beaver service
+    http:
+      # Scheme of the HTTP API
+      scheme: http
 
-    # Host of the HTTP API
-    host: beaver.beaver.svc.cluster.local
+      # Host of the HTTP API
+      host: beaver.beaver.svc.cluster.local
 
-    # Port of the HTTP API
-    port: 10500
+      # Port of the HTTP API
+      port: 10500
 
-    # Path of the HTTP API
-    path: ""
+      # Path of the HTTP API
+      path: ""
+
+  # Configuration of the scorpion service
+  scorpion:
+    # Configuration of the public API of the scorpion service
+    public:
+      # Scheme of the public API
+      scheme: http
+
+      # Host of the public API
+      host: localhost
+
+      # Port of the public API
+      port: 20000
+
+      # Path of the public API
+      path: ""
+
+      # Client ID to authenticate with the public API
+      client: tulip
+
+      # Client secret to authenticate with the public API
+      secret: secret
+
+  # Enable debug mode
+  debug: true
 
 # Configuration of the service
 service:
