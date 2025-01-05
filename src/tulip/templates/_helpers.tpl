@@ -19,6 +19,13 @@ Name of the Container
 {{- end }}
 
 {{/*
+Name of the Secret
+*/}}
+{{- define "tulip.secretName" -}}
+{{ include "tulip.name" . }}
+{{- end }}
+
+{{/*
 Name of the ConfigMap
 */}}
 {{- define "tulip.configMapName" -}}
@@ -68,6 +75,18 @@ labels:
   app.kubernetes.io/version: {{ . | quote }}
   {{- end }}
   app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
+{{- end }}
+
+{{/*
+Metadata to use in the Secret
+*/}}
+{{- define "tulip.secretMetadata" -}}
+{{- $commonMetadata := (.Values.common).metadata | default dict | deepCopy }}
+{{- $secretMetadata := (.Values.secret).metadata | default dict | deepCopy }}
+{{- $chartMetadata := include "tulip.metadata" . | fromYaml | deepCopy }}
+{{- $metadata := mergeOverwrite $commonMetadata $secretMetadata $chartMetadata -}}
+name: {{ include "tulip.secretName" . | quote }}
+{{ toYaml $metadata }}
 {{- end }}
 
 {{/*
