@@ -22,6 +22,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ include "aster.configMapName" . | quote }}
+            - secretRef:
+                name: {{ include "aster.secretName" . | quote }}
           livenessProbe:
             httpGet:
               path: /ping
