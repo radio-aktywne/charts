@@ -22,6 +22,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ include "lotus.configMapName" . | quote }}
+            - secretRef:
+                name: {{ include "lotus.secretName" . | quote }}
           livenessProbe:
             httpGet:
               path: /ping
