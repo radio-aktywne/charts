@@ -22,6 +22,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ include "jasmine.configMapName" . | quote }}
+            - secretRef:
+                name: {{ include "jasmine.secretName" . | quote }}
           livenessProbe:
             httpGet:
               path: /ping
