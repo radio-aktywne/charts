@@ -22,6 +22,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ include "daisy.configMapName" . | quote }}
+            - secretRef:
+                name: {{ include "daisy.secretName" . | quote }}
           livenessProbe:
             httpGet:
               path: /ping
