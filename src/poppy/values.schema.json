@@ -25,6 +25,36 @@
           },
           "required": ["port"]
         },
+        "cookies": {
+          "type": "object",
+          "properties": {
+            "domain": {
+              "type": "string"
+            }
+          },
+          "required": []
+        },
+        "secrets": {
+          "type": "object",
+          "properties": {
+            "auth": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": ["auth"]
+        },
+        "urls": {
+          "type": "object",
+          "properties": {
+            "public": {
+              "type": "string"
+            }
+          },
+          "required": ["public"]
+        },
         "beaver": {
           "type": "object",
           "properties": {
@@ -126,9 +156,59 @@
             }
           },
           "required": ["http", "srt"]
+        },
+        "scorpion": {
+          "type": "object",
+          "properties": {
+            "public": {
+              "type": "object",
+              "properties": {
+                "scheme": {
+                  "type": "string"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "client": {
+                  "type": "string"
+                },
+                "secret": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host", "client", "secret"]
+            }
+          },
+          "required": ["public"]
+        },
+        "debug": {
+          "type": "boolean"
         }
       },
-      "required": ["server", "beaver", "loris", "octopus"]
+      "required": [
+        "server",
+        "secrets",
+        "urls",
+        "beaver",
+        "loris",
+        "octopus",
+        "scorpion",
+        "debug"
+      ]
+    },
+    "secret": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      }
     },
     "configMap": {
       "type": "object",

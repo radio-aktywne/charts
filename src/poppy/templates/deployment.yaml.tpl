@@ -22,6 +22,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ include "poppy.configMapName" . | quote }}
+            - secretRef:
+                name: {{ include "poppy.secretName" . | quote }}
           livenessProbe:
             httpGet:
               path: /ping

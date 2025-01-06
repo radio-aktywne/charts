@@ -4,6 +4,10 @@ metadata:
   {{- include "poppy.configMapMetadata" . | nindent 2 }}
 data:
   POPPY__SERVER__PORT: {{ required "poppy.server.port is required" ((.Values.poppy).server).port | int | quote }}
+  {{- if ((.Values.poppy).cookies).domain }}
+  POPPY__COOKIES__DOMAIN: {{ .Values.poppy.cookies.domain | quote }}
+  {{- end }}
+  POPPY__URLS__PUBLIC: {{ required "poppy.urls.public is required" ((.Values.poppy).urls).public | quote }}
   POPPY__BEAVER__HTTP__SCHEME: {{ required "poppy.beaver.http.scheme is required" (((.Values.poppy).beaver).http).scheme | quote }}
   POPPY__BEAVER__HTTP__HOST: {{ required "poppy.beaver.http.host is required" (((.Values.poppy).beaver).http).host | quote }}
   POPPY__BEAVER__HTTP__PORT: {{ (((.Values.poppy).beaver).http).port | int | default "" | quote }}
@@ -22,3 +26,8 @@ data:
   POPPY__OCTOPUS__HTTP__PATH: {{ (((.Values.poppy).octopus).http).path | default "" | quote }}
   POPPY__OCTOPUS__SRT__HOST: {{ required "poppy.octopus.srt.host is required" (((.Values.poppy).octopus).srt).host | quote }}
   POPPY__OCTOPUS__SRT__PORT: {{ required "poppy.octopus.srt.port is required" (((.Values.poppy).octopus).srt).port | int | quote }}
+  POPPY__SCORPION__PUBLIC__SCHEME: {{ required "poppy.scorpion.public.scheme is required" (((.Values.poppy).scorpion).public).scheme | quote }}
+  POPPY__SCORPION__PUBLIC__HOST: {{ required "poppy.scorpion.public.host is required" (((.Values.poppy).scorpion).public).host | quote }}
+  POPPY__SCORPION__PUBLIC__PORT: {{ (((.Values.poppy).scorpion).public).port | int | default "" | quote }}
+  POPPY__SCORPION__PUBLIC__PATH: {{ (((.Values.poppy).scorpion).public).path | default "" | quote }}
+  POPPY__DEBUG: {{ required "poppy.debug is required" (.Values.poppy).debug | quote }}
