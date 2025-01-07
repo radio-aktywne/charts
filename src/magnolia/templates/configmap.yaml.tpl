@@ -4,9 +4,6 @@ metadata:
   {{- include "magnolia.configMapMetadata" . | nindent 2 }}
 data:
   MAGNOLIA__SERVER__PORT: {{ required "magnolia.server.port is required" ((.Values.magnolia).server).port | int | quote }}
-  {{- if ((.Values.magnolia).cookies).domain }}
-  MAGNOLIA__COOKIES__DOMAIN: {{ .Values.magnolia.cookies.domain | quote }}
-  {{- end }}
   MAGNOLIA__URLS__PUBLIC: {{ required "magnolia.urls.public is required" ((.Values.magnolia).urls).public | quote }}
   MAGNOLIA__BEAVER__HTTP__SCHEME: {{ required "magnolia.beaver.http.scheme is required" (((.Values.magnolia).beaver).http).scheme | quote }}
   MAGNOLIA__BEAVER__HTTP__HOST: {{ required "magnolia.beaver.http.host is required" (((.Values.magnolia).beaver).http).host | quote }}

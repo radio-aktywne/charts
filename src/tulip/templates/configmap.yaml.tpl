@@ -4,9 +4,6 @@ metadata:
   {{- include "tulip.configMapMetadata" . | nindent 2 }}
 data:
   TULIP__SERVER__PORT: {{ required "tulip.server.port is required" ((.Values.tulip).server).port | int | quote }}
-  {{- if ((.Values.tulip).cookies).domain }}
-  TULIP__COOKIES__DOMAIN: {{ .Values.tulip.cookies.domain | quote }}
-  {{- end }}
   TULIP__URLS__PUBLIC: {{ required "tulip.urls.public is required" ((.Values.tulip).urls).public | quote }}
   TULIP__BEAVER__HTTP__SCHEME: {{ required "tulip.beaver.http.scheme is required" (((.Values.tulip).beaver).http).scheme | quote }}
   TULIP__BEAVER__HTTP__HOST: {{ required "tulip.beaver.http.host is required" (((.Values.tulip).beaver).http).host | quote }}

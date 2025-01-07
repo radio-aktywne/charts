@@ -5,9 +5,6 @@ metadata:
 data:
   SCORPION__SERVER__PORTS__PUBLIC: {{ required "scorpion.server.ports.public is required" (((.Values.scorpion).server).ports).public | int | quote }}
   SCORPION__SERVER__PORTS__ADMIN: {{ required "scorpion.server.ports.admin is required" (((.Values.scorpion).server).ports).admin | int | quote }}
-  {{- if ((.Values.scorpion).cookies).domain }}
-  SCORPION__COOKIES__DOMAIN: {{ .Values.scorpion.cookies.domain | quote }}
-  {{- end }}
   SCORPION__URLS__ISSUER: {{ required "scorpion.urls.issuer is required" ((.Values.scorpion).urls).issuer | quote }}
   SCORPION__URLS__PUBLIC: {{ required "scorpion.urls.public is required" ((.Values.scorpion).urls).public | quote }}
   SCORPION__URLS__ADMIN: {{ required "scorpion.urls.admin is required" ((.Values.scorpion).urls).admin | quote }}

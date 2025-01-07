@@ -34,15 +34,6 @@
           },
           "required": ["ports"]
         },
-        "cookies": {
-          "type": "object",
-          "properties": {
-            "domain": {
-              "type": "string"
-            }
-          },
-          "required": []
-        },
         "urls": {
           "type": "object",
           "properties": {
