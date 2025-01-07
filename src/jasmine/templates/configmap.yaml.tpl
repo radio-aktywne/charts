@@ -4,9 +4,6 @@ metadata:
   {{- include "jasmine.configMapMetadata" . | nindent 2 }}
 data:
   JASMINE__SERVER__PORT: {{ required "jasmine.server.port is required" ((.Values.jasmine).server).port | int | quote }}
-  {{- if ((.Values.jasmine).cookies).domain }}
-  JASMINE__COOKIES__DOMAIN: {{ .Values.jasmine.cookies.domain | quote }}
-  {{- end }}
   JASMINE__URLS__PUBLIC: {{ required "jasmine.urls.public is required" ((.Values.jasmine).urls).public | quote }}
   JASMINE__BEAVER__HTTP__SCHEME: {{ required "jasmine.beaver.http.scheme is required" (((.Values.jasmine).beaver).http).scheme | quote }}
   JASMINE__BEAVER__HTTP__HOST: {{ required "jasmine.beaver.http.host is required" (((.Values.jasmine).beaver).http).host | quote }}

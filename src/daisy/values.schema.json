@@ -25,15 +25,6 @@
           },
           "required": ["port"]
         },
-        "cookies": {
-          "type": "object",
-          "properties": {
-            "domain": {
-              "type": "string"
-            }
-          },
-          "required": []
-        },
         "secrets": {
           "type": "object",
           "properties": {

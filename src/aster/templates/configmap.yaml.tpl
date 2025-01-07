@@ -4,9 +4,6 @@ metadata:
   {{- include "aster.configMapMetadata" . | nindent 2 }}
 data:
   ASTER__SERVER__PORT: {{ required "aster.server.port is required" ((.Values.aster).server).port | int | quote }}
-  {{- if ((.Values.aster).cookies).domain }}
-  ASTER__COOKIES__DOMAIN: {{ .Values.aster.cookies.domain | quote }}
-  {{- end }}
   ASTER__URLS__PUBLIC: {{ required "aster.urls.public is required" ((.Values.aster).urls).public | quote }}
   ASTER__DINGO__HTTP__SCHEME: {{ required "aster.dingo.http.scheme is required" (((.Values.aster).dingo).http).scheme | quote }}
   ASTER__DINGO__HTTP__HOST: {{ required "aster.dingo.http.host is required" (((.Values.aster).dingo).http).host | quote }}

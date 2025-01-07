@@ -4,9 +4,6 @@ metadata:
   {{- include "daisy.configMapMetadata" . | nindent 2 }}
 data:
   DAISY__SERVER__PORT: {{ required "daisy.server.port is required" ((.Values.daisy).server).port | int | quote }}
-  {{- if ((.Values.daisy).cookies).domain }}
-  DAISY__COOKIES__DOMAIN: {{ .Values.daisy.cookies.domain | quote }}
-  {{- end }}
   DAISY__URLS__PUBLIC: {{ required "daisy.urls.public is required" ((.Values.daisy).urls).public | quote }}
   DAISY__MANTIS__HTTP__SCHEME: {{ required "daisy.mantis.http.scheme is required" (((.Values.daisy).mantis).http).scheme | quote }}
   DAISY__MANTIS__HTTP__HOST: {{ required "daisy.mantis.http.host is required" (((.Values.daisy).mantis).http).host | quote }}
