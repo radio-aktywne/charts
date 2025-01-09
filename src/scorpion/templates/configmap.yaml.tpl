@@ -14,4 +14,11 @@ data:
   SCORPION__CROCUS__PUBLIC__PATH: {{ (((.Values.scorpion).crocus).public).path | default "" | quote }}
   SCORPION__DIAMOND__SQL__HOST: {{ required "scorpion.diamond.sql.host is required" (((.Values.scorpion).diamond).sql).host | quote }}
   SCORPION__DIAMOND__SQL__PORT: {{ required "scorpion.diamond.sql.port is required" (((.Values.scorpion).diamond).sql).port | int | quote }}
+  SCORPION__CLIENTS__ASTER__URL: {{ required "scorpion.clients.aster.url is required" ((.Values.scorpion).clients).aster.url | quote }}
+  SCORPION__CLIENTS__DAISY__URL: {{ required "scorpion.clients.daisy.url is required" ((.Values.scorpion).clients).daisy.url | quote }}
+  SCORPION__CLIENTS__JASMINE__URL: {{ required "scorpion.clients.jasmine.url is required" ((.Values.scorpion).clients).jasmine.url | quote }}
+  SCORPION__CLIENTS__LOTUS__URL: {{ required "scorpion.clients.lotus.url is required" ((.Values.scorpion).clients).lotus.url | quote }}
+  SCORPION__CLIENTS__MAGNOLIA__URL: {{ required "scorpion.clients.magnolia.url is required" ((.Values.scorpion).clients).magnolia.url | quote }}
+  SCORPION__CLIENTS__POPPY__URL: {{ required "scorpion.clients.poppy.url is required" ((.Values.scorpion).clients).poppy.url | quote }}
+  SCORPION__CLIENTS__TULIP__URL: {{ required "scorpion.clients.tulip.url is required" ((.Values.scorpion).clients).tulip.url | quote }}
   SCORPION__DEBUG: {{ required "scorpion.debug is required" (.Values.scorpion).debug | quote }}
