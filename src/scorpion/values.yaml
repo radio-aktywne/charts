@@ -60,6 +60,64 @@ scorpion:
       # Password to authenticate with the SQL API
       password: password
 
+  # Configuration of clients
+  clients:
+    # Configuration of the aster client
+    aster:
+      # Secret of the client
+      secret: secret
+
+      # Public URL
+      url: http://localhost:10110
+
+    # Configuration of the daisy client
+    daisy:
+      # Secret of the client
+      secret: secret
+
+      # Public URL
+      url: http://localhost:10810
+
+    # Configuration of the jasmine client
+    jasmine:
+      # Secret of the client
+      secret: secret
+
+      # Public URL
+      url: http://localhost:10620
+
+    # Configuration of the lotus client
+    lotus:
+      # Secret of the client
+      secret: secret
+
+      # Public URL
+      url: http://localhost:10230
+
+    # Configuration of the magnolia client
+    magnolia:
+      # Secret of the client
+      secret: secret
+
+      # Public URL
+      url: http://localhost:10720
+
+    # Configuration of the poppy client
+    poppy:
+      # Secret of the client
+      secret: secret
+
+      # Public URL
+      url: http://localhost:10410
+
+    # Configuration of the tulip client
+    tulip:
+      # Secret of the client
+      secret: secret
+
+      # Public URL
+      url: http://localhost:10530
+
   # Enable debug mode
   debug: true
 

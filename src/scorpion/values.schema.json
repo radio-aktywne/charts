@@ -112,11 +112,117 @@
           },
           "required": ["sql"]
         },
+        "clients": {
+          "type": "object",
+          "properties": {
+            "aster": {
+              "type": "object",
+              "properties": {
+                "secret": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": ["secret", "url"]
+            },
+            "daisy": {
+              "type": "object",
+              "properties": {
+                "secret": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": ["secret", "url"]
+            },
+            "jasmine": {
+              "type": "object",
+              "properties": {
+                "secret": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": ["secret", "url"]
+            },
+            "lotus": {
+              "type": "object",
+              "properties": {
+                "secret": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": ["secret", "url"]
+            },
+            "magnolia": {
+              "type": "object",
+              "properties": {
+                "secret": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": ["secret", "url"]
+            },
+            "poppy": {
+              "type": "object",
+              "properties": {
+                "secret": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": ["secret", "url"]
+            },
+            "tulip": {
+              "type": "object",
+              "properties": {
+                "secret": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "required": ["secret", "url"]
+            }
+          },
+          "required": [
+            "aster",
+            "daisy",
+            "jasmine",
+            "lotus",
+            "magnolia",
+            "poppy",
+            "tulip"
+          ]
+        },
         "debug": {
           "type": "boolean"
         }
       },
-      "required": ["server", "urls", "secrets", "crocus", "diamond", "debug"]
+      "required": [
+        "server",
+        "urls",
+        "secrets",
+        "crocus",
+        "diamond",
+        "clients",
+        "debug"
+      ]
     },
     "secret": {
       "type": "object",
