@@ -42,6 +42,9 @@ spec:
               path: /minio/health/live
               port: s3
             failureThreshold: 6
+          {{- with (.Values.container).spec }}
+          {{- toYaml . | nindent 10 }}
+          {{- end }}
       {{- with (.Values.pod).spec }}
       {{- toYaml . | nindent 6 }}
       {{- end }}

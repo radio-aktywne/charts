@@ -240,6 +240,14 @@
         }
       }
     },
+    "container": {
+      "type": "object",
+      "properties": {
+        "spec": {
+          "type": "object"
+        }
+      }
+    },
     "pod": {
       "type": "object",
       "properties": {
