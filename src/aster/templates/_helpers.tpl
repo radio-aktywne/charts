@@ -78,6 +78,15 @@ labels:
 {{- end }}
 
 {{/*
+Subset of common metadata that should be stable
+*/}}
+{{- define "aster.stableMetadata" -}}
+labels:
+  {{- include "aster.selector" . | nindent 2 }}
+  app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
+{{- end }}
+
+{{/*
 Metadata to use in the Secret
 */}}
 {{- define "aster.secretMetadata" -}}

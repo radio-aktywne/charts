@@ -85,6 +85,15 @@ labels:
 {{- end }}
 
 {{/*
+Subset of common metadata that should be stable
+*/}}
+{{- define "howlite.stableMetadata" -}}
+labels:
+  {{- include "howlite.selector" . | nindent 2 }}
+  app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
+{{- end }}
+
+{{/*
 Metadata to use in the Secret
 */}}
 {{- define "howlite.secretMetadata" -}}
@@ -114,7 +123,7 @@ Metadata to use in the Volume
 {{- define "howlite.volumeMetadata" -}}
 {{- $commonMetadata := (.Values.common).metadata | default dict | deepCopy }}
 {{- $volumeMetadata := (.Values.volume).metadata | default dict | deepCopy }}
-{{- $chartMetadata := include "howlite.metadata" . | fromYaml | deepCopy }}
+{{- $chartMetadata := include "howlite.stableMetadata" . | fromYaml | deepCopy }}
 {{- $metadata := mergeOverwrite $commonMetadata $volumeMetadata $chartMetadata -}}
 name: {{ include "howlite.volumeName" . | quote }}
 {{ toYaml $metadata }}

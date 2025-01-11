@@ -78,6 +78,15 @@ labels:
 {{- end }}
 
 {{/*
+Subset of common metadata that should be stable
+*/}}
+{{- define "jasmine.stableMetadata" -}}
+labels:
+  {{- include "jasmine.selector" . | nindent 2 }}
+  app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
+{{- end }}
+
+{{/*
 Metadata to use in the Secret
 */}}
 {{- define "jasmine.secretMetadata" -}}

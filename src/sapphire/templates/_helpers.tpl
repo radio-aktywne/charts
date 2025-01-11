@@ -85,6 +85,15 @@ labels:
 {{- end }}
 
 {{/*
+Subset of common metadata that should be stable
+*/}}
+{{- define "sapphire.stableMetadata" -}}
+labels:
+  {{- include "sapphire.selector" . | nindent 2 }}
+  app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
+{{- end }}
+
+{{/*
 Metadata to use in the Secret
 */}}
 {{- define "sapphire.secretMetadata" -}}
@@ -114,7 +123,7 @@ Metadata to use in the Volume
 {{- define "sapphire.volumeMetadata" -}}
 {{- $commonMetadata := (.Values.common).metadata | default dict | deepCopy }}
 {{- $volumeMetadata := (.Values.volume).metadata | default dict | deepCopy }}
-{{- $chartMetadata := include "sapphire.metadata" . | fromYaml | deepCopy }}
+{{- $chartMetadata := include "sapphire.stableMetadata" . | fromYaml | deepCopy }}
 {{- $metadata := mergeOverwrite $commonMetadata $volumeMetadata $chartMetadata -}}
 name: {{ include "sapphire.volumeName" . | quote }}
 {{ toYaml $metadata }}

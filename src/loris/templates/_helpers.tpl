@@ -71,6 +71,15 @@ labels:
 {{- end }}
 
 {{/*
+Subset of common metadata that should be stable
+*/}}
+{{- define "loris.stableMetadata" -}}
+labels:
+  {{- include "loris.selector" . | nindent 2 }}
+  app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
+{{- end }}
+
+{{/*
 Metadata to use in the ConfigMap
 */}}
 {{- define "loris.configMapMetadata" -}}
