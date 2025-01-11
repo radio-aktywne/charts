@@ -85,6 +85,15 @@ labels:
 {{- end }}
 
 {{/*
+Subset of common metadata that should be stable
+*/}}
+{{- define "minium.stableMetadata" -}}
+labels:
+  {{- include "minium.selector" . | nindent 2 }}
+  app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
+{{- end }}
+
+{{/*
 Metadata to use in the Secret
 */}}
 {{- define "minium.secretMetadata" -}}
@@ -114,7 +123,7 @@ Metadata to use in the Volume
 {{- define "minium.volumeMetadata" -}}
 {{- $commonMetadata := (.Values.common).metadata | default dict | deepCopy }}
 {{- $volumeMetadata := (.Values.volume).metadata | default dict | deepCopy }}
-{{- $chartMetadata := include "minium.metadata" . | fromYaml | deepCopy }}
+{{- $chartMetadata := include "minium.stableMetadata" . | fromYaml | deepCopy }}
 {{- $metadata := mergeOverwrite $commonMetadata $volumeMetadata $chartMetadata -}}
 name: {{ include "minium.volumeName" . | quote }}
 {{ toYaml $metadata }}

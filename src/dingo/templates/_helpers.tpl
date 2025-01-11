@@ -85,6 +85,15 @@ labels:
 {{- end }}
 
 {{/*
+Subset of common metadata that should be stable
+*/}}
+{{- define "dingo.stableMetadata" -}}
+labels:
+  {{- include "dingo.selector" . | nindent 2 }}
+  app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
+{{- end }}
+
+{{/*
 Metadata to use in the Secret
 */}}
 {{- define "dingo.secretMetadata" -}}
@@ -114,7 +123,7 @@ Metadata to use in the Volume
 {{- define "dingo.volumeMetadata" -}}
 {{- $commonMetadata := (.Values.common).metadata | default dict | deepCopy }}
 {{- $volumeMetadata := (.Values.volume).metadata | default dict | deepCopy }}
-{{- $chartMetadata := include "dingo.metadata" . | fromYaml | deepCopy }}
+{{- $chartMetadata := include "dingo.stableMetadata" . | fromYaml | deepCopy }}
 {{- $metadata := mergeOverwrite $commonMetadata $volumeMetadata $chartMetadata -}}
 name: {{ include "dingo.volumeName" . | quote }}
 {{ toYaml $metadata }}

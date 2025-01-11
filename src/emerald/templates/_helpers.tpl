@@ -85,6 +85,15 @@ labels:
 {{- end }}
 
 {{/*
+Subset of common metadata that should be stable
+*/}}
+{{- define "emerald.stableMetadata" -}}
+labels:
+  {{- include "emerald.selector" . | nindent 2 }}
+  app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
+{{- end }}
+
+{{/*
 Metadata to use in the Secret
 */}}
 {{- define "emerald.secretMetadata" -}}
@@ -114,7 +123,7 @@ Metadata to use in the Volume
 {{- define "emerald.volumeMetadata" -}}
 {{- $commonMetadata := (.Values.common).metadata | default dict | deepCopy }}
 {{- $volumeMetadata := (.Values.volume).metadata | default dict | deepCopy }}
-{{- $chartMetadata := include "emerald.metadata" . | fromYaml | deepCopy }}
+{{- $chartMetadata := include "emerald.stableMetadata" . | fromYaml | deepCopy }}
 {{- $metadata := mergeOverwrite $commonMetadata $volumeMetadata $chartMetadata -}}
 name: {{ include "emerald.volumeName" . | quote }}
 {{ toYaml $metadata }}

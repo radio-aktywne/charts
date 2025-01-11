@@ -78,6 +78,15 @@ labels:
 {{- end }}
 
 {{/*
+Subset of common metadata that should be stable
+*/}}
+{{- define "mantis.stableMetadata" -}}
+labels:
+  {{- include "mantis.selector" . | nindent 2 }}
+  app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
+{{- end }}
+
+{{/*
 Metadata to use in the ConfigMap
 */}}
 {{- define "mantis.configMapMetadata" -}}
@@ -95,7 +104,7 @@ Metadata to use in the Volume
 {{- define "mantis.volumeMetadata" -}}
 {{- $commonMetadata := (.Values.common).metadata | default dict | deepCopy }}
 {{- $volumeMetadata := (.Values.volume).metadata | default dict | deepCopy }}
-{{- $chartMetadata := include "mantis.metadata" . | fromYaml | deepCopy }}
+{{- $chartMetadata := include "mantis.stableMetadata" . | fromYaml | deepCopy }}
 {{- $metadata := mergeOverwrite $commonMetadata $volumeMetadata $chartMetadata -}}
 name: {{ include "mantis.volumeName" . | quote }}
 {{ toYaml $metadata }}
