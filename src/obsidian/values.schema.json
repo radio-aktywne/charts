@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "common": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      }
+    },
+    "obsidian": {
+      "type": "object",
+      "properties": {
+        "server": {
+          "type": "object",
+          "properties": {
+            "ports": {
+              "type": "object",
+              "properties": {
+                "sql": {
+                  "type": "integer"
+                },
+                "http": {
+                  "type": "integer"
+                },
+                "rpc": {
+                  "type": "integer"
+                }
+              },
+              "required": ["sql", "http", "rpc"]
+            }
+          },
+          "required": ["ports"]
+        },
+        "credentials": {
+          "type": "object",
+          "properties": {
+            "root": {
+              "type": "object",
+              "properties": {
+                "password": {
+                  "type": "string"
+                }
+              },
+              "required": ["password"]
+            },
+            "user": {
+              "type": "object",
+              "properties": {
+                "password": {
+                  "type": "string"
+                }
+              },
+              "required": ["password"]
+            }
+          },
+          "required": ["root", "user"]
+        }
+      },
+      "required": ["server", "credentials"]
+    },
+    "secret": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      }
+    },
+    "configMap": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      }
+    },
+    "volume": {
+      "type": "object",
+      "properties": {
+        "access": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "class": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string"
+        },
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "required": ["access", "size"]
+    },
+    "container": {
+      "type": "object",
+      "properties": {
+        "spec": {
+          "type": "object"
+        }
+      }
+    },
+    "pod": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      }
+    },
+    "statefulSet": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      }
+    },
+    "service": {
+      "type": "object",
+      "properties": {
+        "ports": {
+          "type": "object",
+          "properties": {
+            "sql": {
+              "type": "integer"
+            },
+            "http": {
+              "type": "integer"
+            },
+            "rpc": {
+              "type": "integer"
+            }
+          },
+          "required": ["sql", "http", "rpc"]
+        },
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "required": ["ports"]
+    }
+  },
+  "required": ["obsidian", "service"]
+}
