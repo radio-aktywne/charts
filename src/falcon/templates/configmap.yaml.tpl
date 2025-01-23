@@ -13,4 +13,5 @@ data:
   FALCON__ORCHID__PUBLIC__PATH: {{ (((.Values.falcon).orchid).public).path | default "" | quote }}
   FALCON__OBSIDIAN__SQL__HOST: {{ required "falcon.obsidian.sql.host is required" (((.Values.falcon).obsidian).sql).host | quote }}
   FALCON__OBSIDIAN__SQL__PORT: {{ required "falcon.obsidian.sql.port is required" (((.Values.falcon).obsidian).sql).port | int | quote }}
+  FALCON__OIDC__GOOGLE__DOMAIN: {{ (((.Values.falcon).oidc).google).domain | default "" | quote }}
   FALCON__DEBUG: {{ required "falcon.debug is required" (.Values.falcon).debug | quote }}
