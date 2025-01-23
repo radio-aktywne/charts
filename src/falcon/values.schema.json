@@ -126,6 +126,9 @@
                 },
                 "secret": {
                   "type": "string"
+                },
+                "domain": {
+                  "type": "string"
                 }
               },
               "required": ["client", "secret"]
