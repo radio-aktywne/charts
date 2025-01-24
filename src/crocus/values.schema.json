@@ -59,9 +59,33 @@
             }
           },
           "required": ["admin"]
+        },
+        "orchid": {
+          "type": "object",
+          "properties": {
+            "public": {
+              "type": "object",
+              "properties": {
+                "scheme": {
+                  "type": "string"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"]
+            }
+          },
+          "required": ["public"]
         }
       },
-      "required": ["server", "secrets", "scorpion"]
+      "required": ["server", "secrets", "scorpion", "orchid"]
     },
     "secret": {
       "type": "object",
