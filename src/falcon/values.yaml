@@ -71,6 +71,9 @@ falcon:
       # Client secret to authenticate with the IdP
       secret: secret
 
+      # Domain of the Google organization
+      domain: ""
+
   # Enable debug mode
   debug: true
 
