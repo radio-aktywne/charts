@@ -18,6 +18,11 @@ falcon:
     # Admin URL
     admin: http://localhost:20101
 
+  # Configuration of the cookies
+  cookies:
+    # Domain of the cookies
+    domain: ""
+
   # Configuration of the secrets
   secrets:
     # Default secrets
