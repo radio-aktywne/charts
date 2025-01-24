@@ -10,7 +10,7 @@ crocus:
     # Shared secret containing 32 characters
     shared: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-  # Configuration of the admin API of the scorpion service
+  # Configuration of the scorpion service
   scorpion:
     # Configuration of the admin API of the scorpion service
     admin:
@@ -24,6 +24,22 @@ crocus:
       port: 20001
 
       # Path of the admin API
+      path: ""
+
+  # Configuration of the orchid app
+  orchid:
+    # Configuration of the public site of the orchid app
+    public:
+      # Scheme of the public site
+      scheme: http
+
+      # Host of the public site
+      host: localhost
+
+      # Port of the public site
+      port: 20120
+
+      # Path of the public site
       path: ""
 
 # Configuration of the service
