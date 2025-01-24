@@ -1,0 +1,60 @@
+# Configuration of the orchid app
+orchid:
+  # Configuration of the server
+  server:
+    # Port to listen on
+    port: 20120
+
+  # Configuration of the URLs
+  urls:
+    # Public URL
+    public: http://localhost:20120
+
+  # Configuration of secrets
+  secrets:
+    # Shared secret containing 32 characters
+    shared: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+  # Configuration of the public API of the falcon service
+  falcon:
+    # Configuration of the public API of the falcon service
+    public:
+      # Scheme of the public API
+      scheme: http
+
+      # Host of the public API
+      host: falcon.falcon.svc.cluster.local
+
+      # Port of the public API
+      port: 20100
+
+      # Path of the public API
+      path: ""
+
+  # Configuration of the crocus app
+  crocus:
+    # Configuration of the public site of the crocus app
+    public:
+      # Scheme of the public site
+      scheme: http
+
+      # Host of the public site
+      host: localhost
+
+      # Port of the public site
+      port: 20020
+
+      # Path of the public site
+      path: ""
+
+  # Configuration of OIDC Identity Providers
+  oidc:
+    # Configuration of Google IdP
+    google:
+      # Domain of the Google organization
+      domain: ""
+
+# Configuration of the service
+service:
+  # Port to listen on
+  port: 20120
