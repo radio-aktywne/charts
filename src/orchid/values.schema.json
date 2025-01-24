@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "common": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      }
+    },
+    "orchid": {
+      "type": "object",
+      "properties": {
+        "server": {
+          "type": "object",
+          "properties": {
+            "port": {
+              "type": "integer"
+            }
+          },
+          "required": ["port"]
+        },
+        "urls": {
+          "type": "object",
+          "properties": {
+            "public": {
+              "type": "string"
+            }
+          },
+          "required": ["public"]
+        },
+        "secrets": {
+          "type": "object",
+          "properties": {
+            "shared": {
+              "type": "string",
+              "minLength": 32,
+              "maxLength": 32
+            }
+          },
+          "required": ["shared"]
+        },
+        "falcon": {
+          "type": "object",
+          "properties": {
+            "public": {
+              "type": "object",
+              "properties": {
+                "scheme": {
+                  "type": "string"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"]
+            }
+          },
+          "required": ["public"]
+        },
+        "crocus": {
+          "type": "object",
+          "properties": {
+            "public": {
+              "type": "object",
+              "properties": {
+                "scheme": {
+                  "type": "string"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "path": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"]
+            }
+          },
+          "required": ["public"]
+        },
+        "oidc": {
+          "type": "object",
+          "properties": {
+            "google": {
+              "type": "object",
+              "properties": {
+                "domain": {
+                  "type": "string"
+                }
+              },
+              "required": []
+            }
+          },
+          "required": []
+        }
+      },
+      "required": ["server", "urls", "secrets", "falcon", "crocus"]
+    },
+    "secret": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      }
+    },
+    "configMap": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      }
+    },
+    "container": {
+      "type": "object",
+      "properties": {
+        "spec": {
+          "type": "object"
+        }
+      }
+    },
+    "pod": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      }
+    },
+    "deployment": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      }
+    },
+    "service": {
+      "type": "object",
+      "properties": {
+        "port": {
+          "type": "integer"
+        },
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "required": ["port"]
+    }
+  },
+  "required": ["orchid", "service"]
+}
