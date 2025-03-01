@@ -12,3 +12,4 @@ data:
   PELICAN__MINIUM__S3__SECURE: {{ required "pelican.minium.s3.secure is required" (((.Values.pelican).minium).s3).secure | quote }}
   PELICAN__MINIUM__S3__HOST: {{ required "pelican.minium.s3.host is required" (((.Values.pelican).minium).s3).host | quote }}
   PELICAN__MINIUM__S3__PORT: {{ (((.Values.pelican).minium).s3).port | int | default "" | quote }}
+  PELICAN__DEBUG: {{ required "pelican.debug is required" (.Values.pelican).debug | quote }}

@@ -75,9 +75,12 @@
             }
           },
           "required": ["s3"]
+        },
+        "debug": {
+          "type": "boolean"
         }
       },
-      "required": ["server", "beaver", "emerald"]
+      "required": ["server", "beaver", "emerald", "debug"]
     },
     "secret": {
       "type": "object",

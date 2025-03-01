@@ -60,6 +60,9 @@ octopus:
       # Path of the HTTP API
       path: ""
 
+  # Enable debug mode
+  debug: true
+
 # Configuration of the service
 service:
   # Ports configuration

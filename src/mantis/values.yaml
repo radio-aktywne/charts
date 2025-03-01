@@ -110,6 +110,9 @@ mantis:
       # Port of the SRT stream
       port: 10300
 
+  # Enable debug mode
+  debug: true
+
 # Configuration of the service
 service:
   # Port to listen on

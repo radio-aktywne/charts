@@ -43,6 +43,9 @@ beaver:
       # Calendar to use for the CalDAV API
       calendar: calendar
 
+  # Enable debug mode
+  debug: true
+
 # Configuration of the service
 service:
   # Port to listen on

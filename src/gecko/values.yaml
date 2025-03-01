@@ -40,6 +40,9 @@ gecko:
       # Password to authenticate with the S3 API
       password: password
 
+  # Enable debug mode
+  debug: true
+
 # Configuration of the service
 service:
   # Port to listen on

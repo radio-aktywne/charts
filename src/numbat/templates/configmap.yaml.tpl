@@ -11,3 +11,4 @@ data:
   NUMBAT__BEAVER__HTTP__HOST: {{ required "numbat.beaver.http.host is required" (((.Values.numbat).beaver).http).host | quote }}
   NUMBAT__BEAVER__HTTP__PORT: {{ (((.Values.numbat).beaver).http).port | int | default "" | quote }}
   NUMBAT__BEAVER__HTTP__PATH: {{ (((.Values.numbat).beaver).http).path | default "" | quote }}
+  NUMBAT__DEBUG: {{ required "numbat.debug is required" (.Values.numbat).debug | quote }}

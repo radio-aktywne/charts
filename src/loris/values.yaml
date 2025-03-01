@@ -26,6 +26,9 @@ loris:
     # Time after which a stream will be stopped if no connections are made
     timeout: PT1M
 
+  # Enable debug mode
+  debug: true
+
 # Configuration of the service
 service:
   # Ports configuration

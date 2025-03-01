@@ -57,9 +57,12 @@
             }
           },
           "required": ["stun", "timeout"]
+        },
+        "debug": {
+          "type": "boolean"
         }
       },
-      "required": ["server", "streamer"]
+      "required": ["server", "streamer", "debug"]
     },
     "configMap": {
       "type": "object",
