@@ -111,9 +111,12 @@
             }
           },
           "required": ["http"]
+        },
+        "debug": {
+          "type": "boolean"
         }
       },
-      "required": ["server", "stream", "beaver", "dingo", "gecko"]
+      "required": ["server", "stream", "beaver", "dingo", "gecko", "debug"]
     },
     "configMap": {
       "type": "object",

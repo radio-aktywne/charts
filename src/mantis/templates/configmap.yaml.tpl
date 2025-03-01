@@ -29,3 +29,4 @@ data:
   MANTIS__OCTOPUS__HTTP__PATH: {{ (((.Values.mantis).octopus).http).path | default "" | quote }}
   MANTIS__OCTOPUS__SRT__HOST: {{ required "mantis.octopus.srt.host is required" (((.Values.mantis).octopus).srt).host | quote }}
   MANTIS__OCTOPUS__SRT__PORT: {{ required "mantis.octopus.srt.port is required" (((.Values.mantis).octopus).srt).port | int | quote }}
+  MANTIS__DEBUG: {{ required "mantis.debug is required" (.Values.mantis).debug | quote }}

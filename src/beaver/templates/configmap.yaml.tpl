@@ -11,3 +11,4 @@ data:
   BEAVER__HOWLITE__CALDAV__CALENDAR: {{ required "beaver.howlite.caldav.calendar is required" (((.Values.beaver).howlite).caldav).calendar | quote }}
   BEAVER__SAPPHIRE__SQL__HOST: {{ required "beaver.sapphire.sql.host is required" (((.Values.beaver).sapphire).sql).host | quote }}
   BEAVER__SAPPHIRE__SQL__PORT: {{ required "beaver.sapphire.sql.port is required" (((.Values.beaver).sapphire).sql).port | int | quote }}
+  BEAVER__DEBUG: {{ required "beaver.debug is required" (.Values.beaver).debug | quote }}

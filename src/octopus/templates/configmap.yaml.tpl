@@ -17,3 +17,4 @@ data:
   OCTOPUS__GECKO__HTTP__HOST: {{ required "octopus.gecko.http.host is required" (((.Values.octopus).gecko).http).host | quote }}
   OCTOPUS__GECKO__HTTP__PORT: {{ (((.Values.octopus).gecko).http).port | int | default "" | quote }}
   OCTOPUS__GECKO__HTTP__PATH: {{ (((.Values.octopus).gecko).http).path | default "" | quote }}
+  OCTOPUS__DEBUG: {{ required "octopus.debug is required" (.Values.octopus).debug | quote }}

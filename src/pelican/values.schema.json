@@ -75,9 +75,12 @@
             }
           },
           "required": ["s3"]
+        },
+        "debug": {
+          "type": "boolean"
         }
       },
-      "required": ["server", "graphite", "minium"]
+      "required": ["server", "graphite", "minium", "debug"]
     },
     "secret": {
       "type": "object",

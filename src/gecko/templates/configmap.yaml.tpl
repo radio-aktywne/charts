@@ -11,3 +11,4 @@ data:
   GECKO__EMERALD__S3__SECURE: {{ required "gecko.emerald.s3.secure is required" (((.Values.gecko).emerald).s3).secure | quote }}
   GECKO__EMERALD__S3__HOST: {{ required "gecko.emerald.s3.host is required" (((.Values.gecko).emerald).s3).host | quote }}
   GECKO__EMERALD__S3__PORT: {{ (((.Values.gecko).emerald).s3).port | int | default "" | quote }}
+  GECKO__DEBUG: {{ required "gecko.debug is required" (.Values.gecko).debug | quote }}

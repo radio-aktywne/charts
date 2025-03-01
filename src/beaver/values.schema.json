@@ -78,9 +78,12 @@
             }
           },
           "required": ["sql"]
+        },
+        "debug": {
+          "type": "boolean"
         }
       },
-      "required": ["server", "howlite", "sapphire"]
+      "required": ["server", "howlite", "sapphire", "debug"]
     },
     "secret": {
       "type": "object",

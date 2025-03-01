@@ -75,9 +75,12 @@
             }
           },
           "required": ["http"]
+        },
+        "debug": {
+          "type": "boolean"
         }
       },
-      "required": ["server", "amber", "beaver"]
+      "required": ["server", "amber", "beaver", "debug"]
     },
     "secret": {
       "type": "object",
