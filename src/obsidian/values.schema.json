@@ -19,36 +19,15 @@
         "server": {
           "type": "object",
           "properties": {
-            "ports": {
-              "type": "object",
-              "properties": {
-                "sql": {
-                  "type": "integer"
-                },
-                "http": {
-                  "type": "integer"
-                },
-                "rpc": {
-                  "type": "integer"
-                }
-              },
-              "required": ["sql", "http", "rpc"]
+            "port": {
+              "type": "integer"
             }
           },
-          "required": ["ports"]
+          "required": ["port"]
         },
         "credentials": {
           "type": "object",
           "properties": {
-            "root": {
-              "type": "object",
-              "properties": {
-                "password": {
-                  "type": "string"
-                }
-              },
-              "required": ["password"]
-            },
             "user": {
               "type": "object",
               "properties": {
@@ -59,7 +38,7 @@
               "required": ["password"]
             }
           },
-          "required": ["root", "user"]
+          "required": ["user"]
         }
       },
       "required": ["server", "credentials"]
@@ -144,20 +123,8 @@
     "service": {
       "type": "object",
       "properties": {
-        "ports": {
-          "type": "object",
-          "properties": {
-            "sql": {
-              "type": "integer"
-            },
-            "http": {
-              "type": "integer"
-            },
-            "rpc": {
-              "type": "integer"
-            }
-          },
-          "required": ["sql", "http", "rpc"]
+        "port": {
+          "type": "integer"
         },
         "metadata": {
           "type": "object"
@@ -166,7 +133,7 @@
           "type": "object"
         }
       },
-      "required": ["ports"]
+      "required": ["port"]
     }
   },
   "required": ["obsidian", "service"]

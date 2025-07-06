@@ -2,24 +2,11 @@
 obsidian:
   # Configuration of the server
   server:
-    # Ports to listen on
-    ports:
-      # Port to listen on for SQL connections
-      sql: 20110
-
-      # Port to listen on for HTTP requests
-      http: 20111
-
-      # Port to listen on for RPC requests
-      rpc: 20112
+    # Port to listen on
+    port: 20110
 
   # Credentials for the database
   credentials:
-    # Credentials for the root user
-    root:
-      # Password of the root user
-      password: password
-
     # Credentials for the main user
     user:
       # Password of the main user
@@ -27,13 +14,5 @@ obsidian:
 
 # Configuration of the service
 service:
-  # Ports to listen on
-  ports:
-    # Port to listen on for SQL connections
-    sql: 20110
-
-    # Port to listen on for HTTP requests
-    http: 20111
-
-    # Port to listen on for RPC requests
-    rpc: 20112
+  # Port to listen on
+  port: 20110
