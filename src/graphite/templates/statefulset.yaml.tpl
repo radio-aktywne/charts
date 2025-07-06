@@ -18,13 +18,7 @@ spec:
           ports:
             - name: sql
               protocol: TCP
-              containerPort: {{ required "graphite.server.ports.sql is required" (((.Values.graphite).server).ports).sql | int }}
-            - name: http
-              protocol: TCP
-              containerPort: {{ required "graphite.server.ports.http is required" (((.Values.graphite).server).ports).http | int }}
-            - name: rpc
-              protocol: TCP
-              containerPort: {{ required "graphite.server.ports.rpc is required" (((.Values.graphite).server).ports).rpc | int }}
+              containerPort: {{ required "graphite.server.port is required" ((.Values.graphite).server).port | int }}
           envFrom:
             - configMapRef:
                 name: {{ include "graphite.configMapName" . | quote }}
@@ -36,14 +30,12 @@ spec:
               mountPath: /database/data/
           {{- end }}
           livenessProbe:
-            httpGet:
-              path: /health
-              port: http
+            tcpSocket:
+              port: sql
             failureThreshold: 6
           readinessProbe:
-            httpGet:
-              path: /health?ready=1
-              port: http
+            tcpSocket:
+              port: sql
             failureThreshold: 6
           {{- with (.Values.container).spec }}
           {{- toYaml . | nindent 10 }}

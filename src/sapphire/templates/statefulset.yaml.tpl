@@ -18,13 +18,7 @@ spec:
           ports:
             - name: sql
               protocol: TCP
-              containerPort: {{ required "sapphire.server.ports.sql is required" (((.Values.sapphire).server).ports).sql | int }}
-            - name: http
-              protocol: TCP
-              containerPort: {{ required "sapphire.server.ports.http is required" (((.Values.sapphire).server).ports).http | int }}
-            - name: rpc
-              protocol: TCP
-              containerPort: {{ required "sapphire.server.ports.rpc is required" (((.Values.sapphire).server).ports).rpc | int }}
+              containerPort: {{ required "sapphire.server.port is required" ((.Values.sapphire).server).port | int }}
           envFrom:
             - configMapRef:
                 name: {{ include "sapphire.configMapName" . | quote }}
@@ -36,14 +30,12 @@ spec:
               mountPath: /database/data/
           {{- end }}
           livenessProbe:
-            httpGet:
-              path: /health
-              port: http
+            tcpSocket:
+              port: sql
             failureThreshold: 6
           readinessProbe:
-            httpGet:
-              path: /health?ready=1
-              port: http
+            tcpSocket:
+              port: sql
             failureThreshold: 6
           {{- with (.Values.container).spec }}
           {{- toYaml . | nindent 10 }}

@@ -18,13 +18,7 @@ spec:
           ports:
             - name: sql
               protocol: TCP
-              containerPort: {{ required "diamond.server.ports.sql is required" (((.Values.diamond).server).ports).sql | int }}
-            - name: http
-              protocol: TCP
-              containerPort: {{ required "diamond.server.ports.http is required" (((.Values.diamond).server).ports).http | int }}
-            - name: rpc
-              protocol: TCP
-              containerPort: {{ required "diamond.server.ports.rpc is required" (((.Values.diamond).server).ports).rpc | int }}
+              containerPort: {{ required "diamond.server.port is required" ((.Values.diamond).server).port | int }}
           envFrom:
             - configMapRef:
                 name: {{ include "diamond.configMapName" . | quote }}
@@ -36,14 +30,12 @@ spec:
               mountPath: /database/data/
           {{- end }}
           livenessProbe:
-            httpGet:
-              path: /health
-              port: http
+            tcpSocket:
+              port: sql
             failureThreshold: 6
           readinessProbe:
-            httpGet:
-              path: /health?ready=1
-              port: http
+            tcpSocket:
+              port: sql
             failureThreshold: 6
           {{- with (.Values.container).spec }}
           {{- toYaml . | nindent 10 }}

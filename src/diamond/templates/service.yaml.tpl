@@ -9,16 +9,8 @@ spec:
   ports:
     - name: sql
       protocol: TCP
-      port: {{ required "service.ports.sql is required" ((.Values.service).ports).sql | int }}
+      port: {{ required "service.port is required" (.Values.service).port | int }}
       targetPort: sql
-    - name: http
-      protocol: TCP
-      port: {{ required "service.ports.http is required" ((.Values.service).ports).http | int }}
-      targetPort: http
-    - name: rpc
-      protocol: TCP
-      port: {{ required "service.ports.rpc is required" ((.Values.service).ports).rpc | int }}
-      targetPort: rpc
   {{- with (.Values.service).spec }}
   {{- toYaml . | nindent 2 }}
   {{- end }}
