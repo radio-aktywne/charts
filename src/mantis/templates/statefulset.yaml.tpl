@@ -24,7 +24,7 @@ spec:
           {{- if .Values.volume }}
           volumeMounts:
             - name: {{ include "mantis.volumeName" . | quote }}
-              mountPath: /app/data/
+              mountPath: /service/data/
           {{- end }}
           livenessProbe:
             httpGet:
