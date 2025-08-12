@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   {{- include "beaver.deploymentMetadata" . | nindent 2 }}
 spec:
-  replicas: 1
   selector:
     matchLabels:
       {{- include "beaver.selector" . | nindent 6 }}

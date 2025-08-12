@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   {{- include "aster.deploymentMetadata" . | nindent 2 }}
 spec:
-  replicas: 1
   selector:
     matchLabels:
       {{- include "aster.selector" . | nindent 6 }}

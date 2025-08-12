@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   {{- include "magnolia.deploymentMetadata" . | nindent 2 }}
 spec:
-  replicas: 1
   selector:
     matchLabels:
       {{- include "magnolia.selector" . | nindent 6 }}

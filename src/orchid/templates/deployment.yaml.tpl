@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   {{- include "orchid.deploymentMetadata" . | nindent 2 }}
 spec:
-  replicas: 1
   selector:
     matchLabels:
       {{- include "orchid.selector" . | nindent 6 }}

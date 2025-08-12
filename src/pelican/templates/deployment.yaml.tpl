@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   {{- include "pelican.deploymentMetadata" . | nindent 2 }}
 spec:
-  replicas: 1
   selector:
     matchLabels:
       {{- include "pelican.selector" . | nindent 6 }}

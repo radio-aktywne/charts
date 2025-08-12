@@ -3,7 +3,6 @@ kind: StatefulSet
 metadata:
   {{- include "dingo.statefulSetMetadata" . | nindent 2 }}
 spec:
-  replicas: 1
   selector:
     matchLabels:
       {{- include "dingo.selector" . | nindent 6 }}

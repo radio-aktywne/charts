@@ -3,7 +3,6 @@ kind: StatefulSet
 metadata:
   {{- include "howlite.statefulSetMetadata" . | nindent 2 }}
 spec:
-  replicas: 1
   selector:
     matchLabels:
       {{- include "howlite.selector" . | nindent 6 }}

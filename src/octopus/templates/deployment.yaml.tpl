@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   {{- include "octopus.deploymentMetadata" . | nindent 2 }}
 spec:
-  replicas: 1
   selector:
     matchLabels:
       {{- include "octopus.selector" . | nindent 6 }}

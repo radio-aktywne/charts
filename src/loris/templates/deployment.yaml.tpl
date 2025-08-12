@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   {{- include "loris.deploymentMetadata" . | nindent 2 }}
 spec:
-  replicas: 1
   selector:
     matchLabels:
       {{- include "loris.selector" . | nindent 6 }}

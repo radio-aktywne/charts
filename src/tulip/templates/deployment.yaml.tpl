@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   {{- include "tulip.deploymentMetadata" . | nindent 2 }}
 spec:
-  replicas: 1
   selector:
     matchLabels:
       {{- include "tulip.selector" . | nindent 6 }}

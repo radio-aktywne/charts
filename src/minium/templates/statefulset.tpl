@@ -3,7 +3,6 @@ kind: StatefulSet
 metadata:
   {{- include "minium.statefulSetMetadata" . | nindent 2 }}
 spec:
-  replicas: 1
   selector:
     matchLabels:
       {{- include "minium.selector" . | nindent 6 }}
