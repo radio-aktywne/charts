@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   {{- include "daisy.deploymentMetadata" . | nindent 2 }}
 spec:
-  replicas: 1
   selector:
     matchLabels:
       {{- include "daisy.selector" . | nindent 6 }}

@@ -3,7 +3,6 @@ kind: StatefulSet
 metadata:
   {{- include "obsidian.statefulSetMetadata" . | nindent 2 }}
 spec:
-  replicas: 1
   selector:
     matchLabels:
       {{- include "obsidian.selector" . | nindent 6 }}

@@ -3,7 +3,6 @@ kind: StatefulSet
 metadata:
   {{- include "sapphire.statefulSetMetadata" . | nindent 2 }}
 spec:
-  replicas: 1
   selector:
     matchLabels:
       {{- include "sapphire.selector" . | nindent 6 }}

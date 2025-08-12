@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   {{- include "gecko.deploymentMetadata" . | nindent 2 }}
 spec:
-  replicas: 1
   selector:
     matchLabels:
       {{- include "gecko.selector" . | nindent 6 }}

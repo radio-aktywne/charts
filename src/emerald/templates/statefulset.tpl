@@ -3,7 +3,6 @@ kind: StatefulSet
 metadata:
   {{- include "emerald.statefulSetMetadata" . | nindent 2 }}
 spec:
-  replicas: 1
   selector:
     matchLabels:
       {{- include "emerald.selector" . | nindent 6 }}

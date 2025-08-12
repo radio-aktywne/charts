@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   {{- include "poppy.deploymentMetadata" . | nindent 2 }}
 spec:
-  replicas: 1
   selector:
     matchLabels:
       {{- include "poppy.selector" . | nindent 6 }}

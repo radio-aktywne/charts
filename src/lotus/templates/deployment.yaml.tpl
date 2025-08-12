@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   {{- include "lotus.deploymentMetadata" . | nindent 2 }}
 spec:
-  replicas: 1
   selector:
     matchLabels:
       {{- include "lotus.selector" . | nindent 6 }}

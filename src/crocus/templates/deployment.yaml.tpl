@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   {{- include "crocus.deploymentMetadata" . | nindent 2 }}
 spec:
-  replicas: 1
   selector:
     matchLabels:
       {{- include "crocus.selector" . | nindent 6 }}

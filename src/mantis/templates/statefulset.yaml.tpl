@@ -3,7 +3,6 @@ kind: StatefulSet
 metadata:
   {{- include "mantis.statefulSetMetadata" . | nindent 2 }}
 spec:
-  replicas: 1
   selector:
     matchLabels:
       {{- include "mantis.selector" . | nindent 6 }}

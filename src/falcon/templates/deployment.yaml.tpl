@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   {{- include "falcon.deploymentMetadata" . | nindent 2 }}
 spec:
-  replicas: 1
   selector:
     matchLabels:
       {{- include "falcon.selector" . | nindent 6 }}

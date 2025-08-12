@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   {{- include "numbat.deploymentMetadata" . | nindent 2 }}
 spec:
-  replicas: 1
   selector:
     matchLabels:
       {{- include "numbat.selector" . | nindent 6 }}
