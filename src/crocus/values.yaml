@@ -1,46 +1,46 @@
 # Configuration of the crocus app
 crocus:
-  # Configuration of the server
-  server:
-    # Port to listen on
-    port: 20020
+  # Configuration of the orchid app
+  orchid:
+    # Configuration of the public site of the orchid app
+    public:
+      # Host of the public site
+      host: localhost
+
+      # Path of the public site
+      path: ""
+
+      # Port of the public site
+      port: 20120
+
+      # Scheme of the public site
+      scheme: http
+
+  # Configuration of the scorpion service
+  scorpion:
+    # Configuration of the admin API of the scorpion service
+    admin:
+      # Host of the admin API
+      host: scorpion.scorpion.svc.cluster.local
+
+      # Path of the admin API
+      path: ""
+
+      # Port of the admin API
+      port: 20001
+
+      # Scheme of the admin API
+      scheme: http
 
   # Configuration of secrets
   secrets:
     # Shared secret containing 32 characters
     shared: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-  # Configuration of the scorpion service
-  scorpion:
-    # Configuration of the admin API of the scorpion service
-    admin:
-      # Scheme of the admin API
-      scheme: http
-
-      # Host of the admin API
-      host: scorpion.scorpion.svc.cluster.local
-
-      # Port of the admin API
-      port: 20001
-
-      # Path of the admin API
-      path: ""
-
-  # Configuration of the orchid app
-  orchid:
-    # Configuration of the public site of the orchid app
-    public:
-      # Scheme of the public site
-      scheme: http
-
-      # Host of the public site
-      host: localhost
-
-      # Port of the public site
-      port: 20120
-
-      # Path of the public site
-      path: ""
+  # Configuration of the server
+  server:
+    # Port to listen on
+    port: 20020
 
 # Configuration of the service
 service:

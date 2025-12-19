@@ -1,140 +1,147 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "object",
   "properties": {
-    "name": {
-      "type": "string"
-    },
     "common": {
-      "type": "object",
       "properties": {
         "metadata": {
           "type": "object"
         }
-      }
+      },
+      "type": "object"
+    },
+    "configMap": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "container": {
+      "properties": {
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "deployment": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "name": {
+      "type": "string"
+    },
+    "pod": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
     },
     "poppy": {
-      "type": "object",
       "properties": {
-        "server": {
-          "type": "object",
-          "properties": {
-            "port": {
-              "type": "integer"
-            }
-          },
-          "required": ["port"]
-        },
-        "secrets": {
-          "type": "object",
-          "properties": {
-            "auth": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          },
-          "required": ["auth"]
-        },
-        "urls": {
-          "type": "object",
-          "properties": {
-            "public": {
-              "type": "string"
-            }
-          },
-          "required": ["public"]
-        },
         "beaver": {
-          "type": "object",
           "properties": {
             "http": {
-              "type": "object",
               "properties": {
-                "scheme": {
+                "host": {
                   "type": "string"
                 },
-                "host": {
+                "path": {
                   "type": "string"
                 },
                 "port": {
                   "type": "integer"
                 },
-                "path": {
+                "scheme": {
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"]
+              "required": ["scheme", "host"],
+              "type": "object"
             }
           },
-          "required": ["http"]
+          "required": ["http"],
+          "type": "object"
+        },
+        "debug": {
+          "type": "boolean"
         },
         "loris": {
-          "type": "object",
           "properties": {
             "http": {
-              "type": "object",
               "properties": {
-                "scheme": {
+                "host": {
                   "type": "string"
                 },
-                "host": {
+                "path": {
                   "type": "string"
                 },
                 "port": {
                   "type": "integer"
                 },
-                "path": {
+                "scheme": {
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"]
+              "required": ["scheme", "host"],
+              "type": "object"
             },
             "whip": {
-              "type": "object",
               "properties": {
-                "scheme": {
+                "host": {
                   "type": "string"
                 },
-                "host": {
+                "path": {
                   "type": "string"
                 },
                 "port": {
                   "type": "integer"
                 },
-                "path": {
+                "scheme": {
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"]
+              "required": ["scheme", "host"],
+              "type": "object"
             }
           },
-          "required": ["http", "whip"]
+          "required": ["http", "whip"],
+          "type": "object"
         },
         "octopus": {
-          "type": "object",
           "properties": {
             "http": {
-              "type": "object",
               "properties": {
-                "scheme": {
+                "host": {
                   "type": "string"
                 },
-                "host": {
+                "path": {
                   "type": "string"
                 },
                 "port": {
                   "type": "integer"
                 },
-                "path": {
+                "scheme": {
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"]
+              "required": ["scheme", "host"],
+              "type": "object"
             },
             "srt": {
-              "type": "object",
               "properties": {
                 "host": {
                   "type": "string"
@@ -143,43 +150,72 @@
                   "type": "integer"
                 }
               },
-              "required": ["host", "port"]
+              "required": ["host", "port"],
+              "type": "object"
             }
           },
-          "required": ["http", "srt"]
+          "required": ["http", "srt"],
+          "type": "object"
         },
         "scorpion": {
-          "type": "object",
           "properties": {
             "public": {
-              "type": "object",
               "properties": {
-                "scheme": {
+                "client": {
                   "type": "string"
                 },
                 "host": {
                   "type": "string"
                 },
-                "port": {
-                  "type": "integer"
-                },
                 "path": {
                   "type": "string"
                 },
-                "client": {
+                "port": {
+                  "type": "integer"
+                },
+                "scheme": {
                   "type": "string"
                 },
                 "secret": {
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host", "client", "secret"]
+              "required": ["scheme", "host", "client", "secret"],
+              "type": "object"
             }
           },
-          "required": ["public"]
+          "required": ["public"],
+          "type": "object"
         },
-        "debug": {
-          "type": "boolean"
+        "secrets": {
+          "properties": {
+            "auth": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": ["auth"],
+          "type": "object"
+        },
+        "server": {
+          "properties": {
+            "port": {
+              "type": "integer"
+            }
+          },
+          "required": ["port"],
+          "type": "object"
+        },
+        "urls": {
+          "properties": {
+            "public": {
+              "type": "string"
+            }
+          },
+          "required": ["public"],
+          "type": "object"
         }
       },
       "required": [
@@ -191,69 +227,33 @@
         "octopus",
         "scorpion",
         "debug"
-      ]
+      ],
+      "type": "object"
     },
     "secret": {
-      "type": "object",
       "properties": {
         "metadata": {
           "type": "object"
         }
-      }
-    },
-    "configMap": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        }
-      }
-    },
-    "container": {
-      "type": "object",
-      "properties": {
-        "spec": {
-          "type": "object"
-        }
-      }
-    },
-    "pod": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        },
-        "spec": {
-          "type": "object"
-        }
-      }
-    },
-    "deployment": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        },
-        "spec": {
-          "type": "object"
-        }
-      }
+      },
+      "type": "object"
     },
     "service": {
-      "type": "object",
       "properties": {
-        "port": {
-          "type": "integer"
-        },
         "metadata": {
           "type": "object"
+        },
+        "port": {
+          "type": "integer"
         },
         "spec": {
           "type": "object"
         }
       },
-      "required": ["port"]
+      "required": ["port"],
+      "type": "object"
     }
   },
-  "required": ["poppy", "service"]
+  "required": ["poppy", "service"],
+  "type": "object"
 }

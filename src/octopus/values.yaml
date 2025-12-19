@@ -1,5 +1,50 @@
 # Configuration of the octopus service
 octopus:
+  # Configuration of the beaver service
+  beaver:
+    # Configuration of the HTTP API of the beaver service
+    http:
+      # Host of the HTTP API
+      host: beaver.beaver.svc.cluster.local
+
+      # Path of the HTTP API
+      path: ""
+
+      # Port of the HTTP API
+      port: 10500
+
+      # Scheme of the HTTP API
+      scheme: http
+
+  # Enable debug mode
+  debug: true
+
+  # Configuration of the dingo service
+  dingo:
+    # Configuration of the SRT stream of the dingo service
+    srt:
+      # Host of the SRT stream
+      host: dingo.dingo.svc.cluster.local
+
+      # Port of the SRT stream
+      port: 10100
+
+  # Configuration of the gecko service
+  gecko:
+    # Configuration of the HTTP API of the gecko service
+    http:
+      # Host of the HTTP API
+      host: gecko.gecko.svc.cluster.local
+
+      # Path of the HTTP API
+      path: ""
+
+      # Port of the HTTP API
+      port: 10700
+
+      # Scheme of the HTTP API
+      scheme: http
+
   # Configuration of the server
   server:
     # Ports configuration
@@ -17,51 +62,6 @@ octopus:
 
     # Time window to search for event instances around the current time
     window: PT1H
-
-  # Configuration of the dingo service
-  dingo:
-    # Configuration of the SRT stream of the dingo service
-    srt:
-      # Host of the SRT stream
-      host: dingo.dingo.svc.cluster.local
-
-      # Port of the SRT stream
-      port: 10100
-
-  # Configuration of the gecko service
-  gecko:
-    # Configuration of the HTTP API of the gecko service
-    http:
-      # Scheme of the HTTP API
-      scheme: http
-
-      # Host of the HTTP API
-      host: gecko.gecko.svc.cluster.local
-
-      # Port of the HTTP API
-      port: 10700
-
-      # Path of the HTTP API
-      path: ""
-
-  # Configuration of the beaver service
-  beaver:
-    # Configuration of the HTTP API of the beaver service
-    http:
-      # Scheme of the HTTP API
-      scheme: http
-
-      # Host of the HTTP API
-      host: beaver.beaver.svc.cluster.local
-
-      # Port of the HTTP API
-      port: 10500
-
-      # Path of the HTTP API
-      path: ""
-
-  # Enable debug mode
-  debug: true
 
 # Configuration of the service
 service:

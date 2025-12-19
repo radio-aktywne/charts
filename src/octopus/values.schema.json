@@ -1,26 +1,118 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "object",
   "properties": {
-    "name": {
-      "type": "string"
-    },
     "common": {
-      "type": "object",
       "properties": {
         "metadata": {
           "type": "object"
         }
-      }
+      },
+      "type": "object"
+    },
+    "configMap": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "container": {
+      "properties": {
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "deployment": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "name": {
+      "type": "string"
     },
     "octopus": {
-      "type": "object",
       "properties": {
+        "beaver": {
+          "properties": {
+            "http": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "scheme": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"],
+              "type": "object"
+            }
+          },
+          "required": ["http"],
+          "type": "object"
+        },
+        "debug": {
+          "type": "boolean"
+        },
+        "dingo": {
+          "properties": {
+            "srt": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                }
+              },
+              "required": ["host", "port"],
+              "type": "object"
+            }
+          },
+          "required": ["srt"],
+          "type": "object"
+        },
+        "gecko": {
+          "properties": {
+            "http": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "scheme": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"],
+              "type": "object"
+            }
+          },
+          "required": ["http"],
+          "type": "object"
+        },
         "server": {
-          "type": "object",
           "properties": {
             "ports": {
-              "type": "object",
               "properties": {
                 "http": {
                   "type": "integer"
@@ -29,13 +121,14 @@
                   "type": "integer"
                 }
               },
-              "required": ["http", "srt"]
+              "required": ["http", "srt"],
+              "type": "object"
             }
           },
-          "required": ["ports"]
+          "required": ["ports"],
+          "type": "object"
         },
         "stream": {
-          "type": "object",
           "properties": {
             "timeout": {
               "type": "string"
@@ -44,98 +137,14 @@
               "type": "string"
             }
           },
-          "required": ["timeout", "window"]
-        },
-        "beaver": {
-          "type": "object",
-          "properties": {
-            "http": {
-              "type": "object",
-              "properties": {
-                "scheme": {
-                  "type": "string"
-                },
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "path": {
-                  "type": "string"
-                }
-              },
-              "required": ["scheme", "host"]
-            }
-          },
-          "required": ["http"]
-        },
-        "dingo": {
-          "type": "object",
-          "properties": {
-            "srt": {
-              "type": "object",
-              "properties": {
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                }
-              },
-              "required": ["host", "port"]
-            }
-          },
-          "required": ["srt"]
-        },
-        "gecko": {
-          "type": "object",
-          "properties": {
-            "http": {
-              "type": "object",
-              "properties": {
-                "scheme": {
-                  "type": "string"
-                },
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "path": {
-                  "type": "string"
-                }
-              },
-              "required": ["scheme", "host"]
-            }
-          },
-          "required": ["http"]
-        },
-        "debug": {
-          "type": "boolean"
+          "required": ["timeout", "window"],
+          "type": "object"
         }
       },
-      "required": ["server", "stream", "beaver", "dingo", "gecko", "debug"]
-    },
-    "configMap": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        }
-      }
-    },
-    "container": {
-      "type": "object",
-      "properties": {
-        "spec": {
-          "type": "object"
-        }
-      }
+      "required": ["server", "stream", "beaver", "dingo", "gecko", "debug"],
+      "type": "object"
     },
     "pod": {
-      "type": "object",
       "properties": {
         "metadata": {
           "type": "object"
@@ -143,24 +152,15 @@
         "spec": {
           "type": "object"
         }
-      }
-    },
-    "deployment": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        },
-        "spec": {
-          "type": "object"
-        }
-      }
+      },
+      "type": "object"
     },
     "service": {
-      "type": "object",
       "properties": {
+        "metadata": {
+          "type": "object"
+        },
         "ports": {
-          "type": "object",
           "properties": {
             "http": {
               "type": "integer"
@@ -169,17 +169,17 @@
               "type": "integer"
             }
           },
-          "required": ["http", "srt"]
-        },
-        "metadata": {
+          "required": ["http", "srt"],
           "type": "object"
         },
         "spec": {
           "type": "object"
         }
       },
-      "required": ["ports"]
+      "required": ["ports"],
+      "type": "object"
     }
   },
-  "required": ["octopus", "service"]
+  "required": ["octopus", "service"],
+  "type": "object"
 }

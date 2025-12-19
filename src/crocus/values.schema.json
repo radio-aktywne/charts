@@ -1,129 +1,105 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "object",
   "properties": {
-    "name": {
-      "type": "string"
-    },
     "common": {
-      "type": "object",
       "properties": {
         "metadata": {
           "type": "object"
         }
-      }
+      },
+      "type": "object"
+    },
+    "configMap": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "container": {
+      "properties": {
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
     },
     "crocus": {
-      "type": "object",
       "properties": {
+        "orchid": {
+          "properties": {
+            "public": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "scheme": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"],
+              "type": "object"
+            }
+          },
+          "required": ["public"],
+          "type": "object"
+        },
+        "scorpion": {
+          "properties": {
+            "admin": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "scheme": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"],
+              "type": "object"
+            }
+          },
+          "required": ["admin"],
+          "type": "object"
+        },
+        "secrets": {
+          "properties": {
+            "shared": {
+              "maxLength": 32,
+              "minLength": 32,
+              "type": "string"
+            }
+          },
+          "required": ["shared"],
+          "type": "object"
+        },
         "server": {
-          "type": "object",
           "properties": {
             "port": {
               "type": "integer"
             }
           },
-          "required": ["port"]
-        },
-        "secrets": {
-          "type": "object",
-          "properties": {
-            "shared": {
-              "type": "string",
-              "minLength": 32,
-              "maxLength": 32
-            }
-          },
-          "required": ["shared"]
-        },
-        "scorpion": {
-          "type": "object",
-          "properties": {
-            "admin": {
-              "type": "object",
-              "properties": {
-                "scheme": {
-                  "type": "string"
-                },
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "path": {
-                  "type": "string"
-                }
-              },
-              "required": ["scheme", "host"]
-            }
-          },
-          "required": ["admin"]
-        },
-        "orchid": {
-          "type": "object",
-          "properties": {
-            "public": {
-              "type": "object",
-              "properties": {
-                "scheme": {
-                  "type": "string"
-                },
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "path": {
-                  "type": "string"
-                }
-              },
-              "required": ["scheme", "host"]
-            }
-          },
-          "required": ["public"]
+          "required": ["port"],
+          "type": "object"
         }
       },
-      "required": ["server", "secrets", "scorpion", "orchid"]
-    },
-    "secret": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        }
-      }
-    },
-    "configMap": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        }
-      }
-    },
-    "container": {
-      "type": "object",
-      "properties": {
-        "spec": {
-          "type": "object"
-        }
-      }
-    },
-    "pod": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        },
-        "spec": {
-          "type": "object"
-        }
-      }
+      "required": ["server", "secrets", "scorpion", "orchid"],
+      "type": "object"
     },
     "deployment": {
-      "type": "object",
       "properties": {
         "metadata": {
           "type": "object"
@@ -131,23 +107,47 @@
         "spec": {
           "type": "object"
         }
-      }
+      },
+      "type": "object"
+    },
+    "name": {
+      "type": "string"
+    },
+    "pod": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "secret": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      },
+      "type": "object"
     },
     "service": {
-      "type": "object",
       "properties": {
+        "metadata": {
+          "type": "object"
+        },
         "port": {
           "type": "integer"
         },
-        "metadata": {
-          "type": "object"
-        },
         "spec": {
           "type": "object"
         }
       },
-      "required": ["port"]
+      "required": ["port"],
+      "type": "object"
     }
   },
-  "required": ["crocus", "service"]
+  "required": ["crocus", "service"],
+  "type": "object"
 }

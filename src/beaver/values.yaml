@@ -1,9 +1,32 @@
 # Configuration of the beaver service
 beaver:
-  # Configuration of the server
-  server:
-    # Port to listen on
-    port: 10500
+  # Enable debug mode
+  debug: true
+
+  # Howlite configuration
+  howlite:
+    # Configuration of the CalDAV API of the howlite service
+    caldav:
+      # Calendar to use for the CalDAV API
+      calendar: calendar
+
+      # Host of the CalDAV API
+      host: howlite.howlite.svc.cluster.local
+
+      # Password to authenticate with the CalDAV API
+      password: password
+
+      # Path of the CalDAV API
+      path: ""
+
+      # Port of the CalDAV API
+      port: 10520
+
+      # Scheme of the CalDAV API
+      scheme: http
+
+      # User to authenticate with the CalDAV API
+      user: user
 
   # Sapphire configuration
   sapphire:
@@ -12,39 +35,16 @@ beaver:
       # Host of the SQL API
       host: sapphire.sapphire.svc.cluster.local
 
-      # Port of the SQL API
-      port: 10510
-
       # Password to authenticate with the SQL API
       password: password
 
-  # Howlite configuration
-  howlite:
-    # Configuration of the CalDAV API of the howlite service
-    caldav:
-      # Scheme of the CalDAV API
-      scheme: http
+      # Port of the SQL API
+      port: 10510
 
-      # Host of the CalDAV API
-      host: howlite.howlite.svc.cluster.local
-
-      # Port of the CalDAV API
-      port: 10520
-
-      # Path of the CalDAV API
-      path: ""
-
-      # User to authenticate with the CalDAV API
-      user: user
-
-      # Password to authenticate with the CalDAV API
-      password: password
-
-      # Calendar to use for the CalDAV API
-      calendar: calendar
-
-  # Enable debug mode
-  debug: true
+  # Configuration of the server
+  server:
+    # Port to listen on
+    port: 10500
 
 # Configuration of the service
 service:
