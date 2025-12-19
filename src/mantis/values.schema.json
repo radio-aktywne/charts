@@ -1,35 +1,158 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "object",
   "properties": {
-    "name": {
-      "type": "string"
-    },
     "common": {
-      "type": "object",
       "properties": {
         "metadata": {
           "type": "object"
         }
-      }
+      },
+      "type": "object"
+    },
+    "configMap": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "container": {
+      "properties": {
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
     },
     "mantis": {
-      "type": "object",
       "properties": {
-        "server": {
-          "type": "object",
+        "beaver": {
           "properties": {
-            "port": {
-              "type": "integer"
+            "http": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "scheme": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"],
+              "type": "object"
             }
           },
-          "required": ["port"]
+          "required": ["http"],
+          "type": "object"
+        },
+        "cleaner": {
+          "properties": {
+            "interval": {
+              "type": "string"
+            },
+            "reference": {
+              "type": "string"
+            }
+          },
+          "required": ["reference", "interval"],
+          "type": "object"
+        },
+        "debug": {
+          "type": "boolean"
+        },
+        "gecko": {
+          "properties": {
+            "http": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "scheme": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"],
+              "type": "object"
+            }
+          },
+          "required": ["http"],
+          "type": "object"
+        },
+        "numbat": {
+          "properties": {
+            "http": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "scheme": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"],
+              "type": "object"
+            }
+          },
+          "required": ["http"],
+          "type": "object"
+        },
+        "octopus": {
+          "properties": {
+            "http": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "scheme": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"],
+              "type": "object"
+            },
+            "srt": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                }
+              },
+              "required": ["host", "port"],
+              "type": "object"
+            }
+          },
+          "required": ["http", "srt"],
+          "type": "object"
         },
         "operations": {
-          "type": "object",
           "properties": {
             "stream": {
-              "type": "object",
               "properties": {
                 "timeout": {
                   "type": "string"
@@ -38,160 +161,48 @@
                   "type": "string"
                 }
               },
-              "required": ["timeout", "window"]
+              "required": ["timeout", "window"],
+              "type": "object"
             }
           },
-          "required": ["stream"]
+          "required": ["stream"],
+          "type": "object"
         },
-        "cleaner": {
-          "type": "object",
+        "server": {
           "properties": {
-            "reference": {
-              "type": "string"
-            },
-            "interval": {
-              "type": "string"
+            "port": {
+              "type": "integer"
             }
           },
-          "required": ["reference", "interval"]
+          "required": ["port"],
+          "type": "object"
         },
         "synchronizer": {
-          "type": "object",
           "properties": {
-            "reference": {
+            "interval": {
               "type": "string"
             },
-            "interval": {
+            "reference": {
               "type": "string"
             },
             "synchronizers": {
-              "type": "object",
               "properties": {
                 "stream": {
-                  "type": "object",
                   "properties": {
                     "window": {
                       "type": "string"
                     }
                   },
-                  "required": ["window"]
+                  "required": ["window"],
+                  "type": "object"
                 }
               },
-              "required": ["stream"]
+              "required": ["stream"],
+              "type": "object"
             }
           },
-          "required": ["reference", "interval", "synchronizers"]
-        },
-        "beaver": {
-          "type": "object",
-          "properties": {
-            "http": {
-              "type": "object",
-              "properties": {
-                "scheme": {
-                  "type": "string"
-                },
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "path": {
-                  "type": "string"
-                }
-              },
-              "required": ["scheme", "host"]
-            }
-          },
-          "required": ["http"]
-        },
-        "gecko": {
-          "type": "object",
-          "properties": {
-            "http": {
-              "type": "object",
-              "properties": {
-                "scheme": {
-                  "type": "string"
-                },
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "path": {
-                  "type": "string"
-                }
-              },
-              "required": ["scheme", "host"]
-            }
-          },
-          "required": ["http"]
-        },
-        "numbat": {
-          "type": "object",
-          "properties": {
-            "http": {
-              "type": "object",
-              "properties": {
-                "scheme": {
-                  "type": "string"
-                },
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "path": {
-                  "type": "string"
-                }
-              },
-              "required": ["scheme", "host"]
-            }
-          },
-          "required": ["http"]
-        },
-        "octopus": {
-          "type": "object",
-          "properties": {
-            "http": {
-              "type": "object",
-              "properties": {
-                "scheme": {
-                  "type": "string"
-                },
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "path": {
-                  "type": "string"
-                }
-              },
-              "required": ["scheme", "host"]
-            },
-            "srt": {
-              "type": "object",
-              "properties": {
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                }
-              },
-              "required": ["host", "port"]
-            }
-          },
-          "required": ["http", "srt"]
-        },
-        "debug": {
-          "type": "boolean"
+          "required": ["reference", "interval", "synchronizers"],
+          "type": "object"
         }
       },
       "required": [
@@ -204,18 +215,50 @@
         "numbat",
         "octopus",
         "debug"
-      ]
+      ],
+      "type": "object"
     },
-    "configMap": {
-      "type": "object",
+    "name": {
+      "type": "string"
+    },
+    "pod": {
       "properties": {
         "metadata": {
           "type": "object"
+        },
+        "spec": {
+          "type": "object"
         }
-      }
+      },
+      "type": "object"
+    },
+    "service": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "port": {
+          "type": "integer"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "required": ["port"],
+      "type": "object"
+    },
+    "statefulSet": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
     },
     "volume": {
-      "type": "object",
       "properties": {
         "access": {
           "oneOf": [
@@ -223,73 +266,30 @@
               "type": "string"
             },
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             }
           ]
         },
         "class": {
           "type": "string"
         },
+        "metadata": {
+          "type": "object"
+        },
         "size": {
           "type": "string"
         },
-        "metadata": {
-          "type": "object"
-        },
         "spec": {
           "type": "object"
         }
       },
-      "required": ["access", "size"]
-    },
-    "container": {
-      "type": "object",
-      "properties": {
-        "spec": {
-          "type": "object"
-        }
-      }
-    },
-    "pod": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        },
-        "spec": {
-          "type": "object"
-        }
-      }
-    },
-    "statefulSet": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        },
-        "spec": {
-          "type": "object"
-        }
-      }
-    },
-    "service": {
-      "type": "object",
-      "properties": {
-        "port": {
-          "type": "integer"
-        },
-        "metadata": {
-          "type": "object"
-        },
-        "spec": {
-          "type": "object"
-        }
-      },
-      "required": ["port"]
+      "required": ["access", "size"],
+      "type": "object"
     }
   },
-  "required": ["mantis", "service"]
+  "required": ["mantis", "service"],
+  "type": "object"
 }

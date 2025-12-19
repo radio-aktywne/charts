@@ -1,122 +1,60 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "object",
   "properties": {
-    "name": {
-      "type": "string"
-    },
     "common": {
-      "type": "object",
       "properties": {
         "metadata": {
           "type": "object"
         }
-      }
+      },
+      "type": "object"
+    },
+    "configMap": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "container": {
+      "properties": {
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "deployment": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "name": {
+      "type": "string"
+    },
+    "pod": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
     },
     "scorpion": {
-      "type": "object",
       "properties": {
-        "server": {
-          "type": "object",
-          "properties": {
-            "ports": {
-              "type": "object",
-              "properties": {
-                "public": {
-                  "type": "integer"
-                },
-                "admin": {
-                  "type": "integer"
-                }
-              },
-              "required": ["public", "admin"]
-            }
-          },
-          "required": ["ports"]
-        },
-        "urls": {
-          "type": "object",
-          "properties": {
-            "issuer": {
-              "type": "string"
-            },
-            "public": {
-              "type": "string"
-            },
-            "admin": {
-              "type": "string"
-            }
-          },
-          "required": ["issuer", "public", "admin"]
-        },
-        "secrets": {
-          "type": "object",
-          "properties": {
-            "system": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "cookie": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          },
-          "required": ["system", "cookie"]
-        },
-        "crocus": {
-          "type": "object",
-          "properties": {
-            "public": {
-              "type": "object",
-              "properties": {
-                "scheme": {
-                  "type": "string"
-                },
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "path": {
-                  "type": "string"
-                }
-              },
-              "required": ["scheme", "host"]
-            }
-          },
-          "required": ["public"]
-        },
-        "diamond": {
-          "type": "object",
-          "properties": {
-            "sql": {
-              "type": "object",
-              "properties": {
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "password": {
-                  "type": "string"
-                }
-              },
-              "required": ["host", "port", "password"]
-            }
-          },
-          "required": ["sql"]
-        },
         "clients": {
-          "type": "object",
           "properties": {
             "aster": {
-              "type": "object",
               "properties": {
                 "secret": {
                   "type": "string"
@@ -125,10 +63,10 @@
                   "type": "string"
                 }
               },
-              "required": ["secret", "url"]
+              "required": ["secret", "url"],
+              "type": "object"
             },
             "daisy": {
-              "type": "object",
               "properties": {
                 "secret": {
                   "type": "string"
@@ -137,10 +75,10 @@
                   "type": "string"
                 }
               },
-              "required": ["secret", "url"]
+              "required": ["secret", "url"],
+              "type": "object"
             },
             "jasmine": {
-              "type": "object",
               "properties": {
                 "secret": {
                   "type": "string"
@@ -149,10 +87,10 @@
                   "type": "string"
                 }
               },
-              "required": ["secret", "url"]
+              "required": ["secret", "url"],
+              "type": "object"
             },
             "lotus": {
-              "type": "object",
               "properties": {
                 "secret": {
                   "type": "string"
@@ -161,10 +99,10 @@
                   "type": "string"
                 }
               },
-              "required": ["secret", "url"]
+              "required": ["secret", "url"],
+              "type": "object"
             },
             "magnolia": {
-              "type": "object",
               "properties": {
                 "secret": {
                   "type": "string"
@@ -173,10 +111,10 @@
                   "type": "string"
                 }
               },
-              "required": ["secret", "url"]
+              "required": ["secret", "url"],
+              "type": "object"
             },
             "poppy": {
-              "type": "object",
               "properties": {
                 "secret": {
                   "type": "string"
@@ -185,10 +123,10 @@
                   "type": "string"
                 }
               },
-              "required": ["secret", "url"]
+              "required": ["secret", "url"],
+              "type": "object"
             },
             "tulip": {
-              "type": "object",
               "properties": {
                 "secret": {
                   "type": "string"
@@ -197,7 +135,8 @@
                   "type": "string"
                 }
               },
-              "required": ["secret", "url"]
+              "required": ["secret", "url"],
+              "type": "object"
             }
           },
           "required": [
@@ -208,10 +147,107 @@
             "magnolia",
             "poppy",
             "tulip"
-          ]
+          ],
+          "type": "object"
+        },
+        "crocus": {
+          "properties": {
+            "public": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "scheme": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"],
+              "type": "object"
+            }
+          },
+          "required": ["public"],
+          "type": "object"
         },
         "debug": {
           "type": "boolean"
+        },
+        "diamond": {
+          "properties": {
+            "sql": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                }
+              },
+              "required": ["host", "port", "password"],
+              "type": "object"
+            }
+          },
+          "required": ["sql"],
+          "type": "object"
+        },
+        "secrets": {
+          "properties": {
+            "cookie": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "system": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": ["system", "cookie"],
+          "type": "object"
+        },
+        "server": {
+          "properties": {
+            "ports": {
+              "properties": {
+                "admin": {
+                  "type": "integer"
+                },
+                "public": {
+                  "type": "integer"
+                }
+              },
+              "required": ["public", "admin"],
+              "type": "object"
+            }
+          },
+          "required": ["ports"],
+          "type": "object"
+        },
+        "urls": {
+          "properties": {
+            "admin": {
+              "type": "string"
+            },
+            "issuer": {
+              "type": "string"
+            },
+            "public": {
+              "type": "string"
+            }
+          },
+          "required": ["issuer", "public", "admin"],
+          "type": "object"
         }
       },
       "required": [
@@ -222,78 +258,42 @@
         "diamond",
         "clients",
         "debug"
-      ]
+      ],
+      "type": "object"
     },
     "secret": {
-      "type": "object",
       "properties": {
         "metadata": {
           "type": "object"
         }
-      }
-    },
-    "configMap": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        }
-      }
-    },
-    "container": {
-      "type": "object",
-      "properties": {
-        "spec": {
-          "type": "object"
-        }
-      }
-    },
-    "pod": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        },
-        "spec": {
-          "type": "object"
-        }
-      }
-    },
-    "deployment": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        },
-        "spec": {
-          "type": "object"
-        }
-      }
+      },
+      "type": "object"
     },
     "service": {
-      "type": "object",
       "properties": {
+        "metadata": {
+          "type": "object"
+        },
         "ports": {
-          "type": "object",
           "properties": {
-            "public": {
+            "admin": {
               "type": "integer"
             },
-            "admin": {
+            "public": {
               "type": "integer"
             }
           },
-          "required": ["public", "admin"]
-        },
-        "metadata": {
+          "required": ["public", "admin"],
           "type": "object"
         },
         "spec": {
           "type": "object"
         }
       },
-      "required": ["ports"]
+      "required": ["ports"],
+      "type": "object"
     }
   },
-  "required": ["scorpion", "service"]
+  "required": ["scorpion", "service"],
+  "type": "object"
 }

@@ -1,127 +1,103 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "object",
   "properties": {
-    "name": {
-      "type": "string"
-    },
-    "common": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        }
-      }
-    },
     "beaver": {
-      "type": "object",
       "properties": {
+        "debug": {
+          "type": "boolean"
+        },
+        "howlite": {
+          "properties": {
+            "caldav": {
+              "properties": {
+                "calendar": {
+                  "type": "string"
+                },
+                "host": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "scheme": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host", "user", "password", "calendar"],
+              "type": "object"
+            }
+          },
+          "required": ["caldav"],
+          "type": "object"
+        },
+        "sapphire": {
+          "properties": {
+            "sql": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                }
+              },
+              "required": ["host", "port", "password"],
+              "type": "object"
+            }
+          },
+          "required": ["sql"],
+          "type": "object"
+        },
         "server": {
-          "type": "object",
           "properties": {
             "port": {
               "type": "integer"
             }
           },
-          "required": ["port"]
-        },
-        "howlite": {
-          "type": "object",
-          "properties": {
-            "caldav": {
-              "type": "object",
-              "properties": {
-                "scheme": {
-                  "type": "string"
-                },
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "path": {
-                  "type": "string"
-                },
-                "user": {
-                  "type": "string"
-                },
-                "password": {
-                  "type": "string"
-                },
-                "calendar": {
-                  "type": "string"
-                }
-              },
-              "required": ["scheme", "host", "user", "password", "calendar"]
-            }
-          },
-          "required": ["caldav"]
-        },
-        "sapphire": {
-          "type": "object",
-          "properties": {
-            "sql": {
-              "type": "object",
-              "properties": {
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "password": {
-                  "type": "string"
-                }
-              },
-              "required": ["host", "port", "password"]
-            }
-          },
-          "required": ["sql"]
-        },
-        "debug": {
-          "type": "boolean"
+          "required": ["port"],
+          "type": "object"
         }
       },
-      "required": ["server", "howlite", "sapphire", "debug"]
+      "required": ["server", "howlite", "sapphire", "debug"],
+      "type": "object"
     },
-    "secret": {
-      "type": "object",
+    "common": {
       "properties": {
         "metadata": {
           "type": "object"
         }
-      }
+      },
+      "type": "object"
     },
     "configMap": {
-      "type": "object",
       "properties": {
         "metadata": {
           "type": "object"
         }
-      }
+      },
+      "type": "object"
     },
     "container": {
-      "type": "object",
       "properties": {
         "spec": {
           "type": "object"
         }
-      }
-    },
-    "pod": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        },
-        "spec": {
-          "type": "object"
-        }
-      }
+      },
+      "type": "object"
     },
     "deployment": {
-      "type": "object",
       "properties": {
         "metadata": {
           "type": "object"
@@ -129,23 +105,47 @@
         "spec": {
           "type": "object"
         }
-      }
+      },
+      "type": "object"
+    },
+    "name": {
+      "type": "string"
+    },
+    "pod": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "secret": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      },
+      "type": "object"
     },
     "service": {
-      "type": "object",
       "properties": {
+        "metadata": {
+          "type": "object"
+        },
         "port": {
           "type": "integer"
         },
-        "metadata": {
-          "type": "object"
-        },
         "spec": {
           "type": "object"
         }
       },
-      "required": ["port"]
+      "required": ["port"],
+      "type": "object"
     }
   },
-  "required": ["beaver", "service"]
+  "required": ["beaver", "service"],
+  "type": "object"
 }

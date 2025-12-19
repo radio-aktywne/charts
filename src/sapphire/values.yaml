@@ -1,16 +1,16 @@
 # Configuration of the sapphire database
 sapphire:
-  # Configuration of the server
-  server:
-    # Port to listen on
-    port: 10510
-
   # Credentials for the database
   credentials:
     # Credentials for the main user
     user:
       # Password of the main user
       password: password
+
+  # Configuration of the server
+  server:
+    # Port to listen on
+    port: 10510
 
 # Configuration of the service
 service:

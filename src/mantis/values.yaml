@@ -1,9 +1,87 @@
 # Configuration of the mantis service
 mantis:
-  # Configuration of the server
-  server:
-    # Port to listen on
-    port: 10800
+  # Configuration of the beaver service
+  beaver:
+    # Configuration of the HTTP API of the beaver service
+    http:
+      # Host of the HTTP API
+      host: beaver.beaver.svc.cluster.local
+
+      # Path of the HTTP API
+      path: ""
+
+      # Port of the HTTP API
+      port: 10500
+
+      # Scheme of the HTTP API
+      scheme: http
+
+  # Cleaner configuration
+  cleaner:
+    # Interval between cleanings
+    interval: P1D
+
+    # Reference datetime for cleaning
+    reference: 2000-01-01T00:00:00
+
+  # Enable debug mode
+  debug: true
+
+  # Configuration of the gecko service
+  gecko:
+    # Configuration of the HTTP API of the gecko service
+    http:
+      # Host of the HTTP API
+      host: gecko.gecko.svc.cluster.local
+
+      # Path of the HTTP API
+      path: ""
+
+      # Port of the HTTP API
+      port: 10700
+
+      # Scheme of the HTTP API
+      scheme: http
+
+  # Configuration of the numbat service
+  numbat:
+    # Configuration of the HTTP API of the numbat service
+    http:
+      # Host of the HTTP API
+      host: numbat.numbat.svc.cluster.local
+
+      # Path of the HTTP API
+      path: ""
+
+      # Port of the HTTP API
+      port: 10600
+
+      # Scheme of the HTTP API
+      scheme: http
+
+  # Configuration of the octopus service
+  octopus:
+    # Configuration of the HTTP API of the octopus service
+    http:
+      # Host of the HTTP API
+      host: octopus.octopus.svc.cluster.local
+
+      # Path of the HTTP API
+      path: ""
+
+      # Port of the HTTP API
+      port: 10300
+
+      # Scheme of the HTTP API
+      scheme: http
+
+    # Configuration of the SRT stream of the octopus service
+    srt:
+      # Host of the SRT stream
+      host: octopus.octopus.svc.cluster.local
+
+      # Port of the SRT stream
+      port: 10300
 
   # Operations configuration
   operations:
@@ -15,21 +93,18 @@ mantis:
       # Duration of the time window for searching for past records
       window: P60D
 
-  # Cleaner configuration
-  cleaner:
-    # Reference datetime for cleaning
-    reference: 2000-01-01T00:00:00
-
-    # Interval between cleanings
-    interval: P1D
+  # Configuration of the server
+  server:
+    # Port to listen on
+    port: 10800
 
   # Synchronizer configuration
   synchronizer:
-    # Reference datetime for synchronization
-    reference: 2000-01-01T00:00:00
-
     # Interval between synchronizations
     interval: PT1M
+
+    # Reference datetime for synchronization
+    reference: 2000-01-01T00:00:00
 
     # Synchornizers configuration
     synchronizers:
@@ -37,81 +112,6 @@ mantis:
       stream:
         # Duration of the time window
         window: P1D
-
-  # Configuration of the numbat service
-  numbat:
-    # Configuration of the HTTP API of the numbat service
-    http:
-      # Scheme of the HTTP API
-      scheme: http
-
-      # Host of the HTTP API
-      host: numbat.numbat.svc.cluster.local
-
-      # Port of the HTTP API
-      port: 10600
-
-      # Path of the HTTP API
-      path: ""
-
-  # Configuration of the gecko service
-  gecko:
-    # Configuration of the HTTP API of the gecko service
-    http:
-      # Scheme of the HTTP API
-      scheme: http
-
-      # Host of the HTTP API
-      host: gecko.gecko.svc.cluster.local
-
-      # Port of the HTTP API
-      port: 10700
-
-      # Path of the HTTP API
-      path: ""
-
-  # Configuration of the beaver service
-  beaver:
-    # Configuration of the HTTP API of the beaver service
-    http:
-      # Scheme of the HTTP API
-      scheme: http
-
-      # Host of the HTTP API
-      host: beaver.beaver.svc.cluster.local
-
-      # Port of the HTTP API
-      port: 10500
-
-      # Path of the HTTP API
-      path: ""
-
-  # Configuration of the octopus service
-  octopus:
-    # Configuration of the HTTP API of the octopus service
-    http:
-      # Scheme of the HTTP API
-      scheme: http
-
-      # Host of the HTTP API
-      host: octopus.octopus.svc.cluster.local
-
-      # Port of the HTTP API
-      port: 10300
-
-      # Path of the HTTP API
-      path: ""
-
-    # Configuration of the SRT stream of the octopus service
-    srt:
-      # Host of the SRT stream
-      host: octopus.octopus.svc.cluster.local
-
-      # Port of the SRT stream
-      port: 10300
-
-  # Enable debug mode
-  debug: true
 
 # Configuration of the service
 service:

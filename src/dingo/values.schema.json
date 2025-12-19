@@ -1,76 +1,67 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "object",
   "properties": {
-    "name": {
-      "type": "string"
-    },
     "common": {
-      "type": "object",
       "properties": {
         "metadata": {
           "type": "object"
         }
-      }
+      },
+      "type": "object"
+    },
+    "configMap": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "container": {
+      "properties": {
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
     },
     "dingo": {
-      "type": "object",
       "properties": {
-        "server": {
-          "type": "object",
-          "properties": {
-            "srt": {
-              "type": "object",
-              "properties": {
-                "port": {
-                  "type": "integer"
-                }
-              },
-              "required": ["port"]
-            },
-            "http": {
-              "type": "object",
-              "properties": {
-                "port": {
-                  "type": "integer"
-                }
-              },
-              "required": ["port"]
-            }
-          },
-          "required": ["srt", "http"]
-        },
         "pelican": {
-          "type": "object",
           "properties": {
             "http": {
-              "type": "object",
               "properties": {
-                "scheme": {
-                  "type": "string"
-                },
                 "host": {
                   "type": "string"
-                },
-                "port": {
-                  "type": "integer"
                 },
                 "path": {
                   "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "scheme": {
+                  "type": "string"
                 }
               },
-              "required": ["scheme", "host"]
+              "required": ["scheme", "host"],
+              "type": "object"
             }
           },
-          "required": ["http"]
+          "required": ["http"],
+          "type": "object"
         },
         "quokka": {
-          "type": "object",
           "properties": {
             "icy": {
-              "type": "object",
               "properties": {
                 "host": {
+                  "type": "string"
+                },
+                "mount": {
+                  "type": "string"
+                },
+                "password": {
                   "type": "string"
                 },
                 "port": {
@@ -78,40 +69,101 @@
                 },
                 "user": {
                   "type": "string"
-                },
-                "password": {
-                  "type": "string"
-                },
-                "mount": {
-                  "type": "string"
                 }
               },
-              "required": ["host", "user", "password", "mount"]
+              "required": ["host", "user", "password", "mount"],
+              "type": "object"
             }
           },
-          "required": ["icy"]
+          "required": ["icy"],
+          "type": "object"
+        },
+        "server": {
+          "properties": {
+            "http": {
+              "properties": {
+                "port": {
+                  "type": "integer"
+                }
+              },
+              "required": ["port"],
+              "type": "object"
+            },
+            "srt": {
+              "properties": {
+                "port": {
+                  "type": "integer"
+                }
+              },
+              "required": ["port"],
+              "type": "object"
+            }
+          },
+          "required": ["srt", "http"],
+          "type": "object"
         }
       },
-      "required": ["server", "pelican", "quokka"]
+      "required": ["server", "pelican", "quokka"],
+      "type": "object"
+    },
+    "name": {
+      "type": "string"
+    },
+    "pod": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
     },
     "secret": {
-      "type": "object",
       "properties": {
         "metadata": {
           "type": "object"
         }
-      }
+      },
+      "type": "object"
     },
-    "configMap": {
-      "type": "object",
+    "service": {
       "properties": {
         "metadata": {
           "type": "object"
+        },
+        "ports": {
+          "properties": {
+            "http": {
+              "type": "integer"
+            },
+            "srt": {
+              "type": "integer"
+            }
+          },
+          "required": ["srt", "http"],
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
         }
-      }
+      },
+      "required": ["ports"],
+      "type": "object"
+    },
+    "statefulSet": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
     },
     "volume": {
-      "type": "object",
       "properties": {
         "access": {
           "oneOf": [
@@ -119,82 +171,30 @@
               "type": "string"
             },
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             }
           ]
         },
         "class": {
           "type": "string"
         },
+        "metadata": {
+          "type": "object"
+        },
         "size": {
           "type": "string"
         },
-        "metadata": {
-          "type": "object"
-        },
         "spec": {
           "type": "object"
         }
       },
-      "required": ["access", "size"]
-    },
-    "container": {
-      "type": "object",
-      "properties": {
-        "spec": {
-          "type": "object"
-        }
-      }
-    },
-    "pod": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        },
-        "spec": {
-          "type": "object"
-        }
-      }
-    },
-    "statefulSet": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        },
-        "spec": {
-          "type": "object"
-        }
-      }
-    },
-    "service": {
-      "type": "object",
-      "properties": {
-        "ports": {
-          "type": "object",
-          "properties": {
-            "srt": {
-              "type": "integer"
-            },
-            "http": {
-              "type": "integer"
-            }
-          },
-          "required": ["srt", "http"]
-        },
-        "metadata": {
-          "type": "object"
-        },
-        "spec": {
-          "type": "object"
-        }
-      },
-      "required": ["ports"]
+      "required": ["access", "size"],
+      "type": "object"
     }
   },
-  "required": ["dingo", "service"]
+  "required": ["dingo", "service"],
+  "type": "object"
 }

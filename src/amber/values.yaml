@@ -1,5 +1,31 @@
 # Configuration of the amber database
 amber:
+  # Credentials for the database
+  credentials:
+    # Credentials for the admin user
+    admin:
+      # Password of the admin user
+      password: password
+
+      # Username of the admin user
+      user: admin
+
+    # Credentials for the readonly user
+    readonly:
+      # Password of the readonly user
+      password: password
+
+      # Username of the readonly user
+      user: readonly
+
+    # Credentials for the readwrite user
+    readwrite:
+      # Password of the readwrite user
+      password: password
+
+      # Username of the readwrite user
+      user: readwrite
+
   # Configuration of the server
   server:
     # Ports to listen on
@@ -14,32 +40,6 @@ amber:
   urls:
     # Public URL of the web interface
     web: http://localhost:10611
-
-  # Credentials for the database
-  credentials:
-    # Credentials for the admin user
-    admin:
-      # Username of the admin user
-      user: admin
-
-      # Password of the admin user
-      password: password
-
-    # Credentials for the readonly user
-    readonly:
-      # Username of the readonly user
-      user: readonly
-
-      # Password of the readonly user
-      password: password
-
-    # Credentials for the readwrite user
-    readwrite:
-      # Username of the readwrite user
-      user: readwrite
-
-      # Password of the readwrite user
-      password: password
 
 # Configuration of the service
 service:

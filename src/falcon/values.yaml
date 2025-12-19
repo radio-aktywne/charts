@@ -1,57 +1,12 @@
 # Configuration of the falcon service
 falcon:
-  # Configuration of the server
-  server:
-    # Ports to listen on
-    ports:
-      # Port to listen on for public traffic
-      public: 20100
-
-      # Port to listen on for admin traffic
-      admin: 20101
-
-  # Configuration of the URLs
-  urls:
-    # Public URL
-    public: http://localhost:20100
-
-    # Admin URL
-    admin: http://localhost:20101
-
   # Configuration of the cookies
   cookies:
     # Domain of the cookies
     domain: ""
 
-  # Configuration of the secrets
-  secrets:
-    # Default secrets
-    default:
-      - XXXXXXXXXXXXXXXX
-
-    # Cookie secrets
-    cookie:
-      - XXXXXXXXXXXXXXXX
-
-    # Cipher secrets
-    cipher:
-      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-  # Configuration of the orchid app
-  orchid:
-    # Configuration of the public site of the orchid app
-    public:
-      # Scheme of the public site
-      scheme: http
-
-      # Host of the public site
-      host: localhost
-
-      # Port of the public site
-      port: 20120
-
-      # Path of the public site
-      path: ""
+  # Enable debug mode
+  debug: true
 
   # Configuration of the obsidian database
   obsidian:
@@ -60,11 +15,11 @@ falcon:
       # Host of the SQL API
       host: obsidian.obsidian.svc.cluster.local
 
-      # Port of the SQL API
-      port: 20110
-
       # Password to authenticate with the SQL API
       password: password
+
+      # Port of the SQL API
+      port: 20110
 
   # Configuration of OIDC Identity Providers
   oidc:
@@ -73,21 +28,66 @@ falcon:
       # Client ID to authenticate with the IdP
       client: falcon
 
-      # Client secret to authenticate with the IdP
-      secret: secret
-
       # Domain of the Google organization
       domain: ""
 
-  # Enable debug mode
-  debug: true
+      # Client secret to authenticate with the IdP
+      secret: secret
+
+  # Configuration of the orchid app
+  orchid:
+    # Configuration of the public site of the orchid app
+    public:
+      # Host of the public site
+      host: localhost
+
+      # Path of the public site
+      path: ""
+
+      # Port of the public site
+      port: 20120
+
+      # Scheme of the public site
+      scheme: http
+
+  # Configuration of the secrets
+  secrets:
+    # Cipher secrets
+    cipher:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+    # Cookie secrets
+    cookie:
+      - XXXXXXXXXXXXXXXX
+
+    # Default secrets
+    default:
+      - XXXXXXXXXXXXXXXX
+
+  # Configuration of the server
+  server:
+    # Ports to listen on
+    ports:
+      # Port to listen on for admin traffic
+      admin: 20101
+
+      # Port to listen on for public traffic
+      public: 20100
+
+  # Configuration of the URLs
+  urls:
+    # Admin URL
+    admin: http://localhost:20101
+
+    # Public URL
+    public: http://localhost:20100
 
 # Configuration of the service
 service:
   # Ports to listen on
   ports:
-    # Port to listen on for public traffic
-    public: 20100
-
     # Port to listen on for admin traffic
     admin: 20101
+
+    # Port to listen on for public traffic
+    public: 20100

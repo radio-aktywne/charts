@@ -1,152 +1,174 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "object",
   "properties": {
-    "name": {
-      "type": "string"
-    },
     "common": {
-      "type": "object",
       "properties": {
         "metadata": {
           "type": "object"
         }
-      }
+      },
+      "type": "object"
+    },
+    "configMap": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "container": {
+      "properties": {
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "deployment": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
     },
     "falcon": {
-      "type": "object",
       "properties": {
-        "server": {
-          "type": "object",
-          "properties": {
-            "ports": {
-              "type": "object",
-              "properties": {
-                "public": {
-                  "type": "integer"
-                },
-                "admin": {
-                  "type": "integer"
-                }
-              },
-              "required": ["public", "admin"]
-            }
-          },
-          "required": ["ports"]
-        },
-        "urls": {
-          "type": "object",
-          "properties": {
-            "public": {
-              "type": "string"
-            },
-            "admin": {
-              "type": "string"
-            }
-          },
-          "required": ["public", "admin"]
-        },
         "cookies": {
-          "type": "object",
           "properties": {
             "domain": {
               "type": "string"
             }
           },
-          "required": []
+          "required": [],
+          "type": "object"
         },
-        "secrets": {
-          "type": "object",
-          "properties": {
-            "default": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "cookie": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "cipher": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          },
-          "required": ["default", "cookie", "cipher"]
-        },
-        "orchid": {
-          "type": "object",
-          "properties": {
-            "public": {
-              "type": "object",
-              "properties": {
-                "scheme": {
-                  "type": "string"
-                },
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "path": {
-                  "type": "string"
-                }
-              },
-              "required": ["scheme", "host"]
-            }
-          },
-          "required": ["public"]
+        "debug": {
+          "type": "boolean"
         },
         "obsidian": {
-          "type": "object",
           "properties": {
             "sql": {
-              "type": "object",
               "properties": {
                 "host": {
                   "type": "string"
-                },
-                "port": {
-                  "type": "integer"
                 },
                 "password": {
                   "type": "string"
+                },
+                "port": {
+                  "type": "integer"
                 }
               },
-              "required": ["host", "port", "password"]
+              "required": ["host", "port", "password"],
+              "type": "object"
             }
           },
-          "required": ["sql"]
+          "required": ["sql"],
+          "type": "object"
         },
         "oidc": {
-          "type": "object",
           "properties": {
             "google": {
-              "type": "object",
               "properties": {
                 "client": {
                   "type": "string"
                 },
-                "secret": {
+                "domain": {
                   "type": "string"
                 },
-                "domain": {
+                "secret": {
                   "type": "string"
                 }
               },
-              "required": ["client", "secret"]
+              "required": ["client", "secret"],
+              "type": "object"
             }
           },
-          "required": ["google"]
+          "required": ["google"],
+          "type": "object"
         },
-        "debug": {
-          "type": "boolean"
+        "orchid": {
+          "properties": {
+            "public": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "scheme": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"],
+              "type": "object"
+            }
+          },
+          "required": ["public"],
+          "type": "object"
+        },
+        "secrets": {
+          "properties": {
+            "cipher": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "cookie": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "default": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": ["default", "cookie", "cipher"],
+          "type": "object"
+        },
+        "server": {
+          "properties": {
+            "ports": {
+              "properties": {
+                "admin": {
+                  "type": "integer"
+                },
+                "public": {
+                  "type": "integer"
+                }
+              },
+              "required": ["public", "admin"],
+              "type": "object"
+            }
+          },
+          "required": ["ports"],
+          "type": "object"
+        },
+        "urls": {
+          "properties": {
+            "admin": {
+              "type": "string"
+            },
+            "public": {
+              "type": "string"
+            }
+          },
+          "required": ["public", "admin"],
+          "type": "object"
         }
       },
       "required": [
@@ -157,69 +179,14 @@
         "obsidian",
         "oidc",
         "debug"
-      ]
+      ],
+      "type": "object"
     },
-    "secret": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        }
-      }
-    },
-    "configMap": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        }
-      }
-    },
-    "container": {
-      "type": "object",
-      "properties": {
-        "spec": {
-          "type": "object"
-        }
-      }
+    "name": {
+      "type": "string"
     },
     "pod": {
-      "type": "object",
       "properties": {
-        "metadata": {
-          "type": "object"
-        },
-        "spec": {
-          "type": "object"
-        }
-      }
-    },
-    "deployment": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        },
-        "spec": {
-          "type": "object"
-        }
-      }
-    },
-    "service": {
-      "type": "object",
-      "properties": {
-        "ports": {
-          "type": "object",
-          "properties": {
-            "public": {
-              "type": "integer"
-            },
-            "admin": {
-              "type": "integer"
-            }
-          },
-          "required": ["public", "admin"]
-        },
         "metadata": {
           "type": "object"
         },
@@ -227,8 +194,41 @@
           "type": "object"
         }
       },
-      "required": ["ports"]
+      "type": "object"
+    },
+    "secret": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "service": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "ports": {
+          "properties": {
+            "admin": {
+              "type": "integer"
+            },
+            "public": {
+              "type": "integer"
+            }
+          },
+          "required": ["public", "admin"],
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "required": ["ports"],
+      "type": "object"
     }
   },
-  "required": ["falcon", "service"]
+  "required": ["falcon", "service"],
+  "type": "object"
 }

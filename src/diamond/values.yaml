@@ -1,16 +1,16 @@
 # Configuration of the diamond database
 diamond:
-  # Configuration of the server
-  server:
-    # Port to listen on
-    port: 20010
-
   # Credentials for the database
   credentials:
     # Credentials for the main user
     user:
       # Password of the main user
       password: password
+
+  # Configuration of the server
+  server:
+    # Port to listen on
+    port: 20010
 
 # Configuration of the service
 service:

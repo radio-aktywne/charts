@@ -1,47 +1,70 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "object",
   "properties": {
-    "name": {
-      "type": "string"
-    },
     "common": {
-      "type": "object",
       "properties": {
         "metadata": {
           "type": "object"
         }
-      }
+      },
+      "type": "object"
+    },
+    "configMap": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "container": {
+      "properties": {
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "deployment": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
     },
     "loris": {
-      "type": "object",
       "properties": {
+        "debug": {
+          "type": "boolean"
+        },
         "server": {
-          "type": "object",
           "properties": {
             "ports": {
-              "type": "object",
               "properties": {
                 "http": {
                   "type": "integer"
                 },
-                "whip": {
+                "rtp": {
                   "type": "integer"
                 },
-                "rtp": {
+                "whip": {
                   "type": "integer"
                 }
               },
-              "required": ["http", "whip", "rtp"]
+              "required": ["http", "whip", "rtp"],
+              "type": "object"
             }
           },
-          "required": ["ports"]
+          "required": ["ports"],
+          "type": "object"
         },
         "streamer": {
-          "type": "object",
           "properties": {
             "stun": {
-              "type": "object",
               "properties": {
                 "host": {
                   "type": "string"
@@ -50,38 +73,24 @@
                   "type": "integer"
                 }
               },
-              "required": ["host", "port"]
+              "required": ["host", "port"],
+              "type": "object"
             },
             "timeout": {
               "type": "string"
             }
           },
-          "required": ["stun", "timeout"]
-        },
-        "debug": {
-          "type": "boolean"
+          "required": ["stun", "timeout"],
+          "type": "object"
         }
       },
-      "required": ["server", "streamer", "debug"]
+      "required": ["server", "streamer", "debug"],
+      "type": "object"
     },
-    "configMap": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        }
-      }
-    },
-    "container": {
-      "type": "object",
-      "properties": {
-        "spec": {
-          "type": "object"
-        }
-      }
+    "name": {
+      "type": "string"
     },
     "pod": {
-      "type": "object",
       "properties": {
         "metadata": {
           "type": "object"
@@ -89,46 +98,37 @@
         "spec": {
           "type": "object"
         }
-      }
-    },
-    "deployment": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        },
-        "spec": {
-          "type": "object"
-        }
-      }
+      },
+      "type": "object"
     },
     "service": {
-      "type": "object",
       "properties": {
+        "metadata": {
+          "type": "object"
+        },
         "ports": {
-          "type": "object",
           "properties": {
             "http": {
               "type": "integer"
             },
-            "whip": {
+            "rtp": {
               "type": "integer"
             },
-            "rtp": {
+            "whip": {
               "type": "integer"
             }
           },
-          "required": ["http", "whip", "rtp"]
-        },
-        "metadata": {
+          "required": ["http", "whip", "rtp"],
           "type": "object"
         },
         "spec": {
           "type": "object"
         }
       },
-      "required": ["ports"]
+      "required": ["ports"],
+      "type": "object"
     }
   },
-  "required": ["loris", "service"]
+  "required": ["loris", "service"],
+  "type": "object"
 }

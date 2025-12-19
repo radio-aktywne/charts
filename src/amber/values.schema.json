@@ -1,26 +1,53 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "object",
   "properties": {
-    "name": {
-      "type": "string"
-    },
-    "common": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        }
-      }
-    },
     "amber": {
-      "type": "object",
       "properties": {
+        "credentials": {
+          "properties": {
+            "admin": {
+              "properties": {
+                "password": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                }
+              },
+              "required": ["user", "password"],
+              "type": "object"
+            },
+            "readonly": {
+              "properties": {
+                "password": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                }
+              },
+              "required": ["user", "password"],
+              "type": "object"
+            },
+            "readwrite": {
+              "properties": {
+                "password": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                }
+              },
+              "required": ["user", "password"],
+              "type": "object"
+            }
+          },
+          "required": ["admin", "readonly", "readwrite"],
+          "type": "object"
+        },
         "server": {
-          "type": "object",
           "properties": {
             "ports": {
-              "type": "object",
               "properties": {
                 "s3": {
                   "type": "integer"
@@ -29,103 +56,55 @@
                   "type": "integer"
                 }
               },
-              "required": ["s3", "web"]
+              "required": ["s3", "web"],
+              "type": "object"
             }
           },
-          "required": ["ports"]
+          "required": ["ports"],
+          "type": "object"
         },
         "urls": {
-          "type": "object",
           "properties": {
             "web": {
               "type": "string"
             }
           },
-          "required": ["web"]
-        },
-        "credentials": {
-          "type": "object",
-          "properties": {
-            "admin": {
-              "type": "object",
-              "properties": {
-                "user": {
-                  "type": "string"
-                },
-                "password": {
-                  "type": "string"
-                }
-              },
-              "required": ["user", "password"]
-            },
-            "readonly": {
-              "type": "object",
-              "properties": {
-                "user": {
-                  "type": "string"
-                },
-                "password": {
-                  "type": "string"
-                }
-              },
-              "required": ["user", "password"]
-            },
-            "readwrite": {
-              "type": "object",
-              "properties": {
-                "user": {
-                  "type": "string"
-                },
-                "password": {
-                  "type": "string"
-                }
-              },
-              "required": ["user", "password"]
-            }
-          },
-          "required": ["admin", "readonly", "readwrite"]
+          "required": ["web"],
+          "type": "object"
         }
       },
-      "required": ["server", "urls", "credentials"]
+      "required": ["server", "urls", "credentials"],
+      "type": "object"
     },
-    "secret": {
-      "type": "object",
+    "common": {
       "properties": {
         "metadata": {
           "type": "object"
         }
-      }
+      },
+      "type": "object"
     },
     "configMap": {
-      "type": "object",
       "properties": {
         "metadata": {
           "type": "object"
         }
-      }
+      },
+      "type": "object"
     },
-    "volume": {
-      "type": "object",
+    "container": {
       "properties": {
-        "access": {
-          "oneOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          ]
-        },
-        "class": {
-          "type": "string"
-        },
-        "size": {
-          "type": "string"
-        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "name": {
+      "type": "string"
+    },
+    "pod": {
+      "properties": {
         "metadata": {
           "type": "object"
         },
@@ -133,43 +112,22 @@
           "type": "object"
         }
       },
-      "required": ["access", "size"]
+      "type": "object"
     },
-    "container": {
-      "type": "object",
-      "properties": {
-        "spec": {
-          "type": "object"
-        }
-      }
-    },
-    "pod": {
-      "type": "object",
+    "secret": {
       "properties": {
         "metadata": {
           "type": "object"
-        },
-        "spec": {
-          "type": "object"
         }
-      }
-    },
-    "statefulSet": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        },
-        "spec": {
-          "type": "object"
-        }
-      }
+      },
+      "type": "object"
     },
     "service": {
-      "type": "object",
       "properties": {
+        "metadata": {
+          "type": "object"
+        },
         "ports": {
-          "type": "object",
           "properties": {
             "s3": {
               "type": "integer"
@@ -178,8 +136,18 @@
               "type": "integer"
             }
           },
-          "required": ["s3", "web"]
+          "required": ["s3", "web"],
+          "type": "object"
         },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "required": ["ports"],
+      "type": "object"
+    },
+    "statefulSet": {
+      "properties": {
         "metadata": {
           "type": "object"
         },
@@ -187,8 +155,40 @@
           "type": "object"
         }
       },
-      "required": ["ports"]
+      "type": "object"
+    },
+    "volume": {
+      "properties": {
+        "access": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ]
+        },
+        "class": {
+          "type": "string"
+        },
+        "metadata": {
+          "type": "object"
+        },
+        "size": {
+          "type": "string"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "required": ["access", "size"],
+      "type": "object"
     }
   },
-  "required": ["amber", "service"]
+  "required": ["amber", "service"],
+  "type": "object"
 }

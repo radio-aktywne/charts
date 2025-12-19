@@ -1,113 +1,114 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "object",
   "properties": {
-    "name": {
-      "type": "string"
-    },
     "common": {
-      "type": "object",
       "properties": {
         "metadata": {
           "type": "object"
         }
-      }
+      },
+      "type": "object"
+    },
+    "configMap": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "container": {
+      "properties": {
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "deployment": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
     },
     "gecko": {
-      "type": "object",
       "properties": {
+        "beaver": {
+          "properties": {
+            "http": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "scheme": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"],
+              "type": "object"
+            }
+          },
+          "required": ["http"],
+          "type": "object"
+        },
+        "debug": {
+          "type": "boolean"
+        },
+        "emerald": {
+          "properties": {
+            "s3": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "port": {
+                  "type": "integer"
+                },
+                "secure": {
+                  "type": "boolean"
+                },
+                "user": {
+                  "type": "string"
+                }
+              },
+              "required": ["secure", "host", "user", "password"],
+              "type": "object"
+            }
+          },
+          "required": ["s3"],
+          "type": "object"
+        },
         "server": {
-          "type": "object",
           "properties": {
             "port": {
               "type": "integer"
             }
           },
-          "required": ["port"]
-        },
-        "beaver": {
-          "type": "object",
-          "properties": {
-            "http": {
-              "type": "object",
-              "properties": {
-                "scheme": {
-                  "type": "string"
-                },
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "path": {
-                  "type": "string"
-                }
-              },
-              "required": ["scheme", "host"]
-            }
-          },
-          "required": ["http"]
-        },
-        "emerald": {
-          "type": "object",
-          "properties": {
-            "s3": {
-              "type": "object",
-              "properties": {
-                "secure": {
-                  "type": "boolean"
-                },
-                "host": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "user": {
-                  "type": "string"
-                },
-                "password": {
-                  "type": "string"
-                }
-              },
-              "required": ["secure", "host", "user", "password"]
-            }
-          },
-          "required": ["s3"]
-        },
-        "debug": {
-          "type": "boolean"
+          "required": ["port"],
+          "type": "object"
         }
       },
-      "required": ["server", "beaver", "emerald", "debug"]
+      "required": ["server", "beaver", "emerald", "debug"],
+      "type": "object"
     },
-    "secret": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        }
-      }
-    },
-    "configMap": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        }
-      }
-    },
-    "container": {
-      "type": "object",
-      "properties": {
-        "spec": {
-          "type": "object"
-        }
-      }
+    "name": {
+      "type": "string"
     },
     "pod": {
-      "type": "object",
       "properties": {
         "metadata": {
           "type": "object"
@@ -115,34 +116,33 @@
         "spec": {
           "type": "object"
         }
-      }
+      },
+      "type": "object"
     },
-    "deployment": {
-      "type": "object",
+    "secret": {
       "properties": {
         "metadata": {
           "type": "object"
-        },
-        "spec": {
-          "type": "object"
         }
-      }
+      },
+      "type": "object"
     },
     "service": {
-      "type": "object",
       "properties": {
+        "metadata": {
+          "type": "object"
+        },
         "port": {
           "type": "integer"
         },
-        "metadata": {
-          "type": "object"
-        },
         "spec": {
           "type": "object"
         }
       },
-      "required": ["port"]
+      "required": ["port"],
+      "type": "object"
     }
   },
-  "required": ["gecko", "service"]
+  "required": ["gecko", "service"],
+  "type": "object"
 }

@@ -1,66 +1,109 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "object",
   "properties": {
-    "name": {
-      "type": "string"
-    },
     "common": {
-      "type": "object",
       "properties": {
         "metadata": {
           "type": "object"
         }
-      }
+      },
+      "type": "object"
+    },
+    "configMap": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "container": {
+      "properties": {
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
     },
     "diamond": {
-      "type": "object",
       "properties": {
-        "server": {
-          "type": "object",
-          "properties": {
-            "port": {
-              "type": "integer"
-            }
-          },
-          "required": ["port"]
-        },
         "credentials": {
-          "type": "object",
           "properties": {
             "user": {
-              "type": "object",
               "properties": {
                 "password": {
                   "type": "string"
                 }
               },
-              "required": ["password"]
+              "required": ["password"],
+              "type": "object"
             }
           },
-          "required": ["user"]
+          "required": ["user"],
+          "type": "object"
+        },
+        "server": {
+          "properties": {
+            "port": {
+              "type": "integer"
+            }
+          },
+          "required": ["port"],
+          "type": "object"
         }
       },
-      "required": ["server", "credentials"]
+      "required": ["server", "credentials"],
+      "type": "object"
+    },
+    "name": {
+      "type": "string"
+    },
+    "pod": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
     },
     "secret": {
-      "type": "object",
       "properties": {
         "metadata": {
           "type": "object"
         }
-      }
+      },
+      "type": "object"
     },
-    "configMap": {
-      "type": "object",
+    "service": {
       "properties": {
         "metadata": {
           "type": "object"
+        },
+        "port": {
+          "type": "integer"
+        },
+        "spec": {
+          "type": "object"
         }
-      }
+      },
+      "required": ["port"],
+      "type": "object"
+    },
+    "statefulSet": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
     },
     "volume": {
-      "type": "object",
       "properties": {
         "access": {
           "oneOf": [
@@ -68,73 +111,30 @@
               "type": "string"
             },
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             }
           ]
         },
         "class": {
           "type": "string"
         },
+        "metadata": {
+          "type": "object"
+        },
         "size": {
           "type": "string"
         },
-        "metadata": {
-          "type": "object"
-        },
         "spec": {
           "type": "object"
         }
       },
-      "required": ["access", "size"]
-    },
-    "container": {
-      "type": "object",
-      "properties": {
-        "spec": {
-          "type": "object"
-        }
-      }
-    },
-    "pod": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        },
-        "spec": {
-          "type": "object"
-        }
-      }
-    },
-    "statefulSet": {
-      "type": "object",
-      "properties": {
-        "metadata": {
-          "type": "object"
-        },
-        "spec": {
-          "type": "object"
-        }
-      }
-    },
-    "service": {
-      "type": "object",
-      "properties": {
-        "port": {
-          "type": "integer"
-        },
-        "metadata": {
-          "type": "object"
-        },
-        "spec": {
-          "type": "object"
-        }
-      },
-      "required": ["port"]
+      "required": ["access", "size"],
+      "type": "object"
     }
   },
-  "required": ["diamond", "service"]
+  "required": ["diamond", "service"],
+  "type": "object"
 }
