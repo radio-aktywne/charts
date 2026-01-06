@@ -25,12 +25,12 @@ spec:
                 name: {{ include "quokka.secretName" . | quote }}
           livenessProbe:
             httpGet:
-              path: /admin/publicstats.json
+              path: /ping
               port: http
             failureThreshold: 6
           readinessProbe:
             httpGet:
-              path: /admin/publicstats.json
+              path: /ping
               port: http
             failureThreshold: 6
           {{- with (.Values.container).spec }}

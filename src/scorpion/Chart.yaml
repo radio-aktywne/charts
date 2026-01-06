@@ -2,16 +2,16 @@
 apiVersion: v2
 
 # Version of the chart itself
-version: "0.9.2"
+version: "0.10.0"
 
 # Version of the service provided by this chart
-appVersion: "0.7.0"
+appVersion: "0.8.0"
 
 # Name of the chart
 name: scorpion
 
 # A short description of the chart
-description: Users OIDC auth 🪪
+description: Users OIDC auth service 🪪
 
 # Home page of the service
 home: https://radio-aktywne.github.io/scorpion
