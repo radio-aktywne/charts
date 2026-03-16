@@ -90,7 +90,7 @@ mantis:
       # Timeout for trying to reserve a stream
       timeout: PT1H
 
-      # Duration of the time window for searching for past records
+      # Duration of the time window for searching for past recordings
       window: P60D
 
   # Configuration of the server
