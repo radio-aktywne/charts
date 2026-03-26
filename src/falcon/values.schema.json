@@ -41,7 +41,7 @@
         "cookies": {
           "properties": {
             "domain": {
-              "type": "string"
+              "type": ["null", "string"]
             }
           },
           "required": [],
@@ -79,7 +79,7 @@
                   "type": "string"
                 },
                 "domain": {
-                  "type": "string"
+                  "type": ["null", "string"]
                 },
                 "secret": {
                   "type": "string"
@@ -100,10 +100,10 @@
                   "type": "string"
                 },
                 "path": {
-                  "type": "string"
+                  "type": ["null", "string"]
                 },
                 "port": {
-                  "type": "integer"
+                  "type": ["integer", "null"]
                 },
                 "scheme": {
                   "type": "string"

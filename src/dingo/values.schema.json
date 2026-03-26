@@ -35,10 +35,10 @@
                   "type": "string"
                 },
                 "path": {
-                  "type": "string"
+                  "type": ["null", "string"]
                 },
                 "port": {
-                  "type": "integer"
+                  "type": ["integer", "null"]
                 },
                 "scheme": {
                   "type": "string"
@@ -65,7 +65,7 @@
                   "type": "string"
                 },
                 "port": {
-                  "type": "integer"
+                  "type": ["integer", "null"]
                 },
                 "user": {
                   "type": "string"

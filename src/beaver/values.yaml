@@ -17,7 +17,7 @@ beaver:
       password: password
 
       # Path of the CalDAV API
-      path: ""
+      path: null
 
       # Port of the CalDAV API
       port: 10520
