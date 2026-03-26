@@ -27,7 +27,7 @@ numbat:
       host: beaver.beaver.svc.cluster.local
 
       # Path of the HTTP API
-      path: ""
+      path: null
 
       # Port of the HTTP API
       port: 10500

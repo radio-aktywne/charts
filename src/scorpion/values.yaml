@@ -66,7 +66,7 @@ scorpion:
       host: localhost
 
       # Path of the public site
-      path: ""
+      path: null
 
       # Port of the public site
       port: 20020

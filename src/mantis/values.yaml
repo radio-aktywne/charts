@@ -8,7 +8,7 @@ mantis:
       host: beaver.beaver.svc.cluster.local
 
       # Path of the HTTP API
-      path: ""
+      path: null
 
       # Port of the HTTP API
       port: 10500
@@ -35,7 +35,7 @@ mantis:
       host: gecko.gecko.svc.cluster.local
 
       # Path of the HTTP API
-      path: ""
+      path: null
 
       # Port of the HTTP API
       port: 10700
@@ -51,7 +51,7 @@ mantis:
       host: numbat.numbat.svc.cluster.local
 
       # Path of the HTTP API
-      path: ""
+      path: null
 
       # Port of the HTTP API
       port: 10600
@@ -67,7 +67,7 @@ mantis:
       host: octopus.octopus.svc.cluster.local
 
       # Path of the HTTP API
-      path: ""
+      path: null
 
       # Port of the HTTP API
       port: 10300

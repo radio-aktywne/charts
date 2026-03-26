@@ -3,7 +3,7 @@ falcon:
   # Configuration of the cookies
   cookies:
     # Domain of the cookies
-    domain: ""
+    domain: null
 
   # Enable debug mode
   debug: true
@@ -29,7 +29,7 @@ falcon:
       client: falcon
 
       # Domain of the Google organization
-      domain: ""
+      domain: null
 
       # Client secret to authenticate with the IdP
       secret: secret
@@ -42,7 +42,7 @@ falcon:
       host: localhost
 
       # Path of the public site
-      path: ""
+      path: null
 
       # Port of the public site
       port: 20120
