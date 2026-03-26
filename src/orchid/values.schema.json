@@ -41,18 +41,36 @@
     },
     "orchid": {
       "properties": {
-        "crocus": {
+        "apis": {
           "properties": {
-            "public": {
+            "falcon": {
               "properties": {
                 "host": {
                   "type": "string"
                 },
                 "path": {
-                  "type": "string"
+                  "type": ["null", "string"]
                 },
                 "port": {
-                  "type": "integer"
+                  "type": ["integer", "null"]
+                },
+                "scheme": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"],
+              "type": "object"
+            },
+            "icanhazdadjoke": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": ["null", "string"]
+                },
+                "port": {
+                  "type": ["integer", "null"]
                 },
                 "scheme": {
                   "type": "string"
@@ -62,39 +80,18 @@
               "type": "object"
             }
           },
-          "required": ["public"],
+          "required": ["falcon", "icanhazdadjoke"],
           "type": "object"
         },
-        "falcon": {
-          "properties": {
-            "public": {
-              "properties": {
-                "host": {
-                  "type": "string"
-                },
-                "path": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "scheme": {
-                  "type": "string"
-                }
-              },
-              "required": ["scheme", "host"],
-              "type": "object"
-            }
-          },
-          "required": ["public"],
-          "type": "object"
+        "debug": {
+          "type": "boolean"
         },
         "oidc": {
           "properties": {
             "google": {
               "properties": {
                 "domain": {
-                  "type": "string"
+                  "type": ["null", "string"]
                 }
               },
               "required": [],
@@ -126,15 +123,48 @@
         },
         "urls": {
           "properties": {
-            "public": {
-              "type": "string"
+            "crocus": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": ["null", "string"]
+                },
+                "port": {
+                  "type": ["integer", "null"]
+                },
+                "scheme": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"],
+              "type": "object"
+            },
+            "falcon": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": ["null", "string"]
+                },
+                "port": {
+                  "type": ["integer", "null"]
+                },
+                "scheme": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"],
+              "type": "object"
             }
           },
-          "required": ["public"],
+          "required": ["crocus", "falcon"],
           "type": "object"
         }
       },
-      "required": ["server", "urls", "secrets", "falcon", "crocus"],
+      "required": ["apis", "debug", "secrets", "server", "urls"],
       "type": "object"
     },
     "pod": {

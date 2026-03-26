@@ -1,115 +1,94 @@
 # Configuration of the poppy app
 poppy:
-  # Configuration of the beaver service
-  beaver:
-    # Configuration of the HTTP API of the beaver service
-    http:
-      # Host of the HTTP API
+  # Configuration of APIs
+  apis:
+    # Configuration of the beaver API
+    beaver:
+      # Host of the API
       host: beaver.beaver.svc.cluster.local
 
-      # Path of the HTTP API
-      path: ""
+      # Path of the API
+      path: null
 
-      # Port of the HTTP API
+      # Port of the API
       port: 10500
 
-      # Scheme of the HTTP API
+      # Scheme of the API
+      scheme: http
+
+    # Configuration of the icanhazdadjoke API
+    icanhazdadjoke:
+      # Host of the API
+      host: icanhazdadjoke.com
+
+      # Path of the API
+      path: null
+
+      # Port of the API
+      port: null
+
+      # Scheme of the API
+      scheme: https
+
+    # Configuration of the loris API
+    loris:
+      # Host of the API
+      host: loris.loris.svc.cluster.local
+
+      # Path of the API
+      path: null
+
+      # Port of the API
+      port: 10400
+
+      # Scheme of the API
+      scheme: http
+
+    # Configuration of the octopus API
+    octopus:
+      # Host of the API
+      host: octopus.octopus.svc.cluster.local
+
+      # Path of the API
+      path: null
+
+      # Port of the API
+      port: 10300
+
+      # Scheme of the API
+      scheme: http
+
+    # Configuration of the whip API
+    whip:
+      # Host of the API
+      host: loris.loris.svc.cluster.local
+
+      # Path of the API
+      path: null
+
+      # Port of the API
+      port: 10401
+
+      # Scheme of the API
       scheme: http
 
   # Enable debug mode
   debug: true
-
-  # Configuration of the loris service
-  loris:
-    # Configuration of the HTTP API of the loris service
-    http:
-      # Host of the HTTP API
-      host: loris.loris.svc.cluster.local
-
-      # Path of the HTTP API
-      path: ""
-
-      # Port of the HTTP API
-      port: 10400
-
-      # Scheme of the HTTP API
-      scheme: http
-
-    # Configuration of the WHIP API of the loris service
-    whip:
-      # Host of the WHIP API
-      host: loris.loris.svc.cluster.local
-
-      # Path of the WHIP API
-      path: ""
-
-      # Port of the WHIP API
-      port: 10401
-
-      # Scheme of the WHIP API
-      scheme: http
-
-  # Configuration of the octopus service
-  octopus:
-    # Configuration of the HTTP API of the octopus service
-    http:
-      # Host of the HTTP API
-      host: octopus.octopus.svc.cluster.local
-
-      # Path of the HTTP API
-      path: ""
-
-      # Port of the HTTP API
-      port: 10300
-
-      # Scheme of the HTTP API
-      scheme: http
-
-    # Configuration of the SRT stream of the octopus service
-    srt:
-      # Host of the SRT stream
-      host: octopus.octopus.svc.cluster.local
-
-      # Port of the SRT stream
-      port: 10300
-
-  # Configuration of the scorpion service
-  scorpion:
-    # Configuration of the public API of the scorpion service
-    public:
-      # Client ID to authenticate with the public API
-      client: poppy
-
-      # Host of the public API
-      host: localhost
-
-      # Path of the public API
-      path: ""
-
-      # Port of the public API
-      port: 20000
-
-      # Scheme of the public API
-      scheme: http
-
-      # Client secret to authenticate with the public API
-      secret: secret
-
-  # Configuration of the secrets
-  secrets:
-    # Secrets for encrypting auth cookies
-    auth:
-      - secret
 
   # Configuration of the server
   server:
     # Port to listen on
     port: 10410
 
-  # Configuration of the URLs
-  urls:
-    # Public URL of the app
-    public: http://localhost:10410
+  # Configuration of SRT servers
+  srt:
+    # Configuration of the octopus server
+    octopus:
+      # Host of the server
+      host: octopus.octopus.svc.cluster.local
+
+      # Port of the server
+      port: 10300
 
 # Configuration of the service
 service:

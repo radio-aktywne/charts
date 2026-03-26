@@ -21,16 +21,14 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ include "jasmine.configMapName" . | quote }}
-            - secretRef:
-                name: {{ include "jasmine.secretName" . | quote }}
           livenessProbe:
             httpGet:
-              path: /ping
+              path: /api/ping
               port: http
             failureThreshold: 6
           readinessProbe:
             httpGet:
-              path: /ping
+              path: /api/ping
               port: http
             failureThreshold: 6
           {{- with (.Values.container).spec }}

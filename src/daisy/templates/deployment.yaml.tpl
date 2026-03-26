@@ -21,16 +21,14 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ include "daisy.configMapName" . | quote }}
-            - secretRef:
-                name: {{ include "daisy.secretName" . | quote }}
           livenessProbe:
             httpGet:
-              path: /ping
+              path: /api/ping
               port: http
             failureThreshold: 6
           readinessProbe:
             httpGet:
-              path: /ping
+              path: /api/ping
               port: http
             failureThreshold: 6
           {{- with (.Values.container).spec }}

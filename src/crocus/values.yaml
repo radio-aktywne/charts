@@ -1,36 +1,37 @@
 # Configuration of the crocus app
 crocus:
-  # Configuration of the orchid app
-  orchid:
-    # Configuration of the public site of the orchid app
-    public:
-      # Host of the public site
-      host: localhost
+  # Configuration of APIs
+  apis:
+    # Configuration of the icanhazdadjoke API
+    icanhazdadjoke:
+      # Host of the API
+      host: icanhazdadjoke.com
 
-      # Path of the public site
-      path: ""
+      # Path of the API
+      path: null
 
-      # Port of the public site
-      port: 20120
+      # Port of the API
+      port: null
 
-      # Scheme of the public site
-      scheme: http
+      # Scheme of the API
+      scheme: https
 
-  # Configuration of the scorpion service
-  scorpion:
-    # Configuration of the admin API of the scorpion service
-    admin:
-      # Host of the admin API
+    # Configuration of the scorpion API
+    scorpion:
+      # Host of the API
       host: scorpion.scorpion.svc.cluster.local
 
-      # Path of the admin API
-      path: ""
+      # Path of the API
+      path: null
 
-      # Port of the admin API
+      # Port of the API
       port: 20001
 
-      # Scheme of the admin API
+      # Scheme of the API
       scheme: http
+
+  # Enable debug mode
+  debug: true
 
   # Configuration of secrets
   secrets:
@@ -41,6 +42,22 @@ crocus:
   server:
     # Port to listen on
     port: 20020
+
+  # Configuration of URLs
+  urls:
+    # Configuration of the orchid URL
+    orchid:
+      # Host of the URL
+      host: localhost
+
+      # Path of the URL
+      path: null
+
+      # Port of the URL
+      port: 20120
+
+      # Scheme of the URL
+      scheme: http
 
 # Configuration of the service
 service:

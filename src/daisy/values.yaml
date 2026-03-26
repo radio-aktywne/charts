@@ -1,61 +1,42 @@
 # Configuration of the daisy app
 daisy:
-  # Enable debug mode
-  debug: true
+  # Configuration of APIs
+  apis:
+    # Configuration of the icanhazdadjoke API
+    icanhazdadjoke:
+      # Host of the API
+      host: icanhazdadjoke.com
 
-  # Configuration of the mantis service
-  mantis:
-    # Configuration of the HTTP API of the mantis service
-    http:
-      # Host of the HTTP API
+      # Path of the API
+      path: null
+
+      # Port of the API
+      port: null
+
+      # Scheme of the API
+      scheme: https
+
+    # Configuration of the mantis API
+    mantis:
+      # Host of the API
       host: mantis.mantis.svc.cluster.local
 
-      # Path of the HTTP API
-      path: ""
+      # Path of the API
+      path: null
 
-      # Port of the HTTP API
+      # Port of the API
       port: 10800
 
-      # Scheme of the HTTP API
+      # Scheme of the API
       scheme: http
 
-  # Configuration of the scorpion service
-  scorpion:
-    # Configuration of the public API of the scorpion service
-    public:
-      # Client ID to authenticate with the public API
-      client: daisy
-
-      # Host of the public API
-      host: localhost
-
-      # Path of the public API
-      path: ""
-
-      # Port of the public API
-      port: 20000
-
-      # Scheme of the public API
-      scheme: http
-
-      # Client secret to authenticate with the public API
-      secret: secret
-
-  # Configuration of the secrets
-  secrets:
-    # Secrets for encrypting auth cookies
-    auth:
-      - secret
+  # Enable debug mode
+  debug: true
 
   # Configuration of the server
   server:
     # Port to listen on
     port: 10810
-
-  # Configuration of the URLs
-  urls:
-    # Public URL of the app
-    public: http://localhost:10810
 
 # Configuration of the service
 service:

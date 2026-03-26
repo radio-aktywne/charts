@@ -19,13 +19,6 @@ Name of the Container
 {{- end }}
 
 {{/*
-Name of the Secret
-*/}}
-{{- define "aster.secretName" -}}
-{{ include "aster.name" . }}
-{{- end }}
-
-{{/*
 Name of the ConfigMap
 */}}
 {{- define "aster.configMapName" -}}
@@ -84,18 +77,6 @@ Subset of common metadata that should be stable
 labels:
   {{- include "aster.selector" . | nindent 2 }}
   app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
-{{- end }}
-
-{{/*
-Metadata to use in the Secret
-*/}}
-{{- define "aster.secretMetadata" -}}
-{{- $commonMetadata := (.Values.common).metadata | default dict | deepCopy }}
-{{- $secretMetadata := (.Values.secret).metadata | default dict | deepCopy }}
-{{- $chartMetadata := include "aster.metadata" . | fromYaml | deepCopy }}
-{{- $metadata := mergeOverwrite $commonMetadata $secretMetadata $chartMetadata -}}
-name: {{ include "aster.secretName" . | quote }}
-{{ toYaml $metadata }}
 {{- end }}
 
 {{/*

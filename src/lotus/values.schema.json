@@ -38,21 +38,36 @@
     },
     "lotus": {
       "properties": {
-        "debug": {
-          "type": "boolean"
-        },
-        "pelican": {
+        "apis": {
           "properties": {
-            "http": {
+            "icanhazdadjoke": {
               "properties": {
                 "host": {
                   "type": "string"
                 },
                 "path": {
-                  "type": "string"
+                  "type": ["null", "string"]
                 },
                 "port": {
-                  "type": "integer"
+                  "type": ["integer", "null"]
+                },
+                "scheme": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"],
+              "type": "object"
+            },
+            "pelican": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": ["null", "string"]
+                },
+                "port": {
+                  "type": ["integer", "null"]
                 },
                 "scheme": {
                   "type": "string"
@@ -62,50 +77,11 @@
               "type": "object"
             }
           },
-          "required": ["http"],
+          "required": ["icanhazdadjoke", "pelican"],
           "type": "object"
         },
-        "scorpion": {
-          "properties": {
-            "public": {
-              "properties": {
-                "client": {
-                  "type": "string"
-                },
-                "host": {
-                  "type": "string"
-                },
-                "path": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "scheme": {
-                  "type": "string"
-                },
-                "secret": {
-                  "type": "string"
-                }
-              },
-              "required": ["scheme", "host", "client", "secret"],
-              "type": "object"
-            }
-          },
-          "required": ["public"],
-          "type": "object"
-        },
-        "secrets": {
-          "properties": {
-            "auth": {
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            }
-          },
-          "required": ["auth"],
-          "type": "object"
+        "debug": {
+          "type": "boolean"
         },
         "server": {
           "properties": {
@@ -115,18 +91,9 @@
           },
           "required": ["port"],
           "type": "object"
-        },
-        "urls": {
-          "properties": {
-            "public": {
-              "type": "string"
-            }
-          },
-          "required": ["public"],
-          "type": "object"
         }
       },
-      "required": ["server", "secrets", "urls", "pelican", "scorpion", "debug"],
+      "required": ["apis", "debug", "server"],
       "type": "object"
     },
     "name": {
@@ -138,14 +105,6 @@
           "type": "object"
         },
         "spec": {
-          "type": "object"
-        }
-      },
-      "type": "object"
-    },
-    "secret": {
-      "properties": {
-        "metadata": {
           "type": "object"
         }
       },

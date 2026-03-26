@@ -1,77 +1,56 @@
 # Configuration of the aster app
 aster:
-  # Enable debug mode
-  debug: true
-
-  # Configuration of the dingo service
-  dingo:
-    # Configuration of the HTTP API of the dingo service
-    http:
-      # Host of the HTTP API
+  # Configuration of APIs
+  apis:
+    # Configuration of the dingo API
+    dingo:
+      # Host of the API
       host: dingo.dingo.svc.cluster.local
 
-      # Path of the HTTP API
-      path: ""
+      # Path of the API
+      path: null
 
-      # Port of the HTTP API
+      # Port of the API
       port: 10101
 
-      # Scheme of the HTTP API
+      # Scheme of the API
       scheme: http
 
-  # Configuration of the pelican service
-  pelican:
-    # Configuration of the HTTP API of the pelican service
-    http:
-      # Host of the HTTP API
+    # Configuration of the icanhazdadjoke API
+    icanhazdadjoke:
+      # Host of the API
+      host: icanhazdadjoke.com
+
+      # Path of the API
+      path: null
+
+      # Port of the API
+      port: null
+
+      # Scheme of the API
+      scheme: https
+
+    # Configuration of the pelican API
+    pelican:
+      # Host of the API
       host: pelican.pelican.svc.cluster.local
 
-      # Path of the HTTP API
-      path: ""
+      # Path of the API
+      path: null
 
-      # Port of the HTTP API
+      # Port of the API
       port: 10200
 
-      # Scheme of the HTTP API
+      # Scheme of the API
       scheme: http
 
-  # Configuration of the secrets
-  secrets:
-    # Secrets for encrypting auth cookies
-    auth:
-      - secret
-
-  # Configuration of the scorpion service
-  scorpion:
-    # Configuration of the public API of the scorpion service
-    public:
-      # Client ID to authenticate with the public API
-      client: aster
-
-      # Host of the public API
-      host: localhost
-
-      # Path of the public API
-      path: ""
-
-      # Port of the public API
-      port: 20000
-
-      # Scheme of the public API
-      scheme: http
-
-      # Client secret to authenticate with the public API
-      secret: secret
+  # Enable debug mode
+  debug: true
 
   # Configuration of the server
   server:
     # Port to listen on
     port: 10110
-
-  # Configuration of the URLs
-  urls:
-    # Public URL of the app
-    public: http://localhost:10110
 
 # Configuration of the service
 service:
