@@ -3,18 +3,17 @@ kind: ConfigMap
 metadata:
   {{- include "jasmine.configMapMetadata" . | nindent 2 }}
 data:
+  JASMINE__APIS__BEAVER__HOST: {{ required "jasmine.apis.beaver.host is required" (((.Values.jasmine).apis).beaver).host | quote }}
+  JASMINE__APIS__BEAVER__PATH: {{ (((.Values.jasmine).apis).beaver).path | default "" | quote }}
+  JASMINE__APIS__BEAVER__PORT: {{ (((.Values.jasmine).apis).beaver).port | int | default "" | quote }}
+  JASMINE__APIS__BEAVER__SCHEME: {{ required "jasmine.apis.beaver.scheme is required" (((.Values.jasmine).apis).beaver).scheme | quote }}
+  JASMINE__APIS__ICANHAZDADJOKE__HOST: {{ required "jasmine.apis.icanhazdadjoke.host is required" (((.Values.jasmine).apis).icanhazdadjoke).host | quote }}
+  JASMINE__APIS__ICANHAZDADJOKE__PATH: {{ (((.Values.jasmine).apis).icanhazdadjoke).path | default "" | quote }}
+  JASMINE__APIS__ICANHAZDADJOKE__PORT: {{ (((.Values.jasmine).apis).icanhazdadjoke).port | int | default "" | quote }}
+  JASMINE__APIS__ICANHAZDADJOKE__SCHEME: {{ required "jasmine.apis.icanhazdadjoke.scheme is required" (((.Values.jasmine).apis).icanhazdadjoke).scheme | quote }}
+  JASMINE__APIS__NUMBAT__HOST: {{ required "jasmine.apis.numbat.host is required" (((.Values.jasmine).apis).numbat).host | quote }}
+  JASMINE__APIS__NUMBAT__PATH: {{ (((.Values.jasmine).apis).numbat).path | default "" | quote }}
+  JASMINE__APIS__NUMBAT__PORT: {{ (((.Values.jasmine).apis).numbat).port | int | default "" | quote }}
+  JASMINE__APIS__NUMBAT__SCHEME: {{ required "jasmine.apis.numbat.scheme is required" (((.Values.jasmine).apis).numbat).scheme | quote }}
   JASMINE__DEBUG: {{ required "jasmine.debug is required" (.Values.jasmine).debug | quote }}
-  JASMINE__BEAVER__HTTP__HOST: {{ required "jasmine.beaver.http.host is required" (((.Values.jasmine).beaver).http).host | quote }}
-  JASMINE__BEAVER__HTTP__PATH: {{ (((.Values.jasmine).beaver).http).path | default "" | quote }}
-  JASMINE__BEAVER__HTTP__PORT: {{ (((.Values.jasmine).beaver).http).port | int | default "" | quote }}
-  JASMINE__BEAVER__HTTP__SCHEME: {{ required "jasmine.beaver.http.scheme is required" (((.Values.jasmine).beaver).http).scheme | quote }}
-  JASMINE__NUMBAT__HTTP__HOST: {{ required "jasmine.numbat.http.host is required" (((.Values.jasmine).numbat).http).host | quote }}
-  JASMINE__NUMBAT__HTTP__PATH: {{ (((.Values.jasmine).numbat).http).path | default "" | quote }}
-  JASMINE__NUMBAT__HTTP__PORT: {{ (((.Values.jasmine).numbat).http).port | int | default "" | quote }}
-  JASMINE__NUMBAT__HTTP__SCHEME: {{ required "jasmine.numbat.http.scheme is required" (((.Values.jasmine).numbat).http).scheme | quote }}
-  JASMINE__SCORPION__PUBLIC__HOST: {{ required "jasmine.scorpion.public.host is required" (((.Values.jasmine).scorpion).public).host | quote }}
-  JASMINE__SCORPION__PUBLIC__PATH: {{ (((.Values.jasmine).scorpion).public).path | default "" | quote }}
-  JASMINE__SCORPION__PUBLIC__PORT: {{ (((.Values.jasmine).scorpion).public).port | int | default "" | quote }}
-  JASMINE__SCORPION__PUBLIC__SCHEME: {{ required "jasmine.scorpion.public.scheme is required" (((.Values.jasmine).scorpion).public).scheme | quote }}
   JASMINE__SERVER__PORT: {{ required "jasmine.server.port is required" ((.Values.jasmine).server).port | int | quote }}
-  JASMINE__URLS__PUBLIC: {{ required "jasmine.urls.public is required" ((.Values.jasmine).urls).public | quote }}

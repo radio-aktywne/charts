@@ -50,14 +50,6 @@
       },
       "type": "object"
     },
-    "secret": {
-      "properties": {
-        "metadata": {
-          "type": "object"
-        }
-      },
-      "type": "object"
-    },
     "service": {
       "properties": {
         "metadata": {
@@ -75,18 +67,36 @@
     },
     "tulip": {
       "properties": {
-        "beaver": {
+        "apis": {
           "properties": {
-            "http": {
+            "beaver": {
               "properties": {
                 "host": {
                   "type": "string"
                 },
                 "path": {
-                  "type": "string"
+                  "type": ["null", "string"]
                 },
                 "port": {
-                  "type": "integer"
+                  "type": ["integer", "null"]
+                },
+                "scheme": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"],
+              "type": "object"
+            },
+            "icanhazdadjoke": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": ["null", "string"]
+                },
+                "port": {
+                  "type": ["integer", "null"]
                 },
                 "scheme": {
                   "type": "string"
@@ -96,53 +106,11 @@
               "type": "object"
             }
           },
-          "required": ["http"],
+          "required": ["beaver", "icanhazdadjoke"],
           "type": "object"
         },
         "debug": {
           "type": "boolean"
-        },
-        "scorpion": {
-          "properties": {
-            "public": {
-              "properties": {
-                "client": {
-                  "type": "string"
-                },
-                "host": {
-                  "type": "string"
-                },
-                "path": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "scheme": {
-                  "type": "string"
-                },
-                "secret": {
-                  "type": "string"
-                }
-              },
-              "required": ["scheme", "host", "client", "secret"],
-              "type": "object"
-            }
-          },
-          "required": ["public"],
-          "type": "object"
-        },
-        "secrets": {
-          "properties": {
-            "auth": {
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            }
-          },
-          "required": ["auth"],
-          "type": "object"
         },
         "server": {
           "properties": {
@@ -152,18 +120,9 @@
           },
           "required": ["port"],
           "type": "object"
-        },
-        "urls": {
-          "properties": {
-            "public": {
-              "type": "string"
-            }
-          },
-          "required": ["public"],
-          "type": "object"
         }
       },
-      "required": ["server", "secrets", "urls", "beaver", "scorpion", "debug"],
+      "required": ["apis", "debug", "server"],
       "type": "object"
     }
   },

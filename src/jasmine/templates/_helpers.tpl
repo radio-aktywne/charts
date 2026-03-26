@@ -19,13 +19,6 @@ Name of the Container
 {{- end }}
 
 {{/*
-Name of the Secret
-*/}}
-{{- define "jasmine.secretName" -}}
-{{ include "jasmine.name" . }}
-{{- end }}
-
-{{/*
 Name of the ConfigMap
 */}}
 {{- define "jasmine.configMapName" -}}
@@ -84,18 +77,6 @@ Subset of common metadata that should be stable
 labels:
   {{- include "jasmine.selector" . | nindent 2 }}
   app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
-{{- end }}
-
-{{/*
-Metadata to use in the Secret
-*/}}
-{{- define "jasmine.secretMetadata" -}}
-{{- $commonMetadata := (.Values.common).metadata | default dict | deepCopy }}
-{{- $secretMetadata := (.Values.secret).metadata | default dict | deepCopy }}
-{{- $chartMetadata := include "jasmine.metadata" . | fromYaml | deepCopy }}
-{{- $metadata := mergeOverwrite $commonMetadata $secretMetadata $chartMetadata -}}
-name: {{ include "jasmine.secretName" . | quote }}
-{{ toYaml $metadata }}
 {{- end }}
 
 {{/*

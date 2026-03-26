@@ -19,13 +19,6 @@ Name of the Container
 {{- end }}
 
 {{/*
-Name of the Secret
-*/}}
-{{- define "poppy.secretName" -}}
-{{ include "poppy.name" . }}
-{{- end }}
-
-{{/*
 Name of the ConfigMap
 */}}
 {{- define "poppy.configMapName" -}}
@@ -84,18 +77,6 @@ Subset of common metadata that should be stable
 labels:
   {{- include "poppy.selector" . | nindent 2 }}
   app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
-{{- end }}
-
-{{/*
-Metadata to use in the Secret
-*/}}
-{{- define "poppy.secretMetadata" -}}
-{{- $commonMetadata := (.Values.common).metadata | default dict | deepCopy }}
-{{- $secretMetadata := (.Values.secret).metadata | default dict | deepCopy }}
-{{- $chartMetadata := include "poppy.metadata" . | fromYaml | deepCopy }}
-{{- $metadata := mergeOverwrite $commonMetadata $secretMetadata $chartMetadata -}}
-name: {{ include "poppy.secretName" . | quote }}
-{{ toYaml $metadata }}
 {{- end }}
 
 {{/*

@@ -27,18 +27,36 @@
     },
     "crocus": {
       "properties": {
-        "orchid": {
+        "apis": {
           "properties": {
-            "public": {
+            "icanhazdadjoke": {
               "properties": {
                 "host": {
                   "type": "string"
                 },
                 "path": {
-                  "type": "string"
+                  "type": ["null", "string"]
                 },
                 "port": {
-                  "type": "integer"
+                  "type": ["integer", "null"]
+                },
+                "scheme": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"],
+              "type": "object"
+            },
+            "scorpion": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": ["null", "string"]
+                },
+                "port": {
+                  "type": ["integer", "null"]
                 },
                 "scheme": {
                   "type": "string"
@@ -48,32 +66,11 @@
               "type": "object"
             }
           },
-          "required": ["public"],
+          "required": ["icanhazdadjoke", "scorpion"],
           "type": "object"
         },
-        "scorpion": {
-          "properties": {
-            "admin": {
-              "properties": {
-                "host": {
-                  "type": "string"
-                },
-                "path": {
-                  "type": "string"
-                },
-                "port": {
-                  "type": "integer"
-                },
-                "scheme": {
-                  "type": "string"
-                }
-              },
-              "required": ["scheme", "host"],
-              "type": "object"
-            }
-          },
-          "required": ["admin"],
-          "type": "object"
+        "debug": {
+          "type": "boolean"
         },
         "secrets": {
           "properties": {
@@ -94,9 +91,33 @@
           },
           "required": ["port"],
           "type": "object"
+        },
+        "urls": {
+          "properties": {
+            "orchid": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": ["null", "string"]
+                },
+                "port": {
+                  "type": ["integer", "null"]
+                },
+                "scheme": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"],
+              "type": "object"
+            }
+          },
+          "required": ["orchid"],
+          "type": "object"
         }
       },
-      "required": ["server", "secrets", "scorpion", "orchid"],
+      "required": ["apis", "debug", "secrets", "server", "urls"],
       "type": "object"
     },
     "deployment": {

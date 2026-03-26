@@ -3,28 +3,27 @@ kind: ConfigMap
 metadata:
   {{- include "poppy.configMapMetadata" . | nindent 2 }}
 data:
-  POPPY__BEAVER__HTTP__HOST: {{ required "poppy.beaver.http.host is required" (((.Values.poppy).beaver).http).host | quote }}
-  POPPY__BEAVER__HTTP__PATH: {{ (((.Values.poppy).beaver).http).path | default "" | quote }}
-  POPPY__BEAVER__HTTP__PORT: {{ (((.Values.poppy).beaver).http).port | int | default "" | quote }}
-  POPPY__BEAVER__HTTP__SCHEME: {{ required "poppy.beaver.http.scheme is required" (((.Values.poppy).beaver).http).scheme | quote }}
+  POPPY__APIS__BEAVER__HOST: {{ required "poppy.apis.beaver.host is required" (((.Values.poppy).apis).beaver).host | quote }}
+  POPPY__APIS__BEAVER__PATH: {{ (((.Values.poppy).apis).beaver).path | default "" | quote }}
+  POPPY__APIS__BEAVER__PORT: {{ (((.Values.poppy).apis).beaver).port | int | default "" | quote }}
+  POPPY__APIS__BEAVER__SCHEME: {{ required "poppy.apis.beaver.scheme is required" (((.Values.poppy).apis).beaver).scheme | quote }}
+  POPPY__APIS__ICANHAZDADJOKE__HOST: {{ required "poppy.apis.icanhazdadjoke.host is required" (((.Values.poppy).apis).icanhazdadjoke).host | quote }}
+  POPPY__APIS__ICANHAZDADJOKE__PATH: {{ (((.Values.poppy).apis).icanhazdadjoke).path | default "" | quote }}
+  POPPY__APIS__ICANHAZDADJOKE__PORT: {{ (((.Values.poppy).apis).icanhazdadjoke).port | int | default "" | quote }}
+  POPPY__APIS__ICANHAZDADJOKE__SCHEME: {{ required "poppy.apis.icanhazdadjoke.scheme is required" (((.Values.poppy).apis).icanhazdadjoke).scheme | quote }}
+  POPPY__APIS__LORIS__HOST: {{ required "poppy.apis.loris.host is required" (((.Values.poppy).apis).loris).host | quote }}
+  POPPY__APIS__LORIS__PATH: {{ (((.Values.poppy).apis).loris).path | default "" | quote }}
+  POPPY__APIS__LORIS__PORT: {{ (((.Values.poppy).apis).loris).port | int | default "" | quote }}
+  POPPY__APIS__LORIS__SCHEME: {{ required "poppy.apis.loris.scheme is required" (((.Values.poppy).apis).loris).scheme | quote }}
+  POPPY__APIS__OCTOPUS__HOST: {{ required "poppy.apis.octopus.host is required" (((.Values.poppy).apis).octopus).host | quote }}
+  POPPY__APIS__OCTOPUS__PATH: {{ (((.Values.poppy).apis).octopus).path | default "" | quote }}
+  POPPY__APIS__OCTOPUS__PORT: {{ (((.Values.poppy).apis).octopus).port | int | default "" | quote }}
+  POPPY__APIS__OCTOPUS__SCHEME: {{ required "poppy.apis.octopus.scheme is required" (((.Values.poppy).apis).octopus).scheme | quote }}
+  POPPY__APIS__WHIP__HOST: {{ required "poppy.apis.whip.host is required" (((.Values.poppy).apis).whip).host | quote }}
+  POPPY__APIS__WHIP__PATH: {{ (((.Values.poppy).apis).whip).path | default "" | quote }}
+  POPPY__APIS__WHIP__PORT: {{ (((.Values.poppy).apis).whip).port | int | default "" | quote }}
+  POPPY__APIS__WHIP__SCHEME: {{ required "poppy.apis.whip.scheme is required" (((.Values.poppy).apis).whip).scheme | quote }}
   POPPY__DEBUG: {{ required "poppy.debug is required" (.Values.poppy).debug | quote }}
-  POPPY__LORIS__HTTP__HOST: {{ required "poppy.loris.http.host is required" (((.Values.poppy).loris).http).host | quote }}
-  POPPY__LORIS__HTTP__PATH: {{ (((.Values.poppy).loris).http).path | default "" | quote }}
-  POPPY__LORIS__HTTP__PORT: {{ (((.Values.poppy).loris).http).port | int | default "" | quote }}
-  POPPY__LORIS__HTTP__SCHEME: {{ required "poppy.loris.http.scheme is required" (((.Values.poppy).loris).http).scheme | quote }}
-  POPPY__LORIS__WHIP__HOST: {{ required "poppy.loris.whip.host is required" (((.Values.poppy).loris).whip).host | quote }}
-  POPPY__LORIS__WHIP__PATH: {{ (((.Values.poppy).loris).whip).path | default "" | quote }}
-  POPPY__LORIS__WHIP__PORT: {{ (((.Values.poppy).loris).whip).port | int | default "" | quote }}
-  POPPY__LORIS__WHIP__SCHEME: {{ required "poppy.loris.whip.scheme is required" (((.Values.poppy).loris).whip).scheme | quote }}
-  POPPY__OCTOPUS__HTTP__HOST: {{ required "poppy.octopus.http.host is required" (((.Values.poppy).octopus).http).host | quote }}
-  POPPY__OCTOPUS__HTTP__PATH: {{ (((.Values.poppy).octopus).http).path | default "" | quote }}
-  POPPY__OCTOPUS__HTTP__PORT: {{ (((.Values.poppy).octopus).http).port | int | default "" | quote }}
-  POPPY__OCTOPUS__HTTP__SCHEME: {{ required "poppy.octopus.http.scheme is required" (((.Values.poppy).octopus).http).scheme | quote }}
-  POPPY__OCTOPUS__SRT__HOST: {{ required "poppy.octopus.srt.host is required" (((.Values.poppy).octopus).srt).host | quote }}
-  POPPY__OCTOPUS__SRT__PORT: {{ required "poppy.octopus.srt.port is required" (((.Values.poppy).octopus).srt).port | int | quote }}
-  POPPY__SCORPION__PUBLIC__HOST: {{ required "poppy.scorpion.public.host is required" (((.Values.poppy).scorpion).public).host | quote }}
-  POPPY__SCORPION__PUBLIC__PATH: {{ (((.Values.poppy).scorpion).public).path | default "" | quote }}
-  POPPY__SCORPION__PUBLIC__PORT: {{ (((.Values.poppy).scorpion).public).port | int | default "" | quote }}
-  POPPY__SCORPION__PUBLIC__SCHEME: {{ required "poppy.scorpion.public.scheme is required" (((.Values.poppy).scorpion).public).scheme | quote }}
   POPPY__SERVER__PORT: {{ required "poppy.server.port is required" ((.Values.poppy).server).port | int | quote }}
-  POPPY__URLS__PUBLIC: {{ required "poppy.urls.public is required" ((.Values.poppy).urls).public | quote }}
+  POPPY__SRT__OCTOPUS__HOST: {{ required "poppy.srt.octopus.host is required" (((.Values.poppy).srt).octopus).host | quote }}
+  POPPY__SRT__OCTOPUS__PORT: {{ required "poppy.srt.octopus.port is required" (((.Values.poppy).srt).octopus).port | int | quote }}
