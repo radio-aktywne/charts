@@ -24,7 +24,7 @@ dingo:
       host: quokka.quokka.svc.cluster.local
 
       # Mount point to send audio to
-      mount: /radio.mp3
+      mount: stream
 
       # Password to authenticate with the ICY API
       password: password
