@@ -18,6 +18,14 @@ quokka:
       # Username of the source user
       user: source
 
+  # Configuration of the limits
+  limits:
+    # Maximum number of clients that can be connected at the same time
+    clients: 100
+
+    # Maximum number of sources that can be connected at the same time
+    sources: 10
+
   # Configuration of the server
   server:
     # Port to listen on
