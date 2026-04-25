@@ -128,8 +128,11 @@
           "required": ["ports"],
           "type": "object"
         },
-        "stream": {
+        "streaming": {
           "properties": {
+            "latency": {
+              "type": "string"
+            },
             "timeout": {
               "type": "string"
             },
@@ -137,11 +140,11 @@
               "type": "string"
             }
           },
-          "required": ["timeout", "window"],
+          "required": ["latency", "timeout", "window"],
           "type": "object"
         }
       },
-      "required": ["server", "stream", "beaver", "dingo", "gecko", "debug"],
+      "required": ["beaver", "debug", "dingo", "gecko", "server", "streaming"],
       "type": "object"
     },
     "pod": {

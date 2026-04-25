@@ -55,8 +55,11 @@ octopus:
       # Port to listen on for SRT streams
       srt: 10300
 
-  # Stream configuration
-  stream:
+  # Configuration of the streaming service
+  streaming:
+    # Target latency for buffering outgoing stream
+    latency: PT0.2S
+
     # Time after which a stream will be stopped if no connections are made
     timeout: PT1M
 

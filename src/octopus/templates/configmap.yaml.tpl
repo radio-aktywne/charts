@@ -16,5 +16,6 @@ data:
   OCTOPUS__GECKO__HTTP__SCHEME: {{ required "octopus.gecko.http.scheme is required" (((.Values.octopus).gecko).http).scheme | quote }}
   OCTOPUS__SERVER__PORTS__HTTP: {{ required "octopus.server.ports.http is required" (((.Values.octopus).server).ports).http | int | quote }}
   OCTOPUS__SERVER__PORTS__SRT: {{ required "octopus.server.ports.srt is required" (((.Values.octopus).server).ports).srt | int | quote }}
-  OCTOPUS__STREAM__TIMEOUT: {{ required "octopus.stream.timeout is required" ((.Values.octopus).stream).timeout | quote }}
-  OCTOPUS__STREAM__WINDOW: {{ required "octopus.stream.window is required" ((.Values.octopus).stream).window | quote }}
+  OCTOPUS__STREAMING__LATENCY: {{ required "octopus.streaming.latency is required" ((.Values.octopus).streaming).latency | quote }}
+  OCTOPUS__STREAMING__TIMEOUT: {{ required "octopus.streaming.timeout is required" ((.Values.octopus).streaming).timeout | quote }}
+  OCTOPUS__STREAMING__WINDOW: {{ required "octopus.streaming.window is required" ((.Values.octopus).streaming).window | quote }}
