@@ -87,6 +87,9 @@ poppy:
       # Host of the server
       host: octopus.octopus.svc.cluster.local
 
+      # Target latency for buffering outgoing stream
+      latency: PT0.2S
+
       # Port of the server
       port: 10300
 

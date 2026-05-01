@@ -167,11 +167,14 @@
                 "host": {
                   "type": "string"
                 },
+                "latency": {
+                  "type": "string"
+                },
                 "port": {
                   "type": "integer"
                 }
               },
-              "required": ["host", "port"],
+              "required": ["host", "latency", "port"],
               "type": "object"
             }
           },
