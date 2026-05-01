@@ -18,12 +18,12 @@ spec:
             - name: http
               protocol: TCP
               containerPort: {{ required "loris.server.ports.http is required" (((.Values.loris).server).ports).http | int }}
-            - name: whip
-              protocol: TCP
-              containerPort: {{ required "loris.server.ports.whip is required" (((.Values.loris).server).ports).whip | int }}
             - name: rtp
               protocol: UDP
               containerPort: {{ required "loris.server.ports.rtp is required" (((.Values.loris).server).ports).rtp | int }}
+            - name: whip
+              protocol: TCP
+              containerPort: {{ required "loris.server.ports.whip is required" (((.Values.loris).server).ports).whip | int }}
           envFrom:
             - configMapRef:
                 name: {{ include "loris.configMapName" . | quote }}

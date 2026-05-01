@@ -5,25 +5,25 @@ loris:
 
   # Configuration of the server
   server:
-    # Ports configuration
+    # Configuration of the server ports
     ports:
-      # Port to listen on for HTTP requests
+      # Port to listen for HTTP requests on
       http: 10400
 
-      # Port to listen on for RTP connections
+      # Port to listen for RTP connections on
       rtp: 10402
 
-      # Port to listen on for WHIP requests
+      # Port to listen for WHIP requests on
       whip: 10401
 
-  # Streamer configuration
-  streamer:
-    # STUN server configuration
+  # Configuration of the streaming service
+  streaming:
+    # Configuration of the STUN server
     stun:
-      # STUN server hostname
+      # Host of the STUN server
       host: stun.l.google.com
 
-      # STUN server port
+      # Port of the STUN server
       port: 19302
 
     # Time after which a stream will be stopped if no connections are made
@@ -31,13 +31,13 @@ loris:
 
 # Configuration of the service
 service:
-  # Ports configuration
+  # Configuration of the service ports
   ports:
-    # Port to listen on for HTTP requests
+    # Port to listen for HTTP requests on
     http: 10400
 
-    # Port to listen on for RTP connections
+    # Port to listen for RTP connections on
     rtp: 10402
 
-    # Port to listen on for WHIP requests
+    # Port to listen for WHIP requests on
     whip: 10401

@@ -62,7 +62,7 @@
           "required": ["ports"],
           "type": "object"
         },
-        "streamer": {
+        "streaming": {
           "properties": {
             "stun": {
               "properties": {
@@ -84,7 +84,7 @@
           "type": "object"
         }
       },
-      "required": ["server", "streamer", "debug"],
+      "required": ["debug", "server", "streaming"],
       "type": "object"
     },
     "name": {
