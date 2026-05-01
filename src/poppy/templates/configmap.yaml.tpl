@@ -26,4 +26,5 @@ data:
   POPPY__DEBUG: {{ required "poppy.debug is required" (.Values.poppy).debug | quote }}
   POPPY__SERVER__PORT: {{ required "poppy.server.port is required" ((.Values.poppy).server).port | int | quote }}
   POPPY__SRT__OCTOPUS__HOST: {{ required "poppy.srt.octopus.host is required" (((.Values.poppy).srt).octopus).host | quote }}
+  POPPY__SRT__OCTOPUS__LATENCY: {{ required "poppy.srt.octopus.latency is required" (((.Values.poppy).srt).octopus).latency | quote }}
   POPPY__SRT__OCTOPUS__PORT: {{ required "poppy.srt.octopus.port is required" (((.Values.poppy).srt).octopus).port | int | quote }}
