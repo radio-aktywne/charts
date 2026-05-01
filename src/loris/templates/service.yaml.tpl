@@ -10,14 +10,14 @@ spec:
       protocol: TCP
       port: {{ required "service.ports.http is required" ((.Values.service).ports).http | int }}
       targetPort: http
-    - name: whip
-      protocol: TCP
-      port: {{ required "service.ports.whip is required" ((.Values.service).ports).whip | int }}
-      targetPort: whip
     - name: rtp
       protocol: UDP
       port: {{ required "service.ports.rtp is required" ((.Values.service).ports).rtp | int }}
       targetPort: rtp
+    - name: whip
+      protocol: TCP
+      port: {{ required "service.ports.whip is required" ((.Values.service).ports).whip | int }}
+      targetPort: whip
   {{- with (.Values.service).spec }}
   {{- toYaml . | nindent 2 }}
   {{- end }}
