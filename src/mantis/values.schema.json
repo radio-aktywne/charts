@@ -154,6 +154,9 @@
           "properties": {
             "stream": {
               "properties": {
+                "latency": {
+                  "type": "string"
+                },
                 "timeout": {
                   "type": "string"
                 },
@@ -161,7 +164,7 @@
                   "type": "string"
                 }
               },
-              "required": ["timeout", "window"],
+              "required": ["latency", "timeout", "window"],
               "type": "object"
             }
           },
