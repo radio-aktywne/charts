@@ -24,6 +24,7 @@ data:
   MANTIS__OCTOPUS__HTTP__SCHEME: {{ required "mantis.octopus.http.scheme is required" (((.Values.mantis).octopus).http).scheme | quote }}
   MANTIS__OCTOPUS__SRT__HOST: {{ required "mantis.octopus.srt.host is required" (((.Values.mantis).octopus).srt).host | quote }}
   MANTIS__OCTOPUS__SRT__PORT: {{ required "mantis.octopus.srt.port is required" (((.Values.mantis).octopus).srt).port | int | quote }}
+  MANTIS__OPERATIONS__STREAM__LATENCY: {{ required "mantis.operations.stream.latency is required" (((.Values.mantis).operations).stream).latency | quote }}
   MANTIS__OPERATIONS__STREAM__TIMEOUT: {{ required "mantis.operations.stream.timeout is required" (((.Values.mantis).operations).stream).timeout | quote }}
   MANTIS__OPERATIONS__STREAM__WINDOW: {{ required "mantis.operations.stream.window is required" (((.Values.mantis).operations).stream).window | quote }}
   MANTIS__SERVER__PORT: {{ required "mantis.server.port is required" ((.Values.mantis).server).port | int | quote }}

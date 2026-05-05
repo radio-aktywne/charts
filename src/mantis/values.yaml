@@ -87,6 +87,9 @@ mantis:
   operations:
     # Stream operation configuration
     stream:
+      # Target latency for buffering outgoing stream
+      latency: PT0.2S
+
       # Timeout for trying to reserve a stream
       timeout: PT1H
 
