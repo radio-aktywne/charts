@@ -12,4 +12,8 @@ data:
   DAISY__APIS__MANTIS__PORT: {{ (((.Values.daisy).apis).mantis).port | int | default "" | quote }}
   DAISY__APIS__MANTIS__SCHEME: {{ required "daisy.apis.mantis.scheme is required" (((.Values.daisy).apis).mantis).scheme | quote }}
   DAISY__DEBUG: {{ required "daisy.debug is required" (.Values.daisy).debug | quote }}
+  DAISY__IDENTITY__USERS__DEBUG__ID: {{ required "daisy.identity.users.debug.id is required" ((((.Values.daisy).identity).users).debug).id | quote }}
+  DAISY__IDENTITY__USERS__DEBUG__TRAITS__LOCALES__PREFERRED: {{ ((((((.Values.daisy).identity).users).debug).traits).locales).preferred | default "" | quote }}
+  DAISY__IDENTITY__USERS__DEBUG__TRAITS__NAMES__DISPLAY: {{ required "daisy.identity.users.debug.traits.names.display is required" ((((((.Values.daisy).identity).users).debug).traits).names).display | quote }}
+  DAISY__IDENTITY__USERS__DEBUG__TRAITS__PICTURES__PROFILE__URL: {{ (((((((.Values.daisy).identity).users).debug).traits).pictures).profile).url | default "" | quote }}
   DAISY__SERVER__PORT: {{ required "daisy.server.port is required" ((.Values.daisy).server).port | int | quote }}
