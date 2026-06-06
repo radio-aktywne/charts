@@ -24,6 +24,10 @@ data:
   POPPY__APIS__WHIP__PORT: {{ (((.Values.poppy).apis).whip).port | int | default "" | quote }}
   POPPY__APIS__WHIP__SCHEME: {{ required "poppy.apis.whip.scheme is required" (((.Values.poppy).apis).whip).scheme | quote }}
   POPPY__DEBUG: {{ required "poppy.debug is required" (.Values.poppy).debug | quote }}
+  POPPY__IDENTITY__USERS__DEBUG__ID: {{ required "poppy.identity.users.debug.id is required" ((((.Values.poppy).identity).users).debug).id | quote }}
+  POPPY__IDENTITY__USERS__DEBUG__TRAITS__LOCALES__PREFERRED: {{ ((((((.Values.poppy).identity).users).debug).traits).locales).preferred | default "" | quote }}
+  POPPY__IDENTITY__USERS__DEBUG__TRAITS__NAMES__DISPLAY: {{ required "poppy.identity.users.debug.traits.names.display is required" ((((((.Values.poppy).identity).users).debug).traits).names).display | quote }}
+  POPPY__IDENTITY__USERS__DEBUG__TRAITS__PICTURES__PROFILE__URL: {{ (((((((.Values.poppy).identity).users).debug).traits).pictures).profile).url | default "" | quote }}
   POPPY__SERVER__PORT: {{ required "poppy.server.port is required" ((.Values.poppy).server).port | int | quote }}
   POPPY__SRT__OCTOPUS__HOST: {{ required "poppy.srt.octopus.host is required" (((.Values.poppy).srt).octopus).host | quote }}
   POPPY__SRT__OCTOPUS__LATENCY: {{ required "poppy.srt.octopus.latency is required" (((.Values.poppy).srt).octopus).latency | quote }}

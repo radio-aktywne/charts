@@ -16,4 +16,8 @@ data:
   ASTER__APIS__PELICAN__PORT: {{ (((.Values.aster).apis).pelican).port | int | default "" | quote }}
   ASTER__APIS__PELICAN__SCHEME: {{ required "aster.apis.pelican.scheme is required" (((.Values.aster).apis).pelican).scheme | quote }}
   ASTER__DEBUG: {{ required "aster.debug is required" (.Values.aster).debug | quote }}
+  ASTER__IDENTITY__USERS__DEBUG__ID: {{ required "aster.identity.users.debug.id is required" ((((.Values.aster).identity).users).debug).id | quote }}
+  ASTER__IDENTITY__USERS__DEBUG__TRAITS__LOCALES__PREFERRED: {{ ((((((.Values.aster).identity).users).debug).traits).locales).preferred | default "" | quote }}
+  ASTER__IDENTITY__USERS__DEBUG__TRAITS__NAMES__DISPLAY: {{ required "aster.identity.users.debug.traits.names.display is required" ((((((.Values.aster).identity).users).debug).traits).names).display | quote }}
+  ASTER__IDENTITY__USERS__DEBUG__TRAITS__PICTURES__PROFILE__URL: {{ (((((((.Values.aster).identity).users).debug).traits).pictures).profile).url | default "" | quote }}
   ASTER__SERVER__PORT: {{ required "aster.server.port is required" ((.Values.aster).server).port | int | quote }}
