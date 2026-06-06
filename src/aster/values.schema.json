@@ -66,6 +66,66 @@
         "debug": {
           "type": "boolean"
         },
+        "identity": {
+          "properties": {
+            "users": {
+              "properties": {
+                "debug": {
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "traits": {
+                      "properties": {
+                        "locales": {
+                          "properties": {
+                            "preferred": {
+                              "type": ["null", "string"]
+                            }
+                          },
+                          "required": [],
+                          "type": "object"
+                        },
+                        "names": {
+                          "properties": {
+                            "display": {
+                              "type": "string"
+                            }
+                          },
+                          "required": ["display"],
+                          "type": "object"
+                        },
+                        "pictures": {
+                          "properties": {
+                            "profile": {
+                              "properties": {
+                                "url": {
+                                  "type": ["null", "string"]
+                                }
+                              },
+                              "required": [],
+                              "type": "object"
+                            }
+                          },
+                          "required": [],
+                          "type": "object"
+                        }
+                      },
+                      "required": ["names"],
+                      "type": "object"
+                    }
+                  },
+                  "required": ["id", "traits"],
+                  "type": "object"
+                }
+              },
+              "required": ["debug"],
+              "type": "object"
+            }
+          },
+          "required": ["users"],
+          "type": "object"
+        },
         "server": {
           "properties": {
             "port": {
@@ -76,7 +136,7 @@
           "type": "object"
         }
       },
-      "required": ["apis", "debug", "server"],
+      "required": ["apis", "debug", "identity", "server"],
       "type": "object"
     },
     "common": {

@@ -16,4 +16,8 @@ data:
   JASMINE__APIS__NUMBAT__PORT: {{ (((.Values.jasmine).apis).numbat).port | int | default "" | quote }}
   JASMINE__APIS__NUMBAT__SCHEME: {{ required "jasmine.apis.numbat.scheme is required" (((.Values.jasmine).apis).numbat).scheme | quote }}
   JASMINE__DEBUG: {{ required "jasmine.debug is required" (.Values.jasmine).debug | quote }}
+  JASMINE__IDENTITY__USERS__DEBUG__ID: {{ required "jasmine.identity.users.debug.id is required" ((((.Values.jasmine).identity).users).debug).id | quote }}
+  JASMINE__IDENTITY__USERS__DEBUG__TRAITS__LOCALES__PREFERRED: {{ ((((((.Values.jasmine).identity).users).debug).traits).locales).preferred | default "" | quote }}
+  JASMINE__IDENTITY__USERS__DEBUG__TRAITS__NAMES__DISPLAY: {{ required "jasmine.identity.users.debug.traits.names.display is required" ((((((.Values.jasmine).identity).users).debug).traits).names).display | quote }}
+  JASMINE__IDENTITY__USERS__DEBUG__TRAITS__PICTURES__PROFILE__URL: {{ (((((((.Values.jasmine).identity).users).debug).traits).pictures).profile).url | default "" | quote }}
   JASMINE__SERVER__PORT: {{ required "jasmine.server.port is required" ((.Values.jasmine).server).port | int | quote }}

@@ -47,6 +47,34 @@ magnolia:
   # Enable debug mode
   debug: true
 
+  # Configuration related to identity
+  identity:
+    # Configuration of users
+    users:
+      # Configuration of the debug user
+      debug:
+        # Identifier of the debug user
+        id: debug
+
+        # Traits of the debug user
+        traits:
+          # Locales of the debug user
+          locales:
+            # Preferred locale of the debug user
+            preferred: null
+
+          # Names of the debug user
+          names:
+            # Display name of the debug user
+            display: Debug User
+
+          # Pictures of the debug user
+          pictures:
+            # Profile picture of the debug user
+            profile:
+              # Profile picture URL of the debug user
+              url: null
+
   # Configuration of the server
   server:
     # Port to listen on

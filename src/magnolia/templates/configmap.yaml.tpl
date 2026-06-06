@@ -16,4 +16,8 @@ data:
   MAGNOLIA__APIS__ICANHAZDADJOKE__PORT: {{ (((.Values.magnolia).apis).icanhazdadjoke).port | int | default "" | quote }}
   MAGNOLIA__APIS__ICANHAZDADJOKE__SCHEME: {{ required "magnolia.apis.icanhazdadjoke.scheme is required" (((.Values.magnolia).apis).icanhazdadjoke).scheme | quote }}
   MAGNOLIA__DEBUG: {{ required "magnolia.debug is required" (.Values.magnolia).debug | quote }}
+  MAGNOLIA__IDENTITY__USERS__DEBUG__ID: {{ required "magnolia.identity.users.debug.id is required" ((((.Values.magnolia).identity).users).debug).id | quote }}
+  MAGNOLIA__IDENTITY__USERS__DEBUG__TRAITS__LOCALES__PREFERRED: {{ ((((((.Values.magnolia).identity).users).debug).traits).locales).preferred | default "" | quote }}
+  MAGNOLIA__IDENTITY__USERS__DEBUG__TRAITS__NAMES__DISPLAY: {{ required "magnolia.identity.users.debug.traits.names.display is required" ((((((.Values.magnolia).identity).users).debug).traits).names).display | quote }}
+  MAGNOLIA__IDENTITY__USERS__DEBUG__TRAITS__PICTURES__PROFILE__URL: {{ (((((((.Values.magnolia).identity).users).debug).traits).pictures).profile).url | default "" | quote }}
   MAGNOLIA__SERVER__PORT: {{ required "magnolia.server.port is required" ((.Values.magnolia).server).port | int | quote }}
