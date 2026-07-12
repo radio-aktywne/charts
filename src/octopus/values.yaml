@@ -63,9 +63,6 @@ octopus:
     # Time after which a stream will be stopped if no connections are made
     timeout: PT1M
 
-    # Time window to search for event instances around the current time
-    window: PT1H
-
 # Configuration of the service
 service:
   # Ports configuration

@@ -22,7 +22,7 @@ mantis:
     interval: P1D
 
     # Reference datetime for cleaning
-    reference: 2000-01-01T00:00:00
+    reference: 2000-01-01T00:00:00Z
 
   # Enable debug mode
   debug: true
@@ -107,14 +107,14 @@ mantis:
     interval: PT1M
 
     # Reference datetime for synchronization
-    reference: 2000-01-01T00:00:00
+    reference: 2000-01-01T00:00:00Z
 
     # Synchornizers configuration
     synchronizers:
       # Stream synchronizer configuration
       stream:
-        # Duration of the time window
-        window: P1D
+        # Duration of the time window centered around current time
+        window: P2D
 
 # Configuration of the service
 service:

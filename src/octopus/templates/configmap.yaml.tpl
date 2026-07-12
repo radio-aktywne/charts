@@ -18,4 +18,3 @@ data:
   OCTOPUS__SERVER__PORTS__SRT: {{ required "octopus.server.ports.srt is required" (((.Values.octopus).server).ports).srt | int | quote }}
   OCTOPUS__STREAMING__LATENCY: {{ required "octopus.streaming.latency is required" ((.Values.octopus).streaming).latency | quote }}
   OCTOPUS__STREAMING__TIMEOUT: {{ required "octopus.streaming.timeout is required" ((.Values.octopus).streaming).timeout | quote }}
-  OCTOPUS__STREAMING__WINDOW: {{ required "octopus.streaming.window is required" ((.Values.octopus).streaming).window | quote }}
