@@ -135,12 +135,9 @@
             },
             "timeout": {
               "type": "string"
-            },
-            "window": {
-              "type": "string"
             }
           },
-          "required": ["latency", "timeout", "window"],
+          "required": ["latency", "timeout"],
           "type": "object"
         }
       },
