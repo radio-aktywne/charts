@@ -60,12 +60,12 @@ falcon:
     cookie:
       - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-    # Pagination secrets
-    pagination:
-      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
     # Default secrets
     default:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+    # Pagination secrets
+    pagination:
       - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
   # Configuration of the server
