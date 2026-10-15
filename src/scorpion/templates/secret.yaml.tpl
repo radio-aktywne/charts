@@ -7,3 +7,4 @@ stringData:
   SCORPION__DIAMOND__SQL__PASSWORD: {{ required "scorpion.diamond.sql.password is required" (((.Values.scorpion).diamond).sql).password | quote }}
   SCORPION__SECRETS__COOKIE: {{ required "scorpion.secrets.cookie is required" ((.Values.scorpion).secrets).cookie | join "," | quote }}
   SCORPION__SECRETS__SYSTEM: {{ required "scorpion.secrets.system is required" ((.Values.scorpion).secrets).system | join "," | quote }}
+  SCORPION__SECRETS__PAGINATION: {{ required "scorpion.secrets.pagination is required" ((.Values.scorpion).secrets).pagination | join "," | quote }}

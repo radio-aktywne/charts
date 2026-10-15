@@ -58,11 +58,15 @@ falcon:
 
     # Cookie secrets
     cookie:
-      - XXXXXXXXXXXXXXXX
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+    # Pagination secrets
+    pagination:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
     # Default secrets
     default:
-      - XXXXXXXXXXXXXXXX
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
   # Configuration of the server
   server:
