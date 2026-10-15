@@ -87,11 +87,15 @@ scorpion:
   secrets:
     # Cookie secrets
     cookie:
-      - secretsecretsecret
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
     # System secrets
     system:
-      - secretsecretsecret
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+    # Pagination secrets
+    pagination:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
   # Configuration of server
   server:

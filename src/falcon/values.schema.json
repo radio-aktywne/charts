@@ -135,9 +135,15 @@
                 "type": "string"
               },
               "type": "array"
+            },
+            "pagination": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
             }
           },
-          "required": ["default", "cookie", "cipher"],
+          "required": ["cipher", "cookie", "default", "pagination"],
           "type": "object"
         },
         "server": {
