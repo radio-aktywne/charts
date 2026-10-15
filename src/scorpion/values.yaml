@@ -89,12 +89,12 @@ scorpion:
     cookie:
       - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-    # System secrets
-    system:
-      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
     # Pagination secrets
     pagination:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+    # System secrets
+    system:
       - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
   # Configuration of server
