@@ -33,12 +33,12 @@ spec:
           {{- end }}
           livenessProbe:
             httpGet:
-              path: /minio/health/live
+              path: /health/live
               port: s3
             failureThreshold: 6
           readinessProbe:
             httpGet:
-              path: /minio/health/live
+              path: /health/live
               port: s3
             failureThreshold: 6
           {{- with (.Values.container).spec }}

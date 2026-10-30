@@ -36,11 +36,6 @@ minium:
       # Port to listen on for web console traffic
       web: 10211
 
-  # URLs configuration
-  urls:
-    # Public URL of the web interface
-    web: http://localhost:10211
-
 # Configuration of the service
 service:
   # Ports to listen on
