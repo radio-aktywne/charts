@@ -36,11 +36,6 @@ emerald:
       # Port to listen on for web console traffic
       web: 10711
 
-  # URLs configuration
-  urls:
-    # Public URL of the web interface
-    web: http://localhost:10711
-
 # Configuration of the service
 service:
   # Ports to listen on

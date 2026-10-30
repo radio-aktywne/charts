@@ -86,18 +86,9 @@
           },
           "required": ["ports"],
           "type": "object"
-        },
-        "urls": {
-          "properties": {
-            "web": {
-              "type": "string"
-            }
-          },
-          "required": ["web"],
-          "type": "object"
         }
       },
-      "required": ["server", "urls", "credentials"],
+      "required": ["server", "credentials"],
       "type": "object"
     },
     "name": {
