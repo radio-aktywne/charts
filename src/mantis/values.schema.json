@@ -44,7 +44,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"],
+              "required": ["host", "scheme"],
               "type": "object"
             }
           },
@@ -60,7 +60,7 @@
               "type": "string"
             }
           },
-          "required": ["reference", "interval"],
+          "required": ["interval", "reference"],
           "type": "object"
         },
         "debug": {
@@ -83,7 +83,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"],
+              "required": ["host", "scheme"],
               "type": "object"
             }
           },
@@ -107,7 +107,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"],
+              "required": ["host", "scheme"],
               "type": "object"
             }
           },
@@ -131,7 +131,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"],
+              "required": ["host", "scheme"],
               "type": "object"
             },
             "srt": {
@@ -157,6 +157,18 @@
                 "latency": {
                   "type": "string"
                 },
+                "linger": {
+                  "type": "string"
+                },
+                "ogg": {
+                  "properties": {
+                    "page": {
+                      "type": "string"
+                    }
+                  },
+                  "required": ["page"],
+                  "type": "object"
+                },
                 "timeout": {
                   "type": "string"
                 },
@@ -164,7 +176,7 @@
                   "type": "string"
                 }
               },
-              "required": ["latency", "timeout", "window"],
+              "required": ["latency", "linger", "ogg", "timeout", "window"],
               "type": "object"
             }
           },
@@ -204,20 +216,20 @@
               "type": "object"
             }
           },
-          "required": ["reference", "interval", "synchronizers"],
+          "required": ["interval", "reference", "synchronizers"],
           "type": "object"
         }
       },
       "required": [
-        "server",
-        "operations",
-        "cleaner",
-        "synchronizer",
         "beaver",
+        "cleaner",
+        "debug",
         "gecko",
         "numbat",
         "octopus",
-        "debug"
+        "operations",
+        "server",
+        "synchronizer"
       ],
       "type": "object"
     },

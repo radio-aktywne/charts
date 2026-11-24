@@ -90,6 +90,14 @@ mantis:
       # Target latency for buffering outgoing stream
       latency: PT0.2S
 
+      # Time allowed for outgoing stream to linger when closing
+      linger: PT1S
+
+      # Configuration of outgoing Ogg streams
+      ogg:
+        # Preferred duration of outgoing Ogg pages
+        page: PT0.000001S
+
       # Timeout for trying to reserve a stream
       timeout: PT1H
 

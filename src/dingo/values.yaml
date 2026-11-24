@@ -1,5 +1,12 @@
 # Configuration of the dingo service
 dingo:
+  # Configuration of the inputs
+  inputs:
+    # Configuration of the live input
+    live:
+      # Queued live audio threshold in seconds before forcing a handover
+      buffer: 900
+
   # Configuration of the pelican service
   pelican:
     # Configuration of the HTTP API of the pelican service

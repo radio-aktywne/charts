@@ -3,6 +3,7 @@ kind: ConfigMap
 metadata:
   {{- include "dingo.configMapMetadata" . | nindent 2 }}
 data:
+  DINGO__INPUTS__LIVE__BUFFER: {{ required "dingo.inputs.live.buffer is required" (((.Values.dingo).inputs).live).buffer | quote }}
   DINGO__PELICAN__HTTP__HOST: {{ required "dingo.pelican.http.host is required" (((.Values.dingo).pelican).http).host | quote }}
   DINGO__PELICAN__HTTP__PATH: {{ (((.Values.dingo).pelican).http).path | default "" | quote }}
   DINGO__PELICAN__HTTP__PORT: {{ (((.Values.dingo).pelican).http).port | int | default "" | quote }}

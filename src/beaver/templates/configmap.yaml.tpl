@@ -3,6 +3,8 @@ kind: ConfigMap
 metadata:
   {{- include "beaver.configMapMetadata" . | nindent 2 }}
 data:
+  BEAVER__COORDINATION__GRACE: {{ required "beaver.coordination.grace is required" ((.Values.beaver).coordination).grace | quote }}
+  BEAVER__COORDINATION__TIMEOUT: {{ required "beaver.coordination.timeout is required" ((.Values.beaver).coordination).timeout | quote }}
   BEAVER__DEBUG: {{ required "beaver.debug is required" (.Values.beaver).debug | quote }}
   BEAVER__HOWLITE__CALDAV__CALENDAR: {{ required "beaver.howlite.caldav.calendar is required" (((.Values.beaver).howlite).caldav).calendar | quote }}
   BEAVER__HOWLITE__CALDAV__HOST: {{ required "beaver.howlite.caldav.host is required" (((.Values.beaver).howlite).caldav).host | quote }}

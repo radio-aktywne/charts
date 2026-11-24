@@ -69,7 +69,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"],
+              "required": ["host", "scheme"],
               "type": "object"
             },
             "icanhazdadjoke": {
@@ -87,7 +87,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"],
+              "required": ["host", "scheme"],
               "type": "object"
             },
             "loris": {
@@ -105,7 +105,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"],
+              "required": ["host", "scheme"],
               "type": "object"
             },
             "octopus": {
@@ -123,7 +123,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"],
+              "required": ["host", "scheme"],
               "type": "object"
             },
             "whip": {
@@ -141,7 +141,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"],
+              "required": ["host", "scheme"],
               "type": "object"
             }
           },
