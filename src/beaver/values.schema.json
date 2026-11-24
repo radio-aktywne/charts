@@ -3,6 +3,18 @@
   "properties": {
     "beaver": {
       "properties": {
+        "coordination": {
+          "properties": {
+            "grace": {
+              "type": "string"
+            },
+            "timeout": {
+              "type": "string"
+            }
+          },
+          "required": ["grace", "timeout"],
+          "type": "object"
+        },
         "debug": {
           "type": "boolean"
         },
@@ -32,7 +44,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host", "user", "password", "calendar"],
+              "required": ["calendar", "host", "password", "scheme", "user"],
               "type": "object"
             }
           },
@@ -53,7 +65,7 @@
                   "type": "integer"
                 }
               },
-              "required": ["host", "port", "password"],
+              "required": ["host", "password", "port"],
               "type": "object"
             }
           },
@@ -70,7 +82,7 @@
           "type": "object"
         }
       },
-      "required": ["server", "howlite", "sapphire", "debug"],
+      "required": ["coordination", "debug", "howlite", "sapphire", "server"],
       "type": "object"
     },
     "common": {

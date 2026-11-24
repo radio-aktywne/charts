@@ -27,6 +27,21 @@
     },
     "dingo": {
       "properties": {
+        "inputs": {
+          "properties": {
+            "live": {
+              "properties": {
+                "buffer": {
+                  "type": "number"
+                }
+              },
+              "required": ["buffer"],
+              "type": "object"
+            }
+          },
+          "required": ["live"],
+          "type": "object"
+        },
         "pelican": {
           "properties": {
             "http": {
@@ -44,7 +59,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"],
+              "required": ["host", "scheme"],
               "type": "object"
             }
           },
@@ -71,7 +86,7 @@
                   "type": "string"
                 }
               },
-              "required": ["host", "user", "password", "mount"],
+              "required": ["host", "mount", "password", "user"],
               "type": "object"
             }
           },
@@ -99,11 +114,11 @@
               "type": "object"
             }
           },
-          "required": ["srt", "http"],
+          "required": ["http", "srt"],
           "type": "object"
         }
       },
-      "required": ["server", "pelican", "quokka"],
+      "required": ["inputs", "pelican", "quokka", "server"],
       "type": "object"
     },
     "name": {
@@ -142,7 +157,7 @@
               "type": "integer"
             }
           },
-          "required": ["srt", "http"],
+          "required": ["http", "srt"],
           "type": "object"
         },
         "spec": {

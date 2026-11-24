@@ -55,7 +55,7 @@
                   "type": "integer"
                 }
               },
-              "required": ["http", "whip", "rtp"],
+              "required": ["http", "rtp", "whip"],
               "type": "object"
             }
           },
@@ -64,6 +64,15 @@
         },
         "streaming": {
           "properties": {
+            "ogg": {
+              "properties": {
+                "page": {
+                  "type": "string"
+                }
+              },
+              "required": ["page"],
+              "type": "object"
+            },
             "stun": {
               "properties": {
                 "host": {
@@ -80,7 +89,7 @@
               "type": "string"
             }
           },
-          "required": ["stun", "timeout"],
+          "required": ["ogg", "stun", "timeout"],
           "type": "object"
         }
       },
@@ -118,7 +127,7 @@
               "type": "integer"
             }
           },
-          "required": ["http", "whip", "rtp"],
+          "required": ["http", "rtp", "whip"],
           "type": "object"
         },
         "spec": {

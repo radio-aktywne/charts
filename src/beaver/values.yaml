@@ -1,5 +1,13 @@
 # Configuration of the beaver service
 beaver:
+  # Configuration of cross-store coordination
+  coordination:
+    # Extra time for the database transaction to finish
+    grace: PT10S
+
+    # Time limit for a coordinated operation
+    timeout: PT60S
+
   # Enable debug mode
   debug: true
 

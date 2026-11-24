@@ -18,6 +18,11 @@ loris:
 
   # Configuration of the streaming service
   streaming:
+    # Configuration of the Ogg muxer
+    ogg:
+      # Preferred duration of Ogg pages
+      page: PT0.000001S
+
     # Configuration of the STUN server
     stun:
       # Host of the STUN server
@@ -26,7 +31,7 @@ loris:
       # Port of the STUN server
       port: 19302
 
-    # Time after which a stream will be stopped if no connections are made
+    # Time without incoming audio before stopping
     timeout: PT1M
 
 # Configuration of the service

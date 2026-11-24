@@ -84,7 +84,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"],
+              "required": ["host", "scheme"],
               "type": "object"
             },
             "icanhazdadjoke": {
@@ -102,7 +102,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"],
+              "required": ["host", "scheme"],
               "type": "object"
             }
           },
@@ -186,6 +186,6 @@
       "type": "object"
     }
   },
-  "required": ["tulip", "service"],
+  "required": ["service", "tulip"],
   "type": "object"
 }

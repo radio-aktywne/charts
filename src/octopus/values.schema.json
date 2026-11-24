@@ -58,7 +58,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"],
+              "required": ["host", "scheme"],
               "type": "object"
             }
           },
@@ -103,7 +103,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"],
+              "required": ["host", "scheme"],
               "type": "object"
             }
           },
@@ -133,11 +133,23 @@
             "latency": {
               "type": "string"
             },
+            "linger": {
+              "type": "string"
+            },
+            "ogg": {
+              "properties": {
+                "page": {
+                  "type": "string"
+                }
+              },
+              "required": ["page"],
+              "type": "object"
+            },
             "timeout": {
               "type": "string"
             }
           },
-          "required": ["latency", "timeout"],
+          "required": ["latency", "linger", "ogg", "timeout"],
           "type": "object"
         }
       },

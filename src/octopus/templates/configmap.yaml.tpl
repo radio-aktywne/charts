@@ -17,4 +17,6 @@ data:
   OCTOPUS__SERVER__PORTS__HTTP: {{ required "octopus.server.ports.http is required" (((.Values.octopus).server).ports).http | int | quote }}
   OCTOPUS__SERVER__PORTS__SRT: {{ required "octopus.server.ports.srt is required" (((.Values.octopus).server).ports).srt | int | quote }}
   OCTOPUS__STREAMING__LATENCY: {{ required "octopus.streaming.latency is required" ((.Values.octopus).streaming).latency | quote }}
+  OCTOPUS__STREAMING__LINGER: {{ required "octopus.streaming.linger is required" ((.Values.octopus).streaming).linger | quote }}
+  OCTOPUS__STREAMING__OGG__PAGE: {{ required "octopus.streaming.ogg.page is required" (((.Values.octopus).streaming).ogg).page | quote }}
   OCTOPUS__STREAMING__TIMEOUT: {{ required "octopus.streaming.timeout is required" ((.Values.octopus).streaming).timeout | quote }}
