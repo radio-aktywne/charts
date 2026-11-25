@@ -50,6 +50,11 @@ falcon:
       # Scheme of the public site
       scheme: http
 
+  # Configuration of the redirects
+  redirects:
+    # Additional URLs that are allowed to be redirected to
+    allowed: []
+
   # Configuration of the secrets
   secrets:
     # Cipher secrets

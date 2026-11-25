@@ -58,7 +58,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"],
+              "required": ["host", "scheme"],
               "type": "object"
             },
             "icanhazdadjoke": {
@@ -76,7 +76,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"],
+              "required": ["host", "scheme"],
               "type": "object"
             }
           },
@@ -138,7 +138,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"],
+              "required": ["host", "scheme"],
               "type": "object"
             },
             "falcon": {
@@ -156,11 +156,29 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"],
+              "required": ["host", "scheme"],
+              "type": "object"
+            },
+            "sunflower": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": ["null", "string"]
+                },
+                "port": {
+                  "type": ["integer", "null"]
+                },
+                "scheme": {
+                  "type": "string"
+                }
+              },
+              "required": ["host", "scheme"],
               "type": "object"
             }
           },
-          "required": ["crocus", "falcon"],
+          "required": ["crocus", "falcon", "sunflower"],
           "type": "object"
         }
       },

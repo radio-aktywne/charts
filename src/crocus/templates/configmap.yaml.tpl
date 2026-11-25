@@ -17,3 +17,7 @@ data:
   CROCUS__URLS__ORCHID__PATH: {{ (((.Values.crocus).urls).orchid).path | default "" | quote }}
   CROCUS__URLS__ORCHID__PORT: {{ (((.Values.crocus).urls).orchid).port | int | default "" | quote }}
   CROCUS__URLS__ORCHID__SCHEME: {{ required "crocus.urls.orchid.scheme is required" (((.Values.crocus).urls).orchid).scheme | quote }}
+  CROCUS__URLS__SCORPION__HOST: {{ required "crocus.urls.scorpion.host is required" (((.Values.crocus).urls).scorpion).host | quote }}
+  CROCUS__URLS__SCORPION__PATH: {{ (((.Values.crocus).urls).scorpion).path | default "" | quote }}
+  CROCUS__URLS__SCORPION__PORT: {{ (((.Values.crocus).urls).scorpion).port | int | default "" | quote }}
+  CROCUS__URLS__SCORPION__SCHEME: {{ required "crocus.urls.scorpion.scheme is required" (((.Values.crocus).urls).scorpion).scheme | quote }}
