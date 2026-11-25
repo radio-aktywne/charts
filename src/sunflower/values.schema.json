@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "common": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "configMap": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "container": {
+      "properties": {
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "deployment": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "name": {
+      "type": "string"
+    },
+    "pod": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "service": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "port": {
+          "type": "integer"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "required": ["port"],
+      "type": "object"
+    },
+    "sunflower": {
+      "properties": {
+        "apis": {
+          "properties": {
+            "icanhazdadjoke": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": ["null", "string"]
+                },
+                "port": {
+                  "type": ["integer", "null"]
+                },
+                "scheme": {
+                  "type": "string"
+                }
+              },
+              "required": ["host", "scheme"],
+              "type": "object"
+            }
+          },
+          "required": ["icanhazdadjoke"],
+          "type": "object"
+        },
+        "apps": {
+          "items": {
+            "properties": {
+              "emoji": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "required": ["emoji", "name", "url"],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "debug": {
+          "type": "boolean"
+        },
+        "identity": {
+          "properties": {
+            "users": {
+              "properties": {
+                "debug": {
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "traits": {
+                      "properties": {
+                        "locales": {
+                          "properties": {
+                            "preferred": {
+                              "type": ["null", "string"]
+                            }
+                          },
+                          "required": [],
+                          "type": "object"
+                        },
+                        "names": {
+                          "properties": {
+                            "display": {
+                              "type": "string"
+                            }
+                          },
+                          "required": ["display"],
+                          "type": "object"
+                        },
+                        "pictures": {
+                          "properties": {
+                            "profile": {
+                              "properties": {
+                                "url": {
+                                  "type": ["null", "string"]
+                                }
+                              },
+                              "required": [],
+                              "type": "object"
+                            }
+                          },
+                          "required": [],
+                          "type": "object"
+                        }
+                      },
+                      "required": ["names"],
+                      "type": "object"
+                    }
+                  },
+                  "required": ["id", "traits"],
+                  "type": "object"
+                }
+              },
+              "required": ["debug"],
+              "type": "object"
+            }
+          },
+          "required": ["users"],
+          "type": "object"
+        },
+        "server": {
+          "properties": {
+            "port": {
+              "type": "integer"
+            }
+          },
+          "required": ["port"],
+          "type": "object"
+        },
+        "urls": {
+          "properties": {
+            "orchid": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": ["null", "string"]
+                },
+                "port": {
+                  "type": ["integer", "null"]
+                },
+                "scheme": {
+                  "type": "string"
+                }
+              },
+              "required": ["scheme", "host"],
+              "type": "object"
+            }
+          },
+          "required": ["orchid"],
+          "type": "object"
+        }
+      },
+      "required": ["apis", "apps", "debug", "identity", "server", "urls"],
+      "type": "object"
+    }
+  },
+  "required": ["service", "sunflower"],
+  "type": "object"
+}
