@@ -44,7 +44,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"],
+              "required": ["host", "scheme"],
               "type": "object"
             },
             "scorpion": {
@@ -62,7 +62,7 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"],
+              "required": ["host", "scheme"],
               "type": "object"
             }
           },
@@ -109,11 +109,29 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"],
+              "required": ["host", "scheme"],
+              "type": "object"
+            },
+            "scorpion": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": ["null", "string"]
+                },
+                "port": {
+                  "type": ["integer", "null"]
+                },
+                "scheme": {
+                  "type": "string"
+                }
+              },
+              "required": ["host", "scheme"],
               "type": "object"
             }
           },
-          "required": ["orchid"],
+          "required": ["orchid", "scorpion"],
           "type": "object"
         }
       },

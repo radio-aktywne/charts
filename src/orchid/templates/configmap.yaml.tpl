@@ -22,3 +22,7 @@ data:
   ORCHID__URLS__FALCON__PATH: {{ (((.Values.orchid).urls).falcon).path | default "" | quote }}
   ORCHID__URLS__FALCON__PORT: {{ (((.Values.orchid).urls).falcon).port | int | default "" | quote }}
   ORCHID__URLS__FALCON__SCHEME: {{ required "orchid.urls.falcon.scheme is required" (((.Values.orchid).urls).falcon).scheme | quote }}
+  ORCHID__URLS__SUNFLOWER__HOST: {{ required "orchid.urls.sunflower.host is required" (((.Values.orchid).urls).sunflower).host | quote }}
+  ORCHID__URLS__SUNFLOWER__PATH: {{ (((.Values.orchid).urls).sunflower).path | default "" | quote }}
+  ORCHID__URLS__SUNFLOWER__PORT: {{ (((.Values.orchid).urls).sunflower).port | int | default "" | quote }}
+  ORCHID__URLS__SUNFLOWER__SCHEME: {{ required "orchid.urls.sunflower.scheme is required" (((.Values.orchid).urls).sunflower).scheme | quote }}

@@ -12,6 +12,7 @@ data:
   FALCON__ORCHID__PUBLIC__PATH: {{ (((.Values.falcon).orchid).public).path | default "" | quote }}
   FALCON__ORCHID__PUBLIC__PORT: {{ (((.Values.falcon).orchid).public).port | int | default "null" | quote }}
   FALCON__ORCHID__PUBLIC__SCHEME: {{ required "falcon.orchid.public.scheme is required" (((.Values.falcon).orchid).public).scheme | quote }}
+  FALCON__REDIRECTS__ALLOWED: {{ required "falcon.redirects.allowed is required" ((.Values.falcon).redirects).allowed | join "," | quote }}
   FALCON__SERVER__PORTS__ADMIN: {{ required "falcon.server.ports.admin is required" (((.Values.falcon).server).ports).admin | int | quote }}
   FALCON__SERVER__PORTS__PUBLIC: {{ required "falcon.server.ports.public is required" (((.Values.falcon).server).ports).public | int | quote }}
   FALCON__URLS__ADMIN: {{ required "falcon.urls.admin is required" ((.Values.falcon).urls).admin | quote }}

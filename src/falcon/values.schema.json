@@ -64,7 +64,7 @@
                   "type": "integer"
                 }
               },
-              "required": ["host", "port", "password"],
+              "required": ["host", "password", "port"],
               "type": "object"
             }
           },
@@ -109,11 +109,23 @@
                   "type": "string"
                 }
               },
-              "required": ["scheme", "host"],
+              "required": ["host", "scheme"],
               "type": "object"
             }
           },
           "required": ["public"],
+          "type": "object"
+        },
+        "redirects": {
+          "properties": {
+            "allowed": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": ["allowed"],
           "type": "object"
         },
         "secrets": {
@@ -157,7 +169,7 @@
                   "type": "integer"
                 }
               },
-              "required": ["public", "admin"],
+              "required": ["admin", "public"],
               "type": "object"
             }
           },
@@ -173,18 +185,19 @@
               "type": "string"
             }
           },
-          "required": ["public", "admin"],
+          "required": ["admin", "public"],
           "type": "object"
         }
       },
       "required": [
-        "server",
-        "urls",
-        "secrets",
-        "orchid",
+        "debug",
         "obsidian",
         "oidc",
-        "debug"
+        "orchid",
+        "redirects",
+        "secrets",
+        "server",
+        "urls"
       ],
       "type": "object"
     },
@@ -224,7 +237,7 @@
               "type": "integer"
             }
           },
-          "required": ["public", "admin"],
+          "required": ["admin", "public"],
           "type": "object"
         },
         "spec": {
