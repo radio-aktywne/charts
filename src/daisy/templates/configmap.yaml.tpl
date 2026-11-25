@@ -17,3 +17,11 @@ data:
   DAISY__IDENTITY__USERS__DEBUG__TRAITS__NAMES__DISPLAY: {{ required "daisy.identity.users.debug.traits.names.display is required" ((((((.Values.daisy).identity).users).debug).traits).names).display | quote }}
   DAISY__IDENTITY__USERS__DEBUG__TRAITS__PICTURES__PROFILE__URL: {{ (((((((.Values.daisy).identity).users).debug).traits).pictures).profile).url | default "" | quote }}
   DAISY__SERVER__PORT: {{ required "daisy.server.port is required" ((.Values.daisy).server).port | int | quote }}
+  DAISY__URLS__ORCHID__HOST: {{ required "daisy.urls.orchid.host is required" (((.Values.daisy).urls).orchid).host | quote }}
+  DAISY__URLS__ORCHID__PATH: {{ (((.Values.daisy).urls).orchid).path | default "" | quote }}
+  DAISY__URLS__ORCHID__PORT: {{ (((.Values.daisy).urls).orchid).port | int | default "" | quote }}
+  DAISY__URLS__ORCHID__SCHEME: {{ required "daisy.urls.orchid.scheme is required" (((.Values.daisy).urls).orchid).scheme | quote }}
+  DAISY__URLS__SUNFLOWER__HOST: {{ required "daisy.urls.sunflower.host is required" (((.Values.daisy).urls).sunflower).host | quote }}
+  DAISY__URLS__SUNFLOWER__PATH: {{ (((.Values.daisy).urls).sunflower).path | default "" | quote }}
+  DAISY__URLS__SUNFLOWER__PORT: {{ (((.Values.daisy).urls).sunflower).port | int | default "" | quote }}
+  DAISY__URLS__SUNFLOWER__SCHEME: {{ required "daisy.urls.sunflower.scheme is required" (((.Values.daisy).urls).sunflower).scheme | quote }}

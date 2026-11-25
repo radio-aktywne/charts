@@ -169,9 +169,51 @@
           },
           "required": ["port"],
           "type": "object"
+        },
+        "urls": {
+          "properties": {
+            "orchid": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": ["null", "string"]
+                },
+                "port": {
+                  "type": ["integer", "null"]
+                },
+                "scheme": {
+                  "type": "string"
+                }
+              },
+              "required": ["host", "scheme"],
+              "type": "object"
+            },
+            "sunflower": {
+              "properties": {
+                "host": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": ["null", "string"]
+                },
+                "port": {
+                  "type": ["integer", "null"]
+                },
+                "scheme": {
+                  "type": "string"
+                }
+              },
+              "required": ["host", "scheme"],
+              "type": "object"
+            }
+          },
+          "required": ["orchid", "sunflower"],
+          "type": "object"
         }
       },
-      "required": ["apis", "debug", "identity", "server"],
+      "required": ["apis", "debug", "identity", "server", "urls"],
       "type": "object"
     },
     "name": {

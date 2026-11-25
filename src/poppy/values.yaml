@@ -121,6 +121,36 @@ poppy:
       # Port of the server
       port: 10300
 
+  # Configuration of the URLs
+  urls:
+    # Configuration of the orchid URL
+    orchid:
+      # Host of the URL
+      host: localhost
+
+      # Path of the URL
+      path: null
+
+      # Port of the URL
+      port: 20120
+
+      # Scheme of the URL
+      scheme: http
+
+    # Configuration of the sunflower URL
+    sunflower:
+      # Host of the URL
+      host: localhost
+
+      # Path of the URL
+      path: null
+
+      # Port of the URL
+      port: 30000
+
+      # Scheme of the URL
+      scheme: http
+
 # Configuration of the service
 service:
   # Port to listen on

@@ -17,3 +17,11 @@ data:
   TULIP__IDENTITY__USERS__DEBUG__TRAITS__NAMES__DISPLAY: {{ required "tulip.identity.users.debug.traits.names.display is required" ((((((.Values.tulip).identity).users).debug).traits).names).display | quote }}
   TULIP__IDENTITY__USERS__DEBUG__TRAITS__PICTURES__PROFILE__URL: {{ (((((((.Values.tulip).identity).users).debug).traits).pictures).profile).url | default "" | quote }}
   TULIP__SERVER__PORT: {{ required "tulip.server.port is required" ((.Values.tulip).server).port | int | quote }}
+  TULIP__URLS__ORCHID__HOST: {{ required "tulip.urls.orchid.host is required" (((.Values.tulip).urls).orchid).host | quote }}
+  TULIP__URLS__ORCHID__PATH: {{ (((.Values.tulip).urls).orchid).path | default "" | quote }}
+  TULIP__URLS__ORCHID__PORT: {{ (((.Values.tulip).urls).orchid).port | int | default "" | quote }}
+  TULIP__URLS__ORCHID__SCHEME: {{ required "tulip.urls.orchid.scheme is required" (((.Values.tulip).urls).orchid).scheme | quote }}
+  TULIP__URLS__SUNFLOWER__HOST: {{ required "tulip.urls.sunflower.host is required" (((.Values.tulip).urls).sunflower).host | quote }}
+  TULIP__URLS__SUNFLOWER__PATH: {{ (((.Values.tulip).urls).sunflower).path | default "" | quote }}
+  TULIP__URLS__SUNFLOWER__PORT: {{ (((.Values.tulip).urls).sunflower).port | int | default "" | quote }}
+  TULIP__URLS__SUNFLOWER__SCHEME: {{ required "tulip.urls.sunflower.scheme is required" (((.Values.tulip).urls).sunflower).scheme | quote }}

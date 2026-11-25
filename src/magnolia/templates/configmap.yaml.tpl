@@ -21,3 +21,11 @@ data:
   MAGNOLIA__IDENTITY__USERS__DEBUG__TRAITS__NAMES__DISPLAY: {{ required "magnolia.identity.users.debug.traits.names.display is required" ((((((.Values.magnolia).identity).users).debug).traits).names).display | quote }}
   MAGNOLIA__IDENTITY__USERS__DEBUG__TRAITS__PICTURES__PROFILE__URL: {{ (((((((.Values.magnolia).identity).users).debug).traits).pictures).profile).url | default "" | quote }}
   MAGNOLIA__SERVER__PORT: {{ required "magnolia.server.port is required" ((.Values.magnolia).server).port | int | quote }}
+  MAGNOLIA__URLS__ORCHID__HOST: {{ required "magnolia.urls.orchid.host is required" (((.Values.magnolia).urls).orchid).host | quote }}
+  MAGNOLIA__URLS__ORCHID__PATH: {{ (((.Values.magnolia).urls).orchid).path | default "" | quote }}
+  MAGNOLIA__URLS__ORCHID__PORT: {{ (((.Values.magnolia).urls).orchid).port | int | default "" | quote }}
+  MAGNOLIA__URLS__ORCHID__SCHEME: {{ required "magnolia.urls.orchid.scheme is required" (((.Values.magnolia).urls).orchid).scheme | quote }}
+  MAGNOLIA__URLS__SUNFLOWER__HOST: {{ required "magnolia.urls.sunflower.host is required" (((.Values.magnolia).urls).sunflower).host | quote }}
+  MAGNOLIA__URLS__SUNFLOWER__PATH: {{ (((.Values.magnolia).urls).sunflower).path | default "" | quote }}
+  MAGNOLIA__URLS__SUNFLOWER__PORT: {{ (((.Values.magnolia).urls).sunflower).port | int | default "" | quote }}
+  MAGNOLIA__URLS__SUNFLOWER__SCHEME: {{ required "magnolia.urls.sunflower.scheme is required" (((.Values.magnolia).urls).sunflower).scheme | quote }}
