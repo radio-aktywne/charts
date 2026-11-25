@@ -21,3 +21,11 @@ data:
   ASTER__IDENTITY__USERS__DEBUG__TRAITS__NAMES__DISPLAY: {{ required "aster.identity.users.debug.traits.names.display is required" ((((((.Values.aster).identity).users).debug).traits).names).display | quote }}
   ASTER__IDENTITY__USERS__DEBUG__TRAITS__PICTURES__PROFILE__URL: {{ (((((((.Values.aster).identity).users).debug).traits).pictures).profile).url | default "" | quote }}
   ASTER__SERVER__PORT: {{ required "aster.server.port is required" ((.Values.aster).server).port | int | quote }}
+  ASTER__URLS__ORCHID__HOST: {{ required "aster.urls.orchid.host is required" (((.Values.aster).urls).orchid).host | quote }}
+  ASTER__URLS__ORCHID__PATH: {{ (((.Values.aster).urls).orchid).path | default "" | quote }}
+  ASTER__URLS__ORCHID__PORT: {{ (((.Values.aster).urls).orchid).port | int | default "" | quote }}
+  ASTER__URLS__ORCHID__SCHEME: {{ required "aster.urls.orchid.scheme is required" (((.Values.aster).urls).orchid).scheme | quote }}
+  ASTER__URLS__SUNFLOWER__HOST: {{ required "aster.urls.sunflower.host is required" (((.Values.aster).urls).sunflower).host | quote }}
+  ASTER__URLS__SUNFLOWER__PATH: {{ (((.Values.aster).urls).sunflower).path | default "" | quote }}
+  ASTER__URLS__SUNFLOWER__PORT: {{ (((.Values.aster).urls).sunflower).port | int | default "" | quote }}
+  ASTER__URLS__SUNFLOWER__SCHEME: {{ required "aster.urls.sunflower.scheme is required" (((.Values.aster).urls).sunflower).scheme | quote }}

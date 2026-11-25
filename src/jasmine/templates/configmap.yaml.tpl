@@ -21,3 +21,11 @@ data:
   JASMINE__IDENTITY__USERS__DEBUG__TRAITS__NAMES__DISPLAY: {{ required "jasmine.identity.users.debug.traits.names.display is required" ((((((.Values.jasmine).identity).users).debug).traits).names).display | quote }}
   JASMINE__IDENTITY__USERS__DEBUG__TRAITS__PICTURES__PROFILE__URL: {{ (((((((.Values.jasmine).identity).users).debug).traits).pictures).profile).url | default "" | quote }}
   JASMINE__SERVER__PORT: {{ required "jasmine.server.port is required" ((.Values.jasmine).server).port | int | quote }}
+  JASMINE__URLS__ORCHID__HOST: {{ required "jasmine.urls.orchid.host is required" (((.Values.jasmine).urls).orchid).host | quote }}
+  JASMINE__URLS__ORCHID__PATH: {{ (((.Values.jasmine).urls).orchid).path | default "" | quote }}
+  JASMINE__URLS__ORCHID__PORT: {{ (((.Values.jasmine).urls).orchid).port | int | default "" | quote }}
+  JASMINE__URLS__ORCHID__SCHEME: {{ required "jasmine.urls.orchid.scheme is required" (((.Values.jasmine).urls).orchid).scheme | quote }}
+  JASMINE__URLS__SUNFLOWER__HOST: {{ required "jasmine.urls.sunflower.host is required" (((.Values.jasmine).urls).sunflower).host | quote }}
+  JASMINE__URLS__SUNFLOWER__PATH: {{ (((.Values.jasmine).urls).sunflower).path | default "" | quote }}
+  JASMINE__URLS__SUNFLOWER__PORT: {{ (((.Values.jasmine).urls).sunflower).port | int | default "" | quote }}
+  JASMINE__URLS__SUNFLOWER__SCHEME: {{ required "jasmine.urls.sunflower.scheme is required" (((.Values.jasmine).urls).sunflower).scheme | quote }}

@@ -32,3 +32,11 @@ data:
   POPPY__SRT__OCTOPUS__HOST: {{ required "poppy.srt.octopus.host is required" (((.Values.poppy).srt).octopus).host | quote }}
   POPPY__SRT__OCTOPUS__LATENCY: {{ required "poppy.srt.octopus.latency is required" (((.Values.poppy).srt).octopus).latency | quote }}
   POPPY__SRT__OCTOPUS__PORT: {{ required "poppy.srt.octopus.port is required" (((.Values.poppy).srt).octopus).port | int | quote }}
+  POPPY__URLS__ORCHID__HOST: {{ required "poppy.urls.orchid.host is required" (((.Values.poppy).urls).orchid).host | quote }}
+  POPPY__URLS__ORCHID__PATH: {{ (((.Values.poppy).urls).orchid).path | default "" | quote }}
+  POPPY__URLS__ORCHID__PORT: {{ (((.Values.poppy).urls).orchid).port | int | default "" | quote }}
+  POPPY__URLS__ORCHID__SCHEME: {{ required "poppy.urls.orchid.scheme is required" (((.Values.poppy).urls).orchid).scheme | quote }}
+  POPPY__URLS__SUNFLOWER__HOST: {{ required "poppy.urls.sunflower.host is required" (((.Values.poppy).urls).sunflower).host | quote }}
+  POPPY__URLS__SUNFLOWER__PATH: {{ (((.Values.poppy).urls).sunflower).path | default "" | quote }}
+  POPPY__URLS__SUNFLOWER__PORT: {{ (((.Values.poppy).urls).sunflower).port | int | default "" | quote }}
+  POPPY__URLS__SUNFLOWER__SCHEME: {{ required "poppy.urls.sunflower.scheme is required" (((.Values.poppy).urls).sunflower).scheme | quote }}
