@@ -136,7 +136,10 @@ Metadata to use in the Pod
 {{- $commonMetadata := (.Values.common).metadata | default dict | deepCopy }}
 {{- $podMetadata := (.Values.pod).metadata | default dict | deepCopy }}
 {{- $chartMetadata := include "dingo.metadata" . | fromYaml | deepCopy }}
-{{- $metadata := mergeOverwrite $commonMetadata $podMetadata $chartMetadata -}}
+{{- $configChecksum := include (print .Template.BasePath "/configmap.yaml.tpl") . | sha256sum }}
+{{- $secretChecksum := include (print .Template.BasePath "/secret.yaml.tpl") . | sha256sum }}
+{{- $checksumMetadata := dict "annotations" (dict "checksum/config" $configChecksum "checksum/secret" $secretChecksum) }}
+{{- $metadata := mergeOverwrite $commonMetadata $podMetadata $chartMetadata $checksumMetadata -}}
 {{ toYaml $metadata }}
 {{- end }}
 

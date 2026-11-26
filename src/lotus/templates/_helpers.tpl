@@ -98,7 +98,9 @@ Metadata to use in the Pod
 {{- $commonMetadata := (.Values.common).metadata | default dict | deepCopy }}
 {{- $podMetadata := (.Values.pod).metadata | default dict | deepCopy }}
 {{- $chartMetadata := include "lotus.metadata" . | fromYaml | deepCopy }}
-{{- $metadata := mergeOverwrite $commonMetadata $podMetadata $chartMetadata -}}
+{{- $configChecksum := include (print .Template.BasePath "/configmap.yaml.tpl") . | sha256sum }}
+{{- $checksumMetadata := dict "annotations" (dict "checksum/config" $configChecksum) }}
+{{- $metadata := mergeOverwrite $commonMetadata $podMetadata $chartMetadata $checksumMetadata -}}
 {{ toYaml $metadata }}
 {{- end }}
 
