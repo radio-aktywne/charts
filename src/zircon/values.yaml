@@ -1,0 +1,18 @@
+# Configuration of the zircon database
+zircon:
+  # Credentials for the database
+  credentials:
+    # Credentials for the main user
+    user:
+      # Password of the main user
+      password: password
+
+  # Configuration of the server
+  server:
+    # Port to listen on
+    port: 40020
+
+# Configuration of the service
+service:
+  # Port to listen on
+  port: 40020

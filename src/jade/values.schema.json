@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "common": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "configMap": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "container": {
+      "properties": {
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "jade": {
+      "properties": {
+        "credentials": {
+          "properties": {
+            "admin": {
+              "properties": {
+                "password": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                }
+              },
+              "required": ["user", "password"],
+              "type": "object"
+            },
+            "readonly": {
+              "properties": {
+                "password": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                }
+              },
+              "required": ["user", "password"],
+              "type": "object"
+            },
+            "readwrite": {
+              "properties": {
+                "password": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                }
+              },
+              "required": ["user", "password"],
+              "type": "object"
+            }
+          },
+          "required": ["admin", "readonly", "readwrite"],
+          "type": "object"
+        },
+        "server": {
+          "properties": {
+            "ports": {
+              "properties": {
+                "s3": {
+                  "type": "integer"
+                },
+                "web": {
+                  "type": "integer"
+                }
+              },
+              "required": ["s3", "web"],
+              "type": "object"
+            }
+          },
+          "required": ["ports"],
+          "type": "object"
+        }
+      },
+      "required": ["server", "credentials"],
+      "type": "object"
+    },
+    "name": {
+      "type": "string"
+    },
+    "pod": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "secret": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "service": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "ports": {
+          "properties": {
+            "s3": {
+              "type": "integer"
+            },
+            "web": {
+              "type": "integer"
+            }
+          },
+          "required": ["s3", "web"],
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "required": ["ports"],
+      "type": "object"
+    },
+    "statefulSet": {
+      "properties": {
+        "metadata": {
+          "type": "object"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "volume": {
+      "properties": {
+        "access": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ]
+        },
+        "class": {
+          "type": "string"
+        },
+        "metadata": {
+          "type": "object"
+        },
+        "size": {
+          "type": "string"
+        },
+        "spec": {
+          "type": "object"
+        }
+      },
+      "required": ["access", "size"],
+      "type": "object"
+    }
+  },
+  "required": ["jade", "service"],
+  "type": "object"
+}
